@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif;
+
+  /* Verified cankao.html Warm Amber Gold & Natural Cream Palette */
+  --color-pawzo-gold: #F5C443;
+  --color-pawzo-goldHover: #EAB32A;
+  --color-pawzo-goldText: #FCD34D;
+  --color-pawzo-cream: #FAF8F4;
+  --color-pawzo-creamDeep: #F5EED8;
+  --color-pawzo-ink: #1E1B16;
+  --color-pawzo-muted: #6E6659;
+  --color-pawzo-border: #EAE3D2;
+
+  /* Playful Natural Pastel Fills (Species & Dosage Form Cards) */
+  --color-pastel-slate: #D9E2EC;
+  --color-pastel-terracotta: #E7B596;
+  --color-pastel-mint: #D8EEDB;
+  --color-pastel-creamGold: #F5ECD5;
+  --color-pastel-teal: #5BB5C9;
+  --color-pastel-sage: #CBE3C8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FAF8F4;
+  color: #1E1B16;
+  font-family: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Signature Warm Amber-Bronze Radial Studio Gradient (Matches cankao.html Hero) */
+.hero-studio-bg {
+  background:
+    radial-gradient(circle at 72% 48%, rgba(251, 207, 94, 0.55) 0%, rgba(217, 165, 58, 0.25) 38%, transparent 68%),
+    linear-gradient(125deg, #6B5733 0%, #9E7E3E 42%, #C99D44 76%, #B48936 100%);
+}
+
+/* Soft Elevated Editorial Card */
+.soft-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(234, 227, 210, 0.85);
+  box-shadow: 0 12px 32px -8px rgba(30, 27, 22, 0.06), 0 2px 6px rgba(30, 27, 22, 0.02);
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease;
+}
+
+.soft-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -10px rgba(30, 27, 22, 0.11);
+}
+
+/* Pill Gold CTA Button */
+.pill-gold-btn {
+  background-color: #F5C443;
+  color: #1E1B16;
+  box-shadow: 0 8px 20px -4px rgba(245, 196, 67, 0.45);
+  transition: all 0.2s ease;
+}
+
+.pill-gold-btn:hover {
+  background-color: #F8CE5B;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px -4px rgba(245, 196, 67, 0.6);
+}
+

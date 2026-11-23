@@ -31,38 +31,43 @@ export async function getDosageForms(): Promise<DosageFormData[]> {
   const client = getSanityClient()
   if (!client) return DOSAGE_FORMS_SEED
 
-  const docs = await client.fetch<DosageFormData[]>(
-    `*[_type == "dosageForm"] | order(name asc){
-      name,
-      "slug": slug.current,
-      shortSlug,
-      tagline,
-      heroDescription,
-      moq,
-      leadTime,
-      whyChoosePoints,
-      customizationOptions,
-      processSteps,
-      specs,
-      "brochureRef": brochurePdf.asset._ref,
-      faqs,
-      metaTitle,
-      metaDescription
-    }`,
-    {},
-    { next: { revalidate: 60, tags: ['dosageForms'] } }
-  )
+  try {
+    const docs = await client.fetch<DosageFormData[]>(
+      `*[_type == "dosageForm"] | order(name asc){
+        name,
+        "slug": slug.current,
+        shortSlug,
+        tagline,
+        heroDescription,
+        moq,
+        leadTime,
+        whyChoosePoints,
+        customizationOptions,
+        processSteps,
+        specs,
+        "brochureRef": brochurePdf.asset._ref,
+        faqs,
+        metaTitle,
+        metaDescription
+      }`,
+      {},
+      { next: { revalidate: 60, tags: ['dosageForms'] } }
+    )
 
-  if (!docs || docs.length === 0) return DOSAGE_FORMS_SEED
-  return docs.map((d) => {
-    const fallback = DOSAGE_FORMS_SEED.find((s) => s.slug === d.slug) ?? DOSAGE_FORMS_SEED[0]
-    const brochureRef = (d as unknown as { brochureRef?: string }).brochureRef
-    return {
-      ...fallback,
-      ...d,
-      brochurePdfUrl: brochureRef ? (getSanityFileUrl(brochureRef, `${d.shortSlug}-spec-sheet.pdf`) ?? undefined) : undefined,
-    }
-  })
+    if (!docs || docs.length === 0) return DOSAGE_FORMS_SEED
+    return docs.map((d) => {
+      const fallback = DOSAGE_FORMS_SEED.find((s) => s.slug === d.slug) ?? DOSAGE_FORMS_SEED[0]
+      const brochureRef = (d as unknown as { brochureRef?: string }).brochureRef
+      return {
+        ...fallback,
+        ...d,
+        brochurePdfUrl: brochureRef ? (getSanityFileUrl(brochureRef, `${d.shortSlug}-spec-sheet.pdf`) ?? undefined) : undefined,
+      }
+    })
+  } catch (err) {
+    console.warn('[Sanity Fetch Warning: dosageForm] Fallback to seed data due to:', err instanceof Error ? err.message : err)
+    return DOSAGE_FORMS_SEED
+  }
 }
 
 export async function getDosageFormBySlug(slug: string): Promise<DosageFormData | null> {
@@ -79,29 +84,34 @@ export async function getActiveProducts(): Promise<ProductCategoryData[]> {
   const client = getSanityClient()
   if (!client) return PRODUCTS_SEED.filter((p) => p.status === 'active')
 
-  const docs = await client.fetch<ProductCategoryData[]>(
-    `*[_type == "product" && status == "active"] | order(name asc){
-      name,
-      "slug": slug.current,
-      status,
-      "form": form->shortSlug,
-      skuCount,
-      shortDescription,
-      "species": species[]->slug.current,
-      "effects": effects[]->slug.current,
-      keyIngredients,
-      packagingOptions,
-      moq,
-      leadTime,
-      metaTitle,
-      metaDescription
-    }`,
-    {},
-    { next: { revalidate: 60, tags: ['products'] } }
-  )
+  try {
+    const docs = await client.fetch<ProductCategoryData[]>(
+      `*[_type == "product" && status == "active"] | order(name asc){
+        name,
+        "slug": slug.current,
+        status,
+        "form": form->shortSlug,
+        skuCount,
+        shortDescription,
+        "species": species[]->slug.current,
+        "effects": effects[]->slug.current,
+        keyIngredients,
+        packagingOptions,
+        moq,
+        leadTime,
+        metaTitle,
+        metaDescription
+      }`,
+      {},
+      { next: { revalidate: 60, tags: ['products'] } }
+    )
 
-  if (!docs || docs.length === 0) return PRODUCTS_SEED.filter((p) => p.status === 'active')
-  return docs
+    if (!docs || docs.length === 0) return PRODUCTS_SEED.filter((p) => p.status === 'active')
+    return docs
+  } catch (err) {
+    console.warn('[Sanity Fetch Warning: product] Fallback to seed data due to:', err instanceof Error ? err.message : err)
+    return PRODUCTS_SEED.filter((p) => p.status === 'active')
+  }
 }
 
 export async function getProductsByForm(form: DosageShortSlug): Promise<ProductCategoryData[]> {
@@ -145,34 +155,39 @@ export async function getCompanyDocuments(): Promise<CompanyDocumentData[]> {
   const client = getSanityClient()
   if (!client) return COMPANY_DOCUMENTS_SEED
 
-  const docs = await client.fetch<
-    {
-      _id: string
-      title: string
-      category: CompanyDocumentData['category']
-      summary: string
-      updatedAt: string
-      fileRef?: string
-    }[]
-  >(
-    `*[_type == "companyDocument"] | order(updatedAt desc){
-      _id, title, category, summary, updatedAt,
-      "fileRef": pdfFile.asset._ref
-    }`,
-    {},
-    { next: { revalidate: 60, tags: ['documents'] } }
-  )
+  try {
+    const docs = await client.fetch<
+      {
+        _id: string
+        title: string
+        category: CompanyDocumentData['category']
+        summary: string
+        updatedAt: string
+        fileRef?: string
+      }[]
+    >(
+      `*[_type == "companyDocument"] | order(updatedAt desc){
+        _id, title, category, summary, updatedAt,
+        "fileRef": pdfFile.asset._ref
+      }`,
+      {},
+      { next: { revalidate: 60, tags: ['documents'] } }
+    )
 
-  if (!docs || docs.length === 0) return COMPANY_DOCUMENTS_SEED
-  return docs.map((d) => ({
-    id: d._id,
-    title: d.title,
-    category: d.category,
-    summary: d.summary,
-    updatedAt: d.updatedAt,
-    pdfUrl: getSanityFileUrl(d.fileRef, `${d.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.pdf`),
-    fileSizeLabel: 'PDF · Sanity CDN',
-  }))
+    if (!docs || docs.length === 0) return COMPANY_DOCUMENTS_SEED
+    return docs.map((d) => ({
+      id: d._id,
+      title: d.title,
+      category: d.category,
+      summary: d.summary,
+      updatedAt: d.updatedAt,
+      pdfUrl: getSanityFileUrl(d.fileRef, `${d.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.pdf`),
+      fileSizeLabel: 'PDF · Sanity CDN',
+    }))
+  } catch (err) {
+    console.warn('[Sanity Fetch Warning: companyDocument] Fallback to seed data due to:', err instanceof Error ? err.message : err)
+    return COMPANY_DOCUMENTS_SEED
+  }
 }
 
 export async function getGlobalFaqs(): Promise<FAQItem[]> {
@@ -183,30 +198,34 @@ export async function getInsights(): Promise<InsightArticleData[]> {
   const client = getSanityClient()
   if (!client) return INSIGHTS_SEED
 
-  const docs = await client.fetch<InsightArticleData[]>(
-    `*[_type == "article"] | order(publishedAt desc){
-      title,
-      "slug": slug.current,
-      category,
-      excerpt,
-      publishedAt,
-      author,
-      metaTitle,
-      metaDescription
-    }`,
-    {},
-    { next: { revalidate: 60, tags: ['articles'] } }
-  )
+  try {
+    const docs = await client.fetch<InsightArticleData[]>(
+      `*[_type == "article"] | order(publishedAt desc){
+        title,
+        "slug": slug.current,
+        category,
+        excerpt,
+        publishedAt,
+        author,
+        metaTitle,
+        metaDescription
+      }`,
+      {},
+      { next: { revalidate: 60, tags: ['articles'] } }
+    )
 
-  if (!docs || docs.length === 0) return INSIGHTS_SEED
-  return docs.map((d) => {
-    const fallback = INSIGHTS_SEED.find((s) => s.slug === d.slug) ?? INSIGHTS_SEED[0]
-    return { ...fallback, ...d }
-  })
+    if (!docs || docs.length === 0) return INSIGHTS_SEED
+    return docs.map((d) => {
+      const fallback = INSIGHTS_SEED.find((s) => s.slug === d.slug) ?? INSIGHTS_SEED[0]
+      return { ...fallback, ...d }
+    })
+  } catch (err) {
+    console.warn('[Sanity Fetch Warning: article] Fallback to seed data due to:', err instanceof Error ? err.message : err)
+    return INSIGHTS_SEED
+  }
 }
 
 export async function getInsightBySlug(slug: string): Promise<InsightArticleData | null> {
   const all = await getInsights()
   return all.find((a) => a.slug === slug) ?? null
 }
-

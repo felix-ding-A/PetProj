@@ -9,7 +9,16 @@ export function JsonLd({ data }: { data: Record<string, unknown> }) {
   )
 }
 
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://pawsomelabs.com'
+function sanitizeUrl(raw?: string): string {
+  if (!raw || !raw.trim()) return 'https://pawsomelabs.com'
+  let url = raw.trim()
+  if (!url.startsWith('http://') && !url.startsWith('https://')) {
+    url = `https://${url}`
+  }
+  return url.replace(/\/+$/, '')
+}
+
+export const SITE_URL = sanitizeUrl(process.env.NEXT_PUBLIC_SITE_URL)
 
 export function buildOrganizationJsonLd() {
   return {
@@ -55,4 +64,3 @@ export function buildFaqJsonLd(faqs: { question: string; answer: string }[]) {
     })),
   }
 }
-

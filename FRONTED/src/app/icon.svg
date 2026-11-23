@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <defs>
+    <linearGradient id="npFavGradApp" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D97706" />
+      <stop offset="35%" stop-color="#EA580C" />
+      <stop offset="70%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#FBBF24" />
+    </linearGradient>
+    <radialGradient id="npFavGlowApp" cx="45%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#FDE68A" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect x="8" y="8" width="112" height="112" rx="32" fill="url(#npFavGradApp)" />
+  <rect x="9" y="9" width="110" height="110" rx="31" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-opacity="0.45" />
+  <ellipse cx="64" cy="38" rx="46" ry="24" fill="url(#npFavGlowApp)" />
+
+  <path d="M 28 42 A 42 42 0 1 0 100 42" fill="none" stroke="#FFFFFF" stroke-width="5.5" stroke-linecap="round" />
+  <path d="M 38 72 C 38 52, 54 44, 64 62 C 74 80, 90 72, 90 52 C 90 38, 76 34, 64 52 C 52 70, 38 88, 38 72 Z"
+        fill="none" stroke="#FFFFFF" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="64" cy="27" r="6.5" fill="#FFFFFF" />
+</svg>
+

@@ -1,11 +1,11 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getEffects } from '@/lib/data'
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
 import { CTABanner } from '@/components/sections/CommonSections'
 
 export const metadata: Metadata = {
-  title: '16 Pet Supplement Health Effects & Benefits | Pawsome Labs',
+  title: '16 Pet Supplement Health Effects & Benefits | NovaPet Nutra',
   description:
     'Formulate across 16 pet-specific health benefits: joint mobility, gut probiotics, skin & coat, hairball control, dental care, calming, and urinary support.',
   alternates: { canonical: '/custom-formulation/effects' },

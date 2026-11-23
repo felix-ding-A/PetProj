@@ -1,15 +1,169 @@
 import React from 'react'
 import type { DosageShortSlug } from '@/lib/data/types'
 
-export function PawLogoSvg({ className = 'w-4 h-4' }: { className?: string }) {
+/**
+ * NovaPet Nutra Brand Logo
+ * Matches user's brand identity:
+ * - Rounded square amber/gold gradient emblem with white infinite/cat-paw monoline loop & top dot
+ * - "Nova Pet Nutra" with "Nova" in White/Ink, "Pet" in Amber-Yellow, "Nutra" in Warm Amber-Gold
+ * - "PRIVATE LABEL PET NUTRITION" subline with gradient accent bars
+ */
+export function NovaPetNutraLogo({
+  variant = 'horizontal',
+  className = '',
+  light = true,
+}: {
+  variant?: 'horizontal' | 'icon' | 'stacked'
+  className?: string
+  light?: boolean
+}) {
+  if (variant === 'icon') {
+    return (
+      <svg
+        viewBox="0 0 128 128"
+        className={className || 'w-9 h-9'}
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-label="NovaPet Nutra Emblem"
+      >
+        <defs>
+          <linearGradient id="npEmblemGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#D97706" />
+            <stop offset="35%" stopColor="#EA580C" />
+            <stop offset="70%" stopColor="#F59E0B" />
+            <stop offset="100%" stopColor="#FBBF24" />
+          </linearGradient>
+          <radialGradient id="npEmblemGlow" cx="45%" cy="30%" r="65%">
+            <stop offset="0%" stopColor="#FDE68A" stopOpacity="0.45" />
+            <stop offset="100%" stopColor="#F59E0B" stopOpacity="0" />
+          </radialGradient>
+        </defs>
+
+        {/* Squircle Badge Base */}
+        <rect x="8" y="8" width="112" height="112" rx="32" fill="url(#npEmblemGrad)" />
+        {/* Soft Glass Rim Highlight */}
+        <rect
+          x="9"
+          y="9"
+          width="110"
+          height="110"
+          rx="31"
+          fill="none"
+          stroke="#FFFFFF"
+          strokeWidth="1.5"
+          strokeOpacity="0.4"
+        />
+        <ellipse cx="64" cy="38" rx="46" ry="24" fill="url(#npEmblemGlow)" />
+
+        {/* Outer White Open Enclosure Arc */}
+        <path
+          d="M 28 42 A 42 42 0 1 0 100 42"
+          fill="none"
+          stroke="#FFFFFF"
+          strokeWidth="5"
+          strokeLinecap="round"
+        />
+
+        {/* Monoline Infinite Loop / Cat & Dog Contour */}
+        <path
+          d="M 38 72 C 38 52, 54 44, 64 62 C 74 80, 90 72, 90 52 C 90 38, 76 34, 64 52 C 52 70, 38 88, 38 72 Z"
+          fill="none"
+          stroke="#FFFFFF"
+          strokeWidth="6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+
+        {/* Floating Nova Star & Nutrition Essence Dot */}
+        <circle cx="64" cy="27" r="6" fill="#FFFFFF" />
+      </svg>
+    )
+  }
+
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <circle cx="7" cy="8" r="2.2" />
-      <circle cx="12" cy="6" r="2.2" />
-      <circle cx="17" cy="8" r="2.2" />
-      <path d="M12 11c-3.2 0-6 2.1-6 4.8 0 1.6 1.3 2.7 3 2.7 1.1 0 2-.4 3-.4s1.9.4 3 .4c1.7 0 3-1.1 3-2.7 0-2.7-2.8-4.8-6-4.8z" />
-    </svg>
+    <div className={`inline-flex items-center gap-3 select-none ${className}`}>
+      {/* Icon Badge */}
+      <svg
+        viewBox="0 0 128 128"
+        className="w-10 h-10 sm:w-11 sm:h-11 shrink-0 drop-shadow-sm"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-hidden="true"
+      >
+        <defs>
+          <linearGradient id="npEmblemGradH" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#D97706" />
+            <stop offset="35%" stopColor="#EA580C" />
+            <stop offset="70%" stopColor="#F59E0B" />
+            <stop offset="100%" stopColor="#FBBF24" />
+          </linearGradient>
+          <radialGradient id="npEmblemGlowH" cx="45%" cy="30%" r="65%">
+            <stop offset="0%" stopColor="#FDE68A" stopOpacity="0.45" />
+            <stop offset="100%" stopColor="#F59E0B" stopOpacity="0" />
+          </radialGradient>
+        </defs>
+
+        <rect x="8" y="8" width="112" height="112" rx="32" fill="url(#npEmblemGradH)" />
+        <rect
+          x="9"
+          y="9"
+          width="110"
+          height="110"
+          rx="31"
+          fill="none"
+          stroke="#FFFFFF"
+          strokeWidth="1.5"
+          strokeOpacity="0.4"
+        />
+        <ellipse cx="64" cy="38" rx="46" ry="24" fill="url(#npEmblemGlowH)" />
+
+        <path
+          d="M 28 42 A 42 42 0 1 0 100 42"
+          fill="none"
+          stroke="#FFFFFF"
+          strokeWidth="5"
+          strokeLinecap="round"
+        />
+        <path
+          d="M 38 72 C 38 52, 54 44, 64 62 C 74 80, 90 72, 90 52 C 90 38, 76 34, 64 52 C 52 70, 38 88, 38 72 Z"
+          fill="none"
+          stroke="#FFFFFF"
+          strokeWidth="6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <circle cx="64" cy="27" r="6" fill="#FFFFFF" />
+      </svg>
+
+      {/* Typography with Subline & Accent Bars */}
+      <div className="flex flex-col justify-center">
+        <div className="flex items-baseline tracking-tight font-extrabold text-lg sm:text-xl leading-none">
+          <span className={light ? 'text-white' : 'text-pawzo-ink'}>Nova</span>
+          <span className="text-pawzo-gold ml-1">Pet</span>
+          <span className="text-[#F59E0B] ml-1">Nutra</span>
+        </div>
+        <div
+          className={`text-[9px] sm:text-[10px] font-bold tracking-[0.18em] uppercase mt-1 leading-none ${
+            light ? 'text-white/70' : 'text-pawzo-muted'
+          }`}
+        >
+          PRIVATE LABEL PET NUTRITION
+        </div>
+        {/* Dual Accent Bars */}
+        <div className="flex items-center gap-1 mt-1">
+          <span className="h-0.5 w-7 rounded-full bg-linear-to-r from-amber-400 to-amber-600" />
+          <span className="h-0.5 w-2 rounded-full bg-amber-600/70" />
+        </div>
+      </div>
+    </div>
   )
+}
+
+/** Legacy helper alias for backwards compatibility */
+export function PawLogoSvg({ className }: { className?: string }) {
+  return <NovaPetNutraLogo variant="icon" className={className} />
 }
 
 export function BoneAccentSvg({ className = 'w-9 h-9 text-white drop-shadow' }: { className?: string }) {
@@ -28,7 +182,7 @@ export function BiscuitMascotSvg({ className = 'w-full h-auto' }: { className?: 
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       role="img"
-      aria-label="Biscuit the Border Collie — Pawsome Labs R&D Mascot"
+      aria-label="NovaPet Nutra Formulation Mascot"
     >
       <defs>
         <radialGradient id="furDark" cx="35%" cy="25%" r="75%">
@@ -42,9 +196,9 @@ export function BiscuitMascotSvg({ className = 'w-full h-auto' }: { className?: 
           <stop offset="100%" stopColor="#D6D1C7" />
         </radialGradient>
         <linearGradient id="collarBlue" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="#3B82F6" />
-          <stop offset="50%" stopColor="#60A5FA" />
-          <stop offset="100%" stopColor="#2563EB" />
+          <stop offset="0%" stopColor="#D97706" />
+          <stop offset="50%" stopColor="#F59E0B" />
+          <stop offset="100%" stopColor="#B45309" />
         </linearGradient>
         <radialGradient id="tongueGrad" cx="50%" cy="20%" r="80%">
           <stop offset="0%" stopColor="#FDA4AF" />
@@ -74,16 +228,16 @@ export function BiscuitMascotSvg({ className = 'w-full h-auto' }: { className?: 
         fill="url(#collarBlue)"
       />
       <circle cx="215" cy="228" r="5" stroke="#E2E8F0" strokeWidth="2.5" />
-      <rect x="197" y="233" width="36" height="14" rx="7" fill="#F8FAFC" stroke="#CBD5E1" strokeWidth="1.5" />
+      <rect x="195" y="233" width="40" height="14" rx="7" fill="#F8FAFC" stroke="#CBD5E1" strokeWidth="1.5" />
       <text
         x="215"
         y="242.5"
         textAnchor="middle"
         fill="#334155"
         fontWeight="800"
-        fontSize="6.5"
+        fontSize="6"
       >
-        BISCUIT
+        NOVAPET
       </text>
       <path d="M142 82C112 72 95 96 104 128C110 148 128 145 144 124Z" fill="url(#furDark)" />
       <path d="M288 82C318 72 335 96 326 128C320 148 302 145 286 124Z" fill="url(#furDark)" />
@@ -225,4 +379,3 @@ export function DosageCartoonSvg({
       )
   }
 }
-

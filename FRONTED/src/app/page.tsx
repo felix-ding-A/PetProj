@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react'
 import {
@@ -28,7 +28,7 @@ import { JsonLd, buildFaqJsonLd } from '@/components/seo/JsonLd'
 export const revalidate = 60
 
 export const metadata: Metadata = {
-  title: 'Custom Pet Supplement OEM & Private Label | Pawsome Labs',
+  title: 'Custom Pet Supplement OEM & Private Label | NovaPet Nutra',
   description:
     'FDA-registered, cGMP pet supplement contract manufacturer. Chewable tablets, capsules, powders, drops & pastes with 500-unit pilot MOQ and full COA.',
   alternates: { canonical: '/' },

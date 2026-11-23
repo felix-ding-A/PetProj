@@ -1,9 +1,9 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
 import { CTABanner, QualityTrio } from '@/components/sections/CommonSections'
 
 export const metadata: Metadata = {
-  title: '5-Step Custom Pet Supplement Process | Pawsome Labs',
+  title: '5-Step Custom Pet Supplement Process | NovaPet Nutra',
   description:
     'From NDA brief and 7-day bench samples to cGMP production, ISO-17025 COA lab testing, and global FBA/3PL delivery.',
   alternates: { canonical: '/our-process' },

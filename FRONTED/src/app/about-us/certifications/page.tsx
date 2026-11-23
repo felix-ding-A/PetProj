@@ -1,10 +1,10 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import { ShieldCheck } from 'lucide-react'
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
 import { CTABanner } from '@/components/sections/CommonSections'
 
 export const metadata: Metadata = {
-  title: 'Manufacturing Certifications & Lab Testing | Pawsome Labs',
+  title: 'Manufacturing Certifications & Lab Testing | NovaPet Nutra',
   description:
     'FDA-registered facility, cGMP, ISO 22000, HACCP food-safety management, and ISO-17025 third-party Certificate of Analysis (COA) on every batch.',
   alternates: { canonical: '/about-us/certifications' },

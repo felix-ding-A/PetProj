@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ShieldCheck, FlaskConical, FileCheck2, Globe } from 'lucide-react'
 import { getCompanyDocuments } from '@/lib/data'
@@ -8,7 +8,7 @@ import { CTABanner, PdfDownloads, QualityTrio } from '@/components/sections/Comm
 export const revalidate = 60
 
 export const metadata: Metadata = {
-  title: 'Pet Supplement Quality & Regulatory Compliance | Pawsome Labs',
+  title: 'Pet Supplement Quality & Regulatory Compliance | NovaPet Nutra',
   description:
     'FDA-registered cGMP, ISO 22000 & HACCP pet supplement manufacturing. ISO-17025 COA lab testing, AAFCO nutrient profile alignment, and EU feed guidance.',
   alternates: { canonical: '/quality-compliance' },

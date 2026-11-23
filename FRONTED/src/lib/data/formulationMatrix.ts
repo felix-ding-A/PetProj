@@ -1,4 +1,4 @@
-import type { IngredientCategoryData, PetEffectData, PetSpeciesData } from './types'
+﻿import type { IngredientCategoryData, PetEffectData, PetSpeciesData } from './types'
 
 export const PET_SPECIES_SEED: PetSpeciesData[] = [
   {
@@ -13,7 +13,7 @@ export const PET_SPECIES_SEED: PetSpeciesData[] = [
       'Grain-free & chicken-free hypoallergenic bases for allergy-prone dogs',
       '100% xylitol-free, grape/raisin-free, and onion/garlic-free safety screening',
     ],
-    metaTitle: 'Custom Dog Supplement Manufacturing OEM/ODM | Pawsome Labs',
+    metaTitle: 'Custom Dog Supplement Manufacturing OEM/ODM | NovaPet Nutra',
     metaDescription: 'Custom canine supplement OEM/ODM: hip & joint chews, probiotics, allergy relief, calming drops, and meal toppers with low pilot MOQ.',
   },
   {
@@ -28,7 +28,7 @@ export const PET_SPECIES_SEED: PetSpeciesData[] = [
       'Twist-open sprinkle capsules, smooth lickable pastes, and bite-sized 1.5g chews',
       'Tuna, bonito, salmon, and hydrolyzed poultry palatability systems',
     ],
-    metaTitle: 'Custom Cat Supplement Manufacturing OEM/ODM | Pawsome Labs',
+    metaTitle: 'Custom Cat Supplement Manufacturing OEM/ODM | NovaPet Nutra',
     metaDescription: 'Feline-safe private label & OEM cat supplements: L-lysine, hairball paste, urinary drops, taurine powders, and sprinkle capsules.',
   },
   {
@@ -43,7 +43,7 @@ export const PET_SPECIES_SEED: PetSpeciesData[] = [
       'Water-soluble hydration & vitamin powders for backyard poultry',
       '60mL calibrated dial-a-dose syringes for equine nutritional and calming pastes',
     ],
-    metaTitle: 'Small Pet & Equine Supplement Manufacturing | Pawsome Labs',
+    metaTitle: 'Small Pet & Equine Supplement Manufacturing | NovaPet Nutra',
     metaDescription: 'Custom OEM supplements for small pets, poultry, and horses: equine nutritional pastes, poultry electrolyte powders, and botanical drops.',
   },
 ]
@@ -54,7 +54,7 @@ export const PET_EFFECTS_SEED: PetEffectData[] = [
     slug: 'joint-health',
     description: 'Supports cartilage cushioning, synovial fluid lubrication, and daily comfort for active and senior pets.',
     keyActives: ['Glucosamine HCl', 'Chondroitin Sulfate', 'OptiMSM', 'Green-Lipped Mussel', 'UC-II Collagen'],
-    metaTitle: 'Pet Joint Supplement OEM & Private Label | Pawsome Labs',
+    metaTitle: 'Pet Joint Supplement OEM & Private Label | NovaPet Nutra',
     metaDescription: 'Custom pet hip & joint supplement manufacturing with glucosamine, MSM, chondroitin, and green-lipped mussel in chews, powders, and drops.',
   },
   {
@@ -62,7 +62,7 @@ export const PET_EFFECTS_SEED: PetEffectData[] = [
     slug: 'gut-health',
     description: 'Balances intestinal flora, firms stools, and eases occasional digestive upset with live probiotics and prebiotics.',
     keyActives: ['Bacillus coagulans', 'Lactobacillus acidophilus', 'Pumpkin Powder', 'Inulin/FOS', 'Digestive Enzymes'],
-    metaTitle: 'Pet Probiotic & Gut Health Supplement OEM | Pawsome Labs',
+    metaTitle: 'Pet Probiotic & Gut Health Supplement OEM | NovaPet Nutra',
     metaDescription: 'Custom dog & cat probiotic supplement manufacturing. Heat-stable spore strains, prebiotic pumpkin bases, and digestive enzymes.',
   },
   {
@@ -70,7 +70,7 @@ export const PET_EFFECTS_SEED: PetEffectData[] = [
     slug: 'skin-coat',
     description: 'Nourishes dry skin, reduces seasonal shedding, and promotes a glossy coat with EPA/DHA omega fatty acids.',
     keyActives: ['Wild Alaskan Salmon Oil', 'Krill Oil', 'Biotin', 'Zinc Methionine', 'Vitamin E'],
-    metaTitle: 'Pet Skin & Coat Supplement Manufacturing | Pawsome Labs',
+    metaTitle: 'Pet Skin & Coat Supplement Manufacturing | NovaPet Nutra',
     metaDescription: 'Private label & custom pet skin & coat supplements: omega-3 fish oils, biotin chews, and krill oil toppers manufactured under cGMP.',
   },
   {
@@ -78,7 +78,7 @@ export const PET_EFFECTS_SEED: PetEffectData[] = [
     slug: 'immune-support',
     description: 'Fortifies natural defenses for puppies, kittens, and aging pets using colostrum, beta-glucans, and L-lysine.',
     keyActives: ['Bovine Colostrum', 'L-Lysine', 'Turkey Tail & Reishi Mushrooms', 'Beta-Glucans', 'Vitamin C & E'],
-    metaTitle: 'Pet Immune Supplement OEM Manufacturing | Pawsome Labs',
+    metaTitle: 'Pet Immune Supplement OEM Manufacturing | NovaPet Nutra',
     metaDescription: 'Custom pet immune support supplements featuring colostrum, functional mushrooms, L-lysine, and beta-glucans in 5 dosage forms.',
   },
   {
@@ -86,7 +86,7 @@ export const PET_EFFECTS_SEED: PetEffectData[] = [
     slug: 'hairball-control',
     description: 'Lubricates the digestive tract naturally to help cats pass ingested hair gently without mineral oil.',
     keyActives: ['Psyllium Husk', 'Malt Extract', 'Slippery Elm', 'Pumpkin Fiber', 'Sunflower Lecithin'],
-    metaTitle: 'Cat Hairball Control Supplement OEM | Pawsome Labs',
+    metaTitle: 'Cat Hairball Control Supplement OEM | NovaPet Nutra',
     metaDescription: 'Petroleum-free cat hairball control chews and pastes manufactured under cGMP. Natural fibers, slippery elm, and feline palatants.',
   },
   {
@@ -94,7 +94,7 @@ export const PET_EFFECTS_SEED: PetEffectData[] = [
     slug: 'dental-oral-care',
     description: 'Reduces plaque buildup and freshens breath using kelp, oral probiotics, and swallow-safe enzymes.',
     keyActives: ['Ascophyllum nodosum Kelp', 'Sodium Hexametaphosphate', 'Glucose Oxidase', 'Peppermint & Parsley', 'Zinc'],
-    metaTitle: 'Pet Dental & Oral Care Supplement OEM | Pawsome Labs',
+    metaTitle: 'Pet Dental & Oral Care Supplement OEM | NovaPet Nutra',
     metaDescription: 'Custom pet dental chews, kelp meal toppers, enzymatic toothpastes, and swallow-safe dental gels. Xylitol-free cGMP manufacturing.',
   },
   {
@@ -102,7 +102,7 @@ export const PET_EFFECTS_SEED: PetEffectData[] = [
     slug: 'calming-stress',
     description: 'Promotes relaxation during travel, thunderstorms, fireworks, and separation without drowsiness.',
     keyActives: ['L-Theanine', 'Chamomile', 'Valerian Root', 'Passionflower', 'Organic Hemp Seed Oil', 'L-Tryptophan'],
-    metaTitle: 'Pet Calming & Anxiety Supplement OEM | Pawsome Labs',
+    metaTitle: 'Pet Calming & Anxiety Supplement OEM | NovaPet Nutra',
     metaDescription: 'Private label & OEM dog and cat calming chews, drops, and powders with L-theanine, chamomile, and hemp seed oil.',
   },
   {
@@ -110,7 +110,7 @@ export const PET_EFFECTS_SEED: PetEffectData[] = [
     slug: 'allergy-relief',
     description: 'Supports normal histamine response and soothes seasonal itching and hot spots from within.',
     keyActives: ['Quercetin', 'Bovine Colostrum', 'Apple Cider Vinegar', 'Omega-3 EPA/DHA', 'Nettle Leaf'],
-    metaTitle: 'Pet Allergy & Itch Relief Supplement OEM | Pawsome Labs',
+    metaTitle: 'Pet Allergy & Itch Relief Supplement OEM | NovaPet Nutra',
     metaDescription: 'Custom dog & cat allergy relief supplements with colostrum, quercetin, salmon oil, and probiotics. Grain-free cGMP manufacturing.',
   },
   {
@@ -118,7 +118,7 @@ export const PET_EFFECTS_SEED: PetEffectData[] = [
     slug: 'urinary-kidney',
     description: 'Maintains healthy urinary tract pH, bladder lining integrity, and renal filtration support.',
     keyActives: ['Cranberry PACs', 'D-Mannose', 'Marshmallow Root', 'Astragalus', 'N-Acetyl Glucosamine'],
-    metaTitle: 'Pet Urinary & Kidney Supplement OEM | Pawsome Labs',
+    metaTitle: 'Pet Urinary & Kidney Supplement OEM | NovaPet Nutra',
     metaDescription: 'Contract manufacturing of dog & cat urinary tract and kidney support chews, drops, and powders with cranberry, D-mannose, and astragalus.',
   },
   {
@@ -126,7 +126,7 @@ export const PET_EFFECTS_SEED: PetEffectData[] = [
     slug: 'respiratory-health',
     description: 'Soothes airways and supports comfortable breathing during seasonal pollen or kennel exposure.',
     keyActives: ['Mullein Leaf', 'Marshmallow Root', 'L-Lysine', 'Echinacea', 'Quercetin'],
-    metaTitle: 'Pet Respiratory Supplement Manufacturing | Pawsome Labs',
+    metaTitle: 'Pet Respiratory Supplement Manufacturing | NovaPet Nutra',
     metaDescription: 'Custom dog & cat respiratory support drops, chews, and powders formulated with soothing botanicals and immune actives.',
   },
   {
@@ -134,7 +134,7 @@ export const PET_EFFECTS_SEED: PetEffectData[] = [
     slug: 'longevity-anti-aging',
     description: 'Cellular antioxidant defense and mitochondrial support formulated for senior dogs and cats.',
     keyActives: ['CoQ10', 'Resveratrol', 'NMN / NR', 'Astaxanthin', 'Functional Mushroom Blend'],
-    metaTitle: 'Senior Pet Longevity Supplement OEM | Pawsome Labs',
+    metaTitle: 'Senior Pet Longevity Supplement OEM | NovaPet Nutra',
     metaDescription: 'Custom senior pet longevity & anti-aging supplements with CoQ10, astaxanthin, functional mushrooms, and cellular antioxidants.',
   },
   {
@@ -142,7 +142,7 @@ export const PET_EFFECTS_SEED: PetEffectData[] = [
     slug: 'parasite-control',
     description: 'Botanical and brewer’s yeast blends that naturally support skin resilience during outdoor season.',
     keyActives: ['Brewer’s Yeast', 'Vitamin B1 (Thiamine)', 'Apple Cider Vinegar', 'Pumpkin Seed', 'Neem (topical/controlled)'],
-    metaTitle: 'Natural Pet Flea & Parasite Supplement OEM | Pawsome Labs',
+    metaTitle: 'Natural Pet Flea & Parasite Supplement OEM | NovaPet Nutra',
     metaDescription: 'Private label natural flea, tick & digestive defense chews and drops for dogs using brewer’s yeast, B vitamins, and pumpkin seed.',
   },
   {
@@ -150,7 +150,7 @@ export const PET_EFFECTS_SEED: PetEffectData[] = [
     slug: 'conditioning',
     description: 'High-protein, amino-acid, and calorie-dense formulas for working dogs, underweight pets, and recovery.',
     keyActives: ['Whey / Egg Protein', 'BCAAs', 'Creatine', 'MCT Powder', 'L-Carnitine', 'B-Complex'],
-    metaTitle: 'Dog Muscle & Weight Gain Supplement OEM | Pawsome Labs',
+    metaTitle: 'Dog Muscle & Weight Gain Supplement OEM | NovaPet Nutra',
     metaDescription: 'Custom canine muscle conditioning & weight gainer powders, chews, and recovery pastes for working and active dogs.',
   },
   {
@@ -158,7 +158,7 @@ export const PET_EFFECTS_SEED: PetEffectData[] = [
     slug: 'eye-health',
     description: 'Protects retinal clarity and supports clean eye contours with carotenoids and antioxidants.',
     keyActives: ['Lutein', 'Zeaxanthin', 'Bilberry Extract', 'Astaxanthin', 'Eyebright', 'Cranberry'],
-    metaTitle: 'Pet Eye Health & Tear Stain Supplement OEM | Pawsome Labs',
+    metaTitle: 'Pet Eye Health & Tear Stain Supplement OEM | NovaPet Nutra',
     metaDescription: 'Custom pet vision & tear stain supplements with lutein, bilberry, and astaxanthin in chews, drops, and meal toppers.',
   },
   {
@@ -166,7 +166,7 @@ export const PET_EFFECTS_SEED: PetEffectData[] = [
     slug: 'cognitive-health',
     description: 'Supports memory, alertness, and calm sleep-wake cycles in aging dogs and cats.',
     keyActives: ['Phosphatidylserine', 'DHA Algae Oil', 'Lion’s Mane Mushroom', 'MCT Oil', 'Ginkgo Biloba'],
-    metaTitle: 'Pet Cognitive & Brain Supplement OEM | Pawsome Labs',
+    metaTitle: 'Pet Cognitive & Brain Supplement OEM | NovaPet Nutra',
     metaDescription: 'Custom senior dog & cat brain health supplements with Lion’s Mane, DHA, MCT oil, and phosphatidylserine.',
   },
   {
@@ -174,7 +174,7 @@ export const PET_EFFECTS_SEED: PetEffectData[] = [
     slug: 'reproductive-support',
     description: 'Balanced folate, zinc, omega-3s, and trace minerals for breeding health and maternal recovery.',
     keyActives: ['Folic Acid', 'Zinc Chelate', 'Selenium', 'DHA/EPA', 'Red Raspberry Leaf', 'Vitamin E'],
-    metaTitle: 'Pet Reproductive Supplement Manufacturing | Pawsome Labs',
+    metaTitle: 'Pet Reproductive Supplement Manufacturing | NovaPet Nutra',
     metaDescription: 'Custom canine & feline reproductive and maternal nutrition chews and powders formulated under cGMP quality standards.',
   },
 ]
@@ -185,7 +185,7 @@ export const INGREDIENT_CATEGORIES_SEED: IngredientCategoryData[] = [
     slug: 'vitamins-minerals',
     description: 'Bioavailable daily multivitamin premixes and chelated trace minerals tailored to canine and feline nutrient profiles.',
     examples: ['Vitamin A, D3, E, C', 'B-Complex (B1, B6, B12, Biotin)', 'Zinc Methionine', 'Chelated Manganese', 'Iron Bisglycinate'],
-    metaTitle: 'Pet Vitamin & Mineral Formulation OEM | Pawsome Labs',
+    metaTitle: 'Pet Vitamin & Mineral Formulation OEM | NovaPet Nutra',
     metaDescription: 'Custom pet multivitamin and chelated mineral supplement manufacturing across chews, capsules, powders, and drops.',
   },
   {
@@ -193,7 +193,7 @@ export const INGREDIENT_CATEGORIES_SEED: IngredientCategoryData[] = [
     slug: 'probiotics-prebiotics',
     description: 'Heat-stable spore probiotics, multi-strain Lactobacillus/Bifidobacterium, and functional prebiotic fibers.',
     examples: ['Bacillus coagulans', 'Enterococcus faecium', 'Inulin / FOS', 'MOS Yeast', 'Postbiotic Fermentates'],
-    metaTitle: 'Pet Probiotic & Postbiotic Manufacturing | Pawsome Labs',
+    metaTitle: 'Pet Probiotic & Postbiotic Manufacturing | NovaPet Nutra',
     metaDescription: 'cGMP manufacturing of pet probiotic, prebiotic, and postbiotic supplements with cold-extrusion viability protection.',
   },
   {
@@ -201,7 +201,7 @@ export const INGREDIENT_CATEGORIES_SEED: IngredientCategoryData[] = [
     slug: 'joint-structural',
     description: 'Clinically studied glycosaminoglycans, sulfur donors, and marine lipids for hip, joint, and tendon integrity.',
     examples: ['Glucosamine HCl', 'Chondroitin Sulfate', 'OptiMSM', 'Green-Lipped Mussel', 'UC-II & Hydrolyzed Collagen'],
-    metaTitle: 'Pet Joint Active Ingredients OEM | Pawsome Labs',
+    metaTitle: 'Pet Joint Active Ingredients OEM | NovaPet Nutra',
     metaDescription: 'Formulate pet hip & joint supplements with glucosamine HCl, OptiMSM, chondroitin, and New Zealand green-lipped mussel.',
   },
   {
@@ -209,7 +209,7 @@ export const INGREDIENT_CATEGORIES_SEED: IngredientCategoryData[] = [
     slug: 'botanical-mushrooms',
     description: 'Standardized pet-safe herbal extracts and organic fruiting-body functional mushrooms.',
     examples: ['Turmeric Curcumin', 'Chamomile & Valerian', 'Turkey Tail, Reishi & Lion’s Mane', 'Cranberry PACs', 'Milk Thistle'],
-    metaTitle: 'Pet Botanical & Mushroom Supplement OEM | Pawsome Labs',
+    metaTitle: 'Pet Botanical & Mushroom Supplement OEM | NovaPet Nutra',
     metaDescription: 'Custom pet herbal and functional mushroom supplement manufacturing. Standardized extracts screened for canine and feline safety.',
   },
   {
@@ -217,7 +217,7 @@ export const INGREDIENT_CATEGORIES_SEED: IngredientCategoryData[] = [
     slug: 'functional-lipids',
     description: 'Cold-pressed, heavy-metal-tested omega-3, omega-6, and medium-chain triglyceride oils.',
     examples: ['Wild Alaskan Salmon Oil', 'Antarctic Krill Oil', 'Algae DHA', 'Organic Hemp Seed Oil', 'MCT Oil'],
-    metaTitle: 'Pet Omega-3 & Functional Lipid OEM | Pawsome Labs',
+    metaTitle: 'Pet Omega-3 & Functional Lipid OEM | NovaPet Nutra',
     metaDescription: 'Nitrogen-flushed wild salmon oil, krill oil, algae DHA, and hemp seed oil supplements manufactured for pet brands.',
   },
   {
@@ -225,7 +225,7 @@ export const INGREDIENT_CATEGORIES_SEED: IngredientCategoryData[] = [
     slug: 'proteins-amino-acids',
     description: 'Essential feline and canine amino acids, bone broth proteins, and bioactive colostrum peptides.',
     examples: ['L-Lysine', 'Taurine', 'L-Theanine', 'Bovine Colostrum', 'Beef & Chicken Bone Broth Protein'],
-    metaTitle: 'Pet Amino Acid & Protein Supplement OEM | Pawsome Labs',
+    metaTitle: 'Pet Amino Acid & Protein Supplement OEM | NovaPet Nutra',
     metaDescription: 'Custom L-lysine, taurine, L-theanine, colostrum, and bone broth pet supplement manufacturing in powders, chews, and capsules.',
   },
   {
@@ -233,7 +233,7 @@ export const INGREDIENT_CATEGORIES_SEED: IngredientCategoryData[] = [
     slug: 'enzymes-oral',
     description: 'Targeted digestive enzymes for nutrient absorption and swallow-safe oral enzymes for dental hygiene.',
     examples: ['Protease, Amylase & Lipase', 'Bromelain & Papain', 'Glucose Oxidase', 'Lactoperoxidase', 'Ascophyllum Kelp'],
-    metaTitle: 'Pet Enzyme & Dental Active Formulation | Pawsome Labs',
+    metaTitle: 'Pet Enzyme & Dental Active Formulation | NovaPet Nutra',
     metaDescription: 'Custom pet digestive enzyme and enzymatic dental gel manufacturing with activity verification on every lot COA.',
   },
   {
@@ -241,7 +241,7 @@ export const INGREDIENT_CATEGORIES_SEED: IngredientCategoryData[] = [
     slug: 'cellular-antioxidants',
     description: 'Next-generation longevity, retinal, and cognitive actives for premium senior pet brands.',
     examples: ['Coenzyme Q10', 'Astaxanthin', 'Lutein & Zeaxanthin', 'Phosphatidylserine', 'Quercetin', 'Activated Charcoal'],
-    metaTitle: 'Senior Pet Antioxidant & Longevity OEM | Pawsome Labs',
+    metaTitle: 'Senior Pet Antioxidant & Longevity OEM | NovaPet Nutra',
     metaDescription: 'Formulate premium senior pet supplements with CoQ10, astaxanthin, lutein, quercetin, and phosphatidylserine.',
   },
 ]

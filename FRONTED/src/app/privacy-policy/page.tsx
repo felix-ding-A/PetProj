@@ -1,9 +1,9 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Pawsome Labs',
-  description: 'How Pawsome Labs handles B2B inquiry data, confidential formula attachments, and NDA privacy.',
+  title: 'Privacy Policy | NovaPet Nutra',
+  description: 'How NovaPet Nutra handles B2B inquiry data, confidential formula attachments, and NDA privacy.',
   alternates: { canonical: '/privacy-policy' },
 }
 
@@ -19,7 +19,7 @@ export default function PrivacyPolicyPage() {
       <h1 className="text-3xl font-extrabold text-pawzo-ink">Privacy Policy &amp; Formula Confidentiality</h1>
       <div className="space-y-4 text-sm text-pawzo-muted leading-relaxed">
         <p>
-          Pawsome Labs respects the confidentiality of every B2B inquiry and proprietary formulation specification
+          NovaPet Nutra respects the confidentiality of every B2B inquiry and proprietary formulation specification
           submitted through our website.
         </p>
         <h2 className="text-lg font-extrabold text-pawzo-ink pt-2">1. Information We Collect</h2>

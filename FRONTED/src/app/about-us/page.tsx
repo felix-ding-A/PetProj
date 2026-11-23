@@ -1,13 +1,13 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
 import { BiscuitMascotSvg } from '@/components/illustrations/Mascots'
 import { CTABanner, QualityTrio } from '@/components/sections/CommonSections'
 
 export const metadata: Metadata = {
-  title: 'About Pawsome Labs | Pet Supplement OEM/ODM Partner',
+  title: 'About NovaPet Nutra | Pet Supplement OEM/ODM Partner',
   description:
-    'Meet the chemists, veterinary nutrition advisors, and manufacturing specialists behind Pawsome Labs—dedicated exclusively to pet supplement brands.',
+    'Meet the chemists, veterinary nutrition advisors, and manufacturing specialists behind NovaPet Nutra—dedicated exclusively to pet supplement brands.',
   alternates: { canonical: '/about-us' },
 }
 
@@ -29,7 +29,7 @@ export default function AboutUsPage() {
                 Dedicated exclusively to <span className="text-pawzo-goldText">pet nutrition brands</span>
               </h1>
               <p className="text-sm sm:text-base text-white/85 max-w-2xl leading-relaxed">
-                Unlike human-supplement factories that treat pet lines as an afterthought, Pawsome Labs builds
+                Unlike human-supplement factories that treat pet lines as an afterthought, NovaPet Nutra builds
                 every extrusion die, palatability system, and safety audit specifically for dogs, cats, and small
                 companion animals.
               </p>

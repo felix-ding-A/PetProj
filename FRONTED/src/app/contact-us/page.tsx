@@ -1,10 +1,10 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import { ShieldCheck, Clock, FileCheck2 } from 'lucide-react'
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
 import { InquiryForm } from '@/components/forms/InquiryForm'
 
 export const metadata: Metadata = {
-  title: 'Request a Custom Pet Supplement Quote | Pawsome Labs',
+  title: 'Request a Custom Pet Supplement Quote | NovaPet Nutra',
   description:
     'Submit your pet supplement OEM/ODM brief or private label shortlist. 24-hour formulation desk response, Mutual NDA, and bench sample kits.',
   alternates: { canonical: '/contact-us' },

@@ -1,5 +1,5 @@
 import { getSanityClient, isUsingDevSeed } from '@/lib/sanity/client'
-import { getSanityFileUrl } from '@/lib/sanity/media'
+import { getSanityFileUrl, urlForImage } from '@/lib/sanity/media'
 import { COMPANY_DOCUMENTS_SEED, GLOBAL_FAQS_SEED, INSIGHTS_SEED } from './content'
 import { DOSAGE_FORMS_SEED } from './dosageForms'
 import { INGREDIENT_CATEGORIES_SEED, PET_EFFECTS_SEED, PET_SPECIES_SEED } from './formulationMatrix'
@@ -13,6 +13,7 @@ import type {
   InsightArticleData,
   PetEffectData,
   PetSpeciesData,
+  PortableTextBlock,
   ProductCategoryData,
 } from './types'
 
@@ -26,6 +27,65 @@ export const ALLOWED_DOSAGE_SHORT_SLUGS: DosageShortSlug[] = [
   'drops',
   'paste',
 ]
+
+function estimateReadTime(body?: PortableTextBlock[], explicit?: string): string {
+  if (explicit && explicit.trim()) return explicit.trim()
+  if (!body || body.length === 0) return '4 min read'
+  let wordCount = 0
+  for (const block of body) {
+    if (block._type === 'block' && Array.isArray(block.children)) {
+      for (const child of block.children as { text?: string }[]) {
+        if (child.text) {
+          wordCount += child.text.trim().split(/\s+/).filter(Boolean).length
+        }
+      }
+    }
+  }
+  const mins = Math.max(1, Math.ceil(wordCount / 220))
+  return `${mins} min read`
+}
+
+interface RawSanityArticle {
+  title: string
+  slug: string
+  category?: string
+  excerpt?: string
+  publishedAt?: string
+  updatedAt?: string
+  author?: string
+  readTime?: string
+  coverImage?: { alt?: string; asset?: { _ref?: string } }
+  body?: PortableTextBlock[]
+  relatedFormSlugs?: string[]
+  relatedRefSlugs?: string[]
+  metaTitle?: string
+  metaDescription?: string
+}
+
+function mapSanityArticle(d: RawSanityArticle): InsightArticleData {
+  const mergedForms = Array.from(
+    new Set([...(d.relatedFormSlugs || []), ...(d.relatedRefSlugs || [])])
+  ).filter((f): f is DosageShortSlug =>
+    ALLOWED_DOSAGE_SHORT_SLUGS.includes(f as DosageShortSlug)
+  )
+
+  return {
+    title: d.title,
+    slug: d.slug,
+    category: d.category || 'Formulation Science',
+    excerpt: d.excerpt || '',
+    publishedAt: d.publishedAt || new Date().toISOString(),
+    updatedAt: d.updatedAt,
+    author: d.author || 'NovaPet Nutra R&D Team',
+    readTime: estimateReadTime(d.body, d.readTime),
+    coverImageUrl: d.coverImage ? urlForImage(d.coverImage) : null,
+    coverImageAlt: d.coverImage?.alt || d.title,
+    relatedForms: mergedForms,
+    body: d.body || [],
+    metaTitle: (d.metaTitle || `${d.title} | NovaPet Nutra`).slice(0, 62),
+    metaDescription: (d.metaDescription || d.excerpt || d.title).slice(0, 159),
+  }
+}
 
 export async function getDosageForms(): Promise<DosageFormData[]> {
   const client = getSanityClient()
@@ -194,31 +254,36 @@ export async function getGlobalFaqs(): Promise<FAQItem[]> {
   return GLOBAL_FAQS_SEED
 }
 
+const ARTICLE_PROJECTION = `{
+  title,
+  "slug": slug.current,
+  category,
+  excerpt,
+  publishedAt,
+  "updatedAt": _updatedAt,
+  author,
+  readTime,
+  coverImage,
+  body,
+  relatedFormSlugs,
+  "relatedRefSlugs": relatedForms[]->shortSlug,
+  metaTitle,
+  metaDescription
+}`
+
 export async function getInsights(): Promise<InsightArticleData[]> {
   const client = getSanityClient()
   if (!client) return INSIGHTS_SEED
 
   try {
-    const docs = await client.fetch<InsightArticleData[]>(
-      `*[_type == "article"] | order(publishedAt desc){
-        title,
-        "slug": slug.current,
-        category,
-        excerpt,
-        publishedAt,
-        author,
-        metaTitle,
-        metaDescription
-      }`,
+    const docs = await client.fetch<RawSanityArticle[]>(
+      `*[_type == "article" && defined(slug.current)] | order(publishedAt desc) ${ARTICLE_PROJECTION}`,
       {},
       { next: { revalidate: 60, tags: ['articles'] } }
     )
 
     if (!docs || docs.length === 0) return INSIGHTS_SEED
-    return docs.map((d) => {
-      const fallback = INSIGHTS_SEED.find((s) => s.slug === d.slug) ?? INSIGHTS_SEED[0]
-      return { ...fallback, ...d }
-    })
+    return docs.map(mapSanityArticle)
   } catch (err) {
     console.warn('[Sanity Fetch Warning: article] Fallback to seed data due to:', err instanceof Error ? err.message : err)
     return INSIGHTS_SEED
@@ -226,6 +291,32 @@ export async function getInsights(): Promise<InsightArticleData[]> {
 }
 
 export async function getInsightBySlug(slug: string): Promise<InsightArticleData | null> {
-  const all = await getInsights()
-  return all.find((a) => a.slug === slug) ?? null
+  const client = getSanityClient()
+  if (!client) {
+    return INSIGHTS_SEED.find((a) => a.slug === slug) ?? null
+  }
+
+  try {
+    const doc = await client.fetch<RawSanityArticle | null>(
+      `*[_type == "article" && slug.current == $slug][0] ${ARTICLE_PROJECTION}`,
+      { slug },
+      { next: { revalidate: 60, tags: ['articles'] } }
+    )
+
+    if (doc) return mapSanityArticle(doc)
+
+    // Fallback to seed only when Sanity has zero published articles yet
+    const totalCount = await client.fetch<number>(
+      `count(*[_type == "article" && defined(slug.current)])`,
+      {},
+      { next: { revalidate: 60, tags: ['articles'] } }
+    )
+    if (totalCount === 0) {
+      return INSIGHTS_SEED.find((a) => a.slug === slug) ?? null
+    }
+    return null
+  } catch (err) {
+    console.warn('[Sanity Fetch Warning: article detail] Fallback to seed data due to:', err instanceof Error ? err.message : err)
+    return INSIGHTS_SEED.find((a) => a.slug === slug) ?? null
+  }
 }

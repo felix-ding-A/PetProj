@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { getDosageForms, getEffects, getIngredients, getPets } from '@/lib/data'
@@ -9,7 +9,7 @@ import { CTABanner, QualityTrio } from '@/components/sections/CommonSections'
 export const revalidate = 60
 
 export const metadata: Metadata = {
-  title: 'Custom Pet Supplement Formulation R&D | Pawsome Labs',
+  title: 'Custom Pet Supplement Formulation R&D | NovaPet Nutra',
   description:
     'Bespoke pet supplement OEM/ODM formulation across dogs, cats & small pets, 16 health effects, 8 ingredient classes, and 5 dosage forms.',
   alternates: { canonical: '/custom-formulation' },

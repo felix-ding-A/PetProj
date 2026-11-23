@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { PawLogoSvg } from '@/components/illustrations/Mascots'
+import { NovaPetNutraLogo } from '@/components/illustrations/Mascots'
 
 export function Footer() {
   return (
@@ -8,13 +8,8 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
           {/* Brand Summary */}
           <div className="lg:col-span-2 space-y-4">
-            <Link href="/" className="flex items-center gap-2.5">
-              <span className="w-8 h-8 rounded-full bg-pawzo-gold flex items-center justify-center text-pawzo-ink">
-                <PawLogoSvg className="w-4 h-4" />
-              </span>
-              <span className="font-extrabold text-lg text-white tracking-wider">
-                PAWSOME <span className="text-pawzo-goldText">LABS</span>
-              </span>
+            <Link href="/" className="inline-block">
+              <NovaPetNutraLogo light={true} />
             </Link>
             <p className="text-xs text-white/70 leading-relaxed max-w-sm">
               B2B pet supplement OEM/ODM contract manufacturer. We help pet brands formulate, test, and scale
@@ -73,7 +68,7 @@ export function Footer() {
         </div>
 
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-white/55">
-          <div>© {new Date().getFullYear()} Pawsome Labs Pet Nutraceutical Manufacturing. All rights reserved.</div>
+          <div>© {new Date().getFullYear()} NovaPet Nutra. All rights reserved. Private Label Pet Nutrition OEM/ODM.</div>
           <div className="flex items-center gap-5">
             <Link href="/privacy-policy" className="hover:text-white">Privacy Policy</Link>
             <Link href="/sitemap.xml" className="hover:text-white">XML Sitemap</Link>
@@ -84,4 +79,3 @@ export function Footer() {
     </footer>
   )
 }
-

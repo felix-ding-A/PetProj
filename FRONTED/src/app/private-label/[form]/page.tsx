@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import {
@@ -27,7 +27,7 @@ export async function generateMetadata({
   const df = await getDosageFormByShortSlug(form)
   if (!df) return {}
   return {
-    title: `Private Label ${df.name} Catalog | Pawsome Labs`.slice(0, 62),
+    title: `Private Label ${df.name} Catalog | NovaPet Nutra`.slice(0, 62),
     description: `Browse turnkey private label ${df.name.toLowerCase()} categories for dogs and cats. ${df.moq}, ${df.leadTime}.`.slice(0, 159),
     alternates: { canonical: `/private-label/${df.shortSlug}` },
   }

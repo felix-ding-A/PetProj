@@ -1,11 +1,11 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getIngredients } from '@/lib/data'
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
 import { CTABanner } from '@/components/sections/CommonSections'
 
 export const metadata: Metadata = {
-  title: 'Pet Supplement Active Ingredient Categories | Pawsome Labs',
+  title: 'Pet Supplement Active Ingredient Categories | NovaPet Nutra',
   description:
     'Explore 8 pet-safe nutraceutical ingredient classes: probiotics, joint actives, omega lipids, botanicals, functional mushrooms, and amino acids.',
   alternates: { canonical: '/custom-formulation/ingredients' },

@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { CheckCircle2 } from 'lucide-react'
@@ -46,7 +46,7 @@ export async function generateMetadata({
   if (!petData || !formData || !effectData) return {}
 
   const rawTitle = `Custom ${petData.name} ${effectData.name} ${formData.name} OEM`
-  const title = rawTitle.length <= 62 ? rawTitle : `${petData.name} ${effectData.name} OEM | Pawsome Labs`.slice(0, 62)
+  const title = rawTitle.length <= 62 ? rawTitle : `${petData.name} ${effectData.name} OEM | NovaPet Nutra`.slice(0, 62)
   const desc = `cGMP OEM/ODM manufacturing for ${petData.name.toLowerCase()} ${effectData.name.toLowerCase()} ${formData.name.toLowerCase()}. Key actives: ${effectData.keyActives.slice(0, 3).join(', ')}.`.slice(
     0,
     159

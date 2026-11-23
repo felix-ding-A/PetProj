@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { Menu, X, ChevronDown, Briefcase } from 'lucide-react'
-import { PawLogoSvg } from '@/components/illustrations/Mascots'
+import { NovaPetNutraLogo } from '@/components/illustrations/Mascots'
 import { useQuoteBox } from '@/lib/quote-context'
 
 const MANUFACTURING_LINKS = [
@@ -20,15 +20,10 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 bg-pawzo-ink/95 backdrop-blur-md border-b border-white/10 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
         {/* Left: Brand Logo */}
-        <Link href="/" className="flex items-center gap-2.5 shrink-0">
-          <span className="w-8 h-8 rounded-full bg-pawzo-gold flex items-center justify-center text-pawzo-ink shadow-sm">
-            <PawLogoSvg className="w-4 h-4" />
-          </span>
-          <span className="font-extrabold text-lg tracking-wider uppercase text-white">
-            PAWSOME <span className="font-semibold text-pawzo-goldText">LABS</span>
-          </span>
+        <Link href="/" className="flex items-center shrink-0">
+          <NovaPetNutraLogo light={true} />
         </Link>
 
         {/* Center: Desktop Navigation */}
@@ -153,4 +148,3 @@ export function Header() {
     </header>
   )
 }
-

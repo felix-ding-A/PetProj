@@ -86,17 +86,26 @@ export interface CompanyDocumentData {
   fileSizeLabel: string
 }
 
+export interface PortableTextBlock {
+  _type: string
+  _key?: string
+  [key: string]: unknown
+}
+
 export interface InsightArticleData {
   title: string
   slug: string
   category: string
   excerpt: string
   publishedAt: string
+  updatedAt?: string
   author: string
   readTime: string
+  coverImageUrl?: string | null
+  coverImageAlt?: string
   relatedForms: DosageShortSlug[]
-  sections: { heading: string; paragraphs: string[] }[]
+  body?: PortableTextBlock[]
+  sections?: { heading: string; paragraphs: string[] }[]
   metaTitle: string
   metaDescription: string
 }
-

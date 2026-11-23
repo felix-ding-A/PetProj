@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ArrowRight, CheckCircle2, FileDown } from 'lucide-react'
@@ -64,7 +64,7 @@ export default async function DosageFormManufacturingPage({
     description: form.heroDescription,
     provider: {
       '@type': 'Organization',
-      name: 'Pawsome Labs',
+      name: 'NovaPet Nutra',
       url: SITE_URL,
     },
     areaServed: ['US', 'EU', 'UK', 'Global'],
@@ -144,7 +144,7 @@ export default async function DosageFormManufacturingPage({
             TECHNICAL ADVANTAGES
           </span>
           <h2 className="text-3xl font-extrabold text-pawzo-ink mt-1">
-            Why brands manufacture {form.name.toLowerCase()} with Pawsome Labs
+            Why brands manufacture {form.name.toLowerCase()} with NovaPet Nutra
           </h2>
         </div>
 

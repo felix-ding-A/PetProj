@@ -29,6 +29,7 @@ export async function POST(req: NextRequest) {
         revalidateTag('dosageForms', 'max')
         if (body.slug?.current) revalidatePath(`/${body.slug.current}`)
         revalidatePath('/')
+        revalidatePath('/sitemap.xml')
         break
       case 'product':
         revalidateTag('products', 'max')
@@ -37,6 +38,7 @@ export async function POST(req: NextRequest) {
         if (body.form && body.slug?.current) {
           revalidatePath(`/private-label/${body.form}/${body.slug.current}`)
         }
+        revalidatePath('/sitemap.xml')
         break
       case 'companyDocument':
         revalidateTag('documents', 'max')
@@ -46,12 +48,15 @@ export async function POST(req: NextRequest) {
         break
       case 'article':
         revalidateTag('articles', 'max')
+        revalidatePath('/')
         revalidatePath('/insights')
         if (body.slug?.current) revalidatePath(`/insights/${body.slug.current}`)
+        revalidatePath('/sitemap.xml')
         break
       case 'page':
         revalidatePath('/')
         if (body.slug?.current) revalidatePath(`/${body.slug.current}`)
+        revalidatePath('/sitemap.xml')
         break
       default:
         revalidatePath('/')
@@ -65,4 +70,3 @@ export async function POST(req: NextRequest) {
     )
   }
 }
-

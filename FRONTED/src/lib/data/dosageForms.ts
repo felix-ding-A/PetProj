@@ -1,4 +1,4 @@
-import type { DosageFormData } from './types'
+﻿import type { DosageFormData } from './types'
 
 export const DOSAGE_FORMS_SEED: DosageFormData[] = [
   {
@@ -74,7 +74,7 @@ export const DOSAGE_FORMS_SEED: DosageFormData[] = [
         answer: 'Every production lot undergoes third-party ISO-17025 lab testing for active potency, heavy metals (Pb, As, Cd, Hg), Salmonella, E. coli, yeast, and mold, with a full COA supplied.',
       },
     ],
-    metaTitle: 'Pet Chewable Tablet & Soft Chew Manufacturer | Pawsome Labs',
+    metaTitle: 'Pet Chewable Tablet & Soft Chew Manufacturer | NovaPet Nutra',
     metaDescription: 'cGMP contract manufacturer of dog & cat soft chews and chewable tablets. Cold extrusion, high palatability, 500-jar pilot MOQ, and full COA.',
   },
   {
@@ -150,7 +150,7 @@ export const DOSAGE_FORMS_SEED: DosageFormData[] = [
         answer: 'Stock private label capsules ship in 18–21 days after label approval; custom OEM formulations typically require 25–30 days including raw material testing.',
       },
     ],
-    metaTitle: 'Pet Capsule Contract Manufacturing OEM/ODM | Pawsome Labs',
+    metaTitle: 'Pet Capsule Contract Manufacturing OEM/ODM | NovaPet Nutra',
     metaDescription: 'cGMP pet capsule manufacturing for dogs & cats. Sprinkle-open, HPMC, enteric-release shells, UV-barrier bottling, and 500-unit pilot MOQ.',
   },
   {
@@ -226,7 +226,7 @@ export const DOSAGE_FORMS_SEED: DosageFormData[] = [
         answer: 'Stock private label tubs/pouches start at 500 units; custom OEM blends start at 1,500 units per SKU.',
       },
     ],
-    metaTitle: 'Pet Supplement Powder & Meal Topper OEM | Pawsome Labs',
+    metaTitle: 'Pet Supplement Powder & Meal Topper OEM | NovaPet Nutra',
     metaDescription: 'Custom pet powder & meal topper manufacturing. Probiotic toppers, bone broth, lysine, stick packs & tubs with anti-caking control and low MOQ.',
   },
   {
@@ -302,7 +302,7 @@ export const DOSAGE_FORMS_SEED: DosageFormData[] = [
         answer: 'Stock liquid formulas ship in 21 days after label approval; custom tinctures or oil blends take 25–30 days.',
       },
     ],
-    metaTitle: 'Pet Liquid Drops & Salmon Oil Manufacturer | Pawsome Labs',
+    metaTitle: 'Pet Liquid Drops & Salmon Oil Manufacturer | NovaPet Nutra',
     metaDescription: 'cGMP contract manufacturer of pet liquid drops, alcohol-free tinctures, and nitrogen-flushed omega-3 oils. Precision droppers, pumps & low MOQ.',
   },
   {
@@ -378,7 +378,7 @@ export const DOSAGE_FORMS_SEED: DosageFormData[] = [
         answer: 'Pilot private label runs start at 1,000 tubes (25 days); custom printed tubes and bespoke OEM gels start at 3,000 units (30–35 days).',
       },
     ],
-    metaTitle: 'Pet Nutritional Paste & Dental Gel OEM | Pawsome Labs',
+    metaTitle: 'Pet Nutritional Paste & Dental Gel OEM | NovaPet Nutra',
     metaDescription: 'cGMP contract manufacturing of pet digestive pastes, enzymatic toothpastes, dental gels, and equine syringes. Vacuum emulsified, zero oil separation.',
   },
 ]

@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getCompanyDocuments, getDosageForms } from '@/lib/data'
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
@@ -7,7 +7,7 @@ import { CTABanner, PdfDownloads } from '@/components/sections/CommonSections'
 export const revalidate = 60
 
 export const metadata: Metadata = {
-  title: 'Pet Supplement Manufacturing Facility & Capacity | Pawsome Labs',
+  title: 'Pet Supplement Manufacturing Facility & Capacity | NovaPet Nutra',
   description:
     'Inside our FDA-registered cGMP pet supplement plant: cold-extrusion lines, encapsulation suites, powder blending, liquid nitrogen bottling, and vacuum paste lines.',
   alternates: { canonical: '/our-facility' },

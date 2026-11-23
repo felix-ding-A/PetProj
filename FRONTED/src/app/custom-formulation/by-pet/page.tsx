@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getPets } from '@/lib/data'
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
@@ -6,7 +6,7 @@ import { SpeciesCartoonSvg } from '@/components/illustrations/Mascots'
 import { CTABanner } from '@/components/sections/CommonSections'
 
 export const metadata: Metadata = {
-  title: 'Custom Pet Supplements by Species | Pawsome Labs',
+  title: 'Custom Pet Supplements by Species | NovaPet Nutra',
   description:
     'Species-specific OEM/ODM pet supplement formulation for dogs, cats, small pets, poultry, and horses.',
   alternates: { canonical: '/custom-formulation/by-pet' },

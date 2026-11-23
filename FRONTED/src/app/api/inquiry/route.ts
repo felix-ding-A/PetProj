@@ -1,4 +1,4 @@
-import { Resend } from 'resend'
+﻿import { Resend } from 'resend'
 import { z } from 'zod'
 
 const InquirySchema = z.object({
@@ -97,7 +97,7 @@ export async function POST(req: Request) {
     `
 
     const apiKey = process.env.RESEND_API_KEY
-    const toEmail = process.env.INQUIRY_TO_EMAIL || 'sales@pawsomelabs.com'
+    const toEmail = process.env.INQUIRY_TO_EMAIL || 'sales@novapetnutra.com'
     const fromEmail = process.env.INQUIRY_FROM_EMAIL || 'onboarding@resend.dev'
 
     if (apiKey) {

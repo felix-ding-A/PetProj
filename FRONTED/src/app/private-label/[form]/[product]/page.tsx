@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { CheckCircle2 } from 'lucide-react'
@@ -61,7 +61,7 @@ export default async function ProductLandingPage({
     category: df?.name || prod.form,
     manufacturer: {
       '@type': 'Organization',
-      name: 'Pawsome Labs',
+      name: 'NovaPet Nutra',
     },
   }
 

@@ -1,4 +1,4 @@
-import type { DosageShortSlug, ProductCategoryData } from './types'
+﻿import type { DosageShortSlug, ProductCategoryData } from './types'
 
 interface RawProductSeed {
   name: string
@@ -109,8 +109,8 @@ const RAW_PRODUCTS: RawProductSeed[] = [
 
 export const PRODUCTS_SEED: ProductCategoryData[] = RAW_PRODUCTS.map((item) => {
   const defaults = DEFAULT_MOQ[item.form]
-  const rawTitle = `Private Label ${item.name} | Pawsome Labs`
-  const metaTitle = rawTitle.length <= 62 ? rawTitle : `${item.name} OEM | Pawsome Labs`.slice(0, 62)
+  const rawTitle = `Private Label ${item.name} | NovaPet Nutra`
+  const metaTitle = rawTitle.length <= 62 ? rawTitle : `${item.name} OEM | NovaPet Nutra`.slice(0, 62)
   const rawDesc = `cGMP OEM & private label ${item.name.toLowerCase()}. ${item.shortDescription}`
   const metaDescription = rawDesc.length <= 159 ? rawDesc : `${rawDesc.slice(0, 156)}...`
 

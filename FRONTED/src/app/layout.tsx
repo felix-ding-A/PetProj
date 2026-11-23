@@ -18,15 +18,23 @@ const plusJakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Pawsome Labs | Custom Pet Supplement OEM & Private Label',
+    default: 'NovaPet Nutra | Private Label Pet Nutrition & Custom OEM Manufacturing',
     template: '%s',
   },
   description:
     'FDA-registered, cGMP contract manufacturer of custom pet supplements: chewable tablets, capsules, meal topper powders, liquid drops, and nutritional pastes.',
+  icons: {
+    icon: [
+      { url: '/brand/novapetnutra-icon.svg', type: 'image/svg+xml' },
+    ],
+    apple: [
+      { url: '/brand/novapetnutra-icon.svg', type: 'image/svg+xml' },
+    ],
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    siteName: 'Pawsome Labs',
+    siteName: 'NovaPet Nutra',
   },
   twitter: {
     card: 'summary_large_image',
@@ -55,4 +63,3 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   )
 }
-

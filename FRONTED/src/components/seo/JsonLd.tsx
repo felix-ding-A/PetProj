@@ -10,7 +10,7 @@ export function JsonLd({ data }: { data: Record<string, unknown> }) {
 }
 
 function sanitizeUrl(raw?: string): string {
-  if (!raw || !raw.trim()) return 'https://pawsomelabs.com'
+  if (!raw || !raw.trim()) return 'https://novapetnutra.com'
   let url = raw.trim()
   if (!url.startsWith('http://') && !url.startsWith('https://')) {
     url = `https://${url}`
@@ -24,7 +24,7 @@ export function buildOrganizationJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Pawsome Labs',
+    name: 'NovaPet Nutra',
     url: SITE_URL,
     description:
       'FDA-registered, cGMP-certified B2B contract manufacturer of private label and custom OEM/ODM pet supplements across chewable tablets, capsules, powders, drops, and pastes.',

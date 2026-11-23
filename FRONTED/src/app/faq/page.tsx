@@ -1,11 +1,11 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import { getGlobalFaqs } from '@/lib/data'
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
 import { JsonLd, buildFaqJsonLd } from '@/components/seo/JsonLd'
 import { CTABanner, FAQAccordion } from '@/components/sections/CommonSections'
 
 export const metadata: Metadata = {
-  title: 'Pet Supplement OEM/ODM Procurement FAQ | Pawsome Labs',
+  title: 'Pet Supplement OEM/ODM Procurement FAQ | NovaPet Nutra',
   description:
     'Answers on MOQ, lead times, NDA protection, palatability samples, ISO-17025 COA lab testing, and Amazon FBA prep for pet supplement brands.',
   alternates: { canonical: '/faq' },

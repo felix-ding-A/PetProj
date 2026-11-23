@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { getActiveProducts, getDosageForms } from '@/lib/data'
@@ -9,7 +9,7 @@ import { AddToQuoteButton, CTABanner } from '@/components/sections/CommonSection
 export const revalidate = 60
 
 export const metadata: Metadata = {
-  title: 'Private Label Pet Supplements Catalog (65 Categories) | Pawsome Labs',
+  title: 'Private Label Pet Supplements Catalog (65 Categories) | NovaPet Nutra',
   description:
     'Browse 65 turnkey private label pet supplement categories across chewable tablets, capsules, powders, liquid drops, and pastes. 500-unit pilot MOQ.',
   alternates: { canonical: '/private-label' },

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 136" fill="none" role="img" aria-label="NovaPet Nutra - Private Label Pet Nutrition">
+  <defs>
+    <!-- Warm Amber-Orange Brand Gradient -->
+    <linearGradient id="npBadgeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D97706" />
+      <stop offset="35%" stop-color="#EA580C" />
+      <stop offset="70%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#FBBF24" />
+    </linearGradient>
+
+    <!-- Subtle Badge Glow -->
+    <radialGradient id="npGlow" cx="45%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#FDE68A" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Subline Accent Bar Gradient -->
+    <linearGradient id="npBarGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FBBF24" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+  </defs>
+
+  <!-- Left Emblem (Icon Badge) -->
+  <g id="brand-emblem" transform="translate(4, 4)">
+    <!-- Squircle Badge Base -->
+    <rect x="8" y="8" width="112" height="112" rx="32" fill="url(#npBadgeGrad)" />
+    <!-- Inner Rim Stroke -->
+    <rect x="9" y="9" width="110" height="110" rx="31" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-opacity="0.45" />
+    <!-- Soft Top Light -->
+    <ellipse cx="64" cy="38" rx="46" ry="24" fill="url(#npGlow)" />
+
+    <!-- Open Enclosure Arc -->
+    <path d="M 28 42 A 42 42 0 1 0 100 42" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" />
+
+    <!-- Continuous Infinite Loop / Pet Contour -->
+    <path d="M 38 72 C 38 52, 54 44, 64 62 C 74 80, 90 72, 90 52 C 90 38, 76 34, 64 52 C 52 70, 38 88, 38 72 Z"
+          fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Floating Nova Star / Essence Dot -->
+    <circle cx="64" cy="27" r="6" fill="#FFFFFF" />
+  </g>
+
+  <!-- Right Typography -->
+  <g id="brand-typography" transform="translate(144, 0)">
+    <!-- Main Wordmark -->
+    <text x="0" y="66" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="44" font-weight="800" letter-spacing="-1">
+      <tspan fill="#FFFFFF">Nova</tspan>
+      <tspan dx="10" fill="#FBBF24">Pet</tspan>
+      <tspan dx="10" fill="#F59E0B">Nutra</tspan>
+    </text>
+
+    <!-- Professional B2B Subline -->
+    <text x="2" y="98" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" letter-spacing="3.2" fill="#D6D3D1">
+      PRIVATE LABEL PET NUTRITION
+    </text>
+
+    <!-- Dual Accent Identification Bars -->
+    <rect x="2" y="112" width="60" height="4.5" rx="2.25" fill="url(#npBarGrad)" />
+    <rect x="70" y="112" width="20" height="4.5" rx="2.25" fill="#D97706" opacity="0.65" />
+  </g>
+</svg>

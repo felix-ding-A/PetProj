@@ -1,4 +1,4 @@
-import type { CompanyDocumentData, FAQItem, InsightArticleData } from './types'
+﻿import type { CompanyDocumentData, FAQItem, InsightArticleData } from './types'
 
 export const COMPANY_DOCUMENTS_SEED: CompanyDocumentData[] = [
   {
@@ -92,7 +92,7 @@ export const INSIGHTS_SEED: InsightArticleData[] = [
         ],
       },
     ],
-    metaTitle: 'Cold Extrusion vs. Baking for Pet Soft Chews | Pawsome Labs',
+    metaTitle: 'Cold Extrusion vs. Baking for Pet Soft Chews | NovaPet Nutra',
     metaDescription: 'Learn why below-38°C cold extrusion protects probiotics, omega-3s, and palatability in private label dog & cat soft chews.',
   },
   {
@@ -101,7 +101,7 @@ export const INSIGHTS_SEED: InsightArticleData[] = [
     category: 'Feline Nutrition',
     excerpt: 'Cats are not small dogs. Learn how to avoid feline-toxic excipients and choose the right dosage formats—from sprinkle capsules to lickable pastes.',
     publishedAt: '2026-10-14',
-    author: 'Pawsome Labs Veterinary R&D Team',
+    author: 'NovaPet Nutra Veterinary R&D Team',
     readTime: '5 min read',
     relatedForms: ['capsule', 'paste', 'drops'],
     sections: [
@@ -109,7 +109,7 @@ export const INSIGHTS_SEED: InsightArticleData[] = [
         heading: 'Feline-Specific Ingredient Screening',
         paragraphs: [
           'Because cats lack certain hepatic glucuronidation pathways, ingredients tolerated by dogs—such as specific essential oils, propylene glycol, and high-dose alpha-lipoic acid—must be strictly excluded from feline formulas.',
-          'Every feline SKU at Pawsome Labs undergoes an obligate-carnivore safety audit before bench sampling begins.',
+          'Every feline SKU at NovaPet Nutra undergoes an obligate-carnivore safety audit before bench sampling begins.',
         ],
       },
       {
@@ -171,7 +171,7 @@ export const INSIGHTS_SEED: InsightArticleData[] = [
         ],
       },
     ],
-    metaTitle: 'Preventing Fish Oil Rancidity in Pet Supplements | Pawsome Labs',
+    metaTitle: 'Preventing Fish Oil Rancidity in Pet Supplements | NovaPet Nutra',
     metaDescription: 'Learn how nitrogen flushing, natural antioxidants, and peroxide COA testing protect wild salmon oil pet supplements.',
   },
 ]

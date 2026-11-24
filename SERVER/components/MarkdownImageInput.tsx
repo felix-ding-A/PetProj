@@ -1,8 +1,23 @@
-import React, { useCallback, useRef, useState } from 'react'
+import React, { useCallback, useMemo, useRef, useState } from 'react'
 import { type StringInputProps, set, unset, useClient } from 'sanity'
+
+function computeStats(raw: string) {
+  const chars = raw.length
+  // Strip image syntax and link URLs so URLs don't inflate word counts
+  const plain = raw
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+    .replace(/[#*_`>~|\-]+/g, ' ')
+    .trim()
+
+  const latinWords = plain ? plain.split(/\s+/).filter(Boolean).length : 0
+  const readMins = Math.max(1, Math.ceil(latinWords / 220))
+  return { words: latinWords, chars, readMins }
+}
 
 export function MarkdownImageInput(props: StringInputProps) {
   const { value = '', onChange, elementProps } = props
+  const stats = useMemo(() => computeStats(value || ''), [value])
   const client = useClient({ apiVersion: '2026-11-23' })
   const textareaRef = useRef<HTMLTextAreaElement | null>(null)
   const fileInputRef = useRef<HTMLInputElement | null>(null)
@@ -199,9 +214,29 @@ export function MarkdownImageInput(props: StringInputProps) {
         }}
       />
 
-      <div style={{ fontSize: '11px', color: '#71717a' }}>
-        {statusMsg ||
-          'Tip: Click "+ Upload Image", drag & drop an image, or paste a screenshot (Ctrl+V) to auto-upload to Sanity CDN.'}
+      <div
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: '8px',
+          fontSize: '12px',
+          color: '#52525b',
+          padding: '6px 10px',
+          borderRadius: '6px',
+          background: '#fafafa',
+          border: '1px solid #e4e4e7',
+        }}
+      >
+        <span>
+          <strong>Words:</strong> {stats.words.toLocaleString()} &nbsp;·&nbsp;{' '}
+          <strong>Characters:</strong> {stats.chars.toLocaleString()} &nbsp;·&nbsp;{' '}
+          <strong>Est. read:</strong> {stats.words > 0 ? `${stats.readMins} min` : '0 min'}
+        </span>
+        <span style={{ fontSize: '11px', color: '#71717a' }}>
+          {statusMsg || 'Supports + Upload Image, drag & drop, or Ctrl+V paste'}
+        </span>
       </div>
     </div>
   )

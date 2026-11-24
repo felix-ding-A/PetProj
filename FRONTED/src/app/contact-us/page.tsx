@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import { ShieldCheck, Clock, FileCheck2 } from 'lucide-react'
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
 import { InquiryForm } from '@/components/forms/InquiryForm'
@@ -59,7 +59,7 @@ export default async function ContactUsPage({
                   <ShieldCheck className="w-4 h-4 text-amber-800 shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-pawzo-ink block">Mutual NDA Protection</strong>
-                    Attached formula specs are transmitted directly via encrypted email—never stored publicly.
+                    Every custom formulation brief is kept strictly confidential under Mutual NDA.
                   </div>
                 </div>
                 <div className="flex items-start gap-3">

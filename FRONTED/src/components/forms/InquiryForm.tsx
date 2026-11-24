@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { CheckCircle2, Upload, AlertCircle, Trash2 } from 'lucide-react'
+import { CheckCircle2, AlertCircle, Trash2 } from 'lucide-react'
 import { useQuoteBox } from '@/lib/quote-context'
 
 const DOSAGE_OPTIONS = [
@@ -15,9 +15,6 @@ const DOSAGE_OPTIONS = [
 const SPECIES_OPTIONS = ['Dogs', 'Cats', 'Small Pets / Poultry / Equine']
 
 const MARKET_OPTIONS = ['United States (AAFCO / NASC)', 'European Union (EU Feed)', 'United Kingdom', 'China / APAC', 'Other']
-
-const MAX_FILES = 3
-const MAX_TOTAL_BYTES = 4 * 1024 * 1024 // 4 MB total (safely inside Vercel 4.5MB limit)
 
 export function InquiryForm({ preselectedForm }: { preselectedForm?: string }) {
   const { items, removeItem, clearItems } = useQuoteBox()
@@ -49,8 +46,8 @@ export function InquiryForm({ preselectedForm }: { preselectedForm?: string }) {
   const [targetMarkets, setTargetMarkets] = useState<string[]>(['United States (AAFCO / NASC)'])
   const [needsComplianceDocs, setNeedsComplianceDocs] = useState(true)
 
-  const [files, setFiles] = useState<File[]>([])
-  const [fileError, setFileError] = useState<string | null>(null)
+  const [honeypot, setHoneypot] = useState('')
+  const [formLoadedAt] = useState<number>(() => Date.now())
   const [submitting, setSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
   const [submitted, setSubmitted] = useState(false)
@@ -59,47 +56,43 @@ export function InquiryForm({ preselectedForm }: { preselectedForm?: string }) {
     setter(list.includes(value) ? list.filter((i) => i !== value) : [...list, value])
   }
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFileError(null)
-    const incoming = Array.from(e.target.files || [])
-    if (incoming.length > MAX_FILES) {
-      setFileError(`Maximum ${MAX_FILES} files allowed.`)
-      return
-    }
-    const totalSize = incoming.reduce((acc, f) => acc + f.size, 0)
-    if (totalSize > MAX_TOTAL_BYTES) {
-      setFileError('Total attachment size must be 4 MB or less (for direct encrypted email delivery).')
-      return
-    }
-    setFiles(incoming)
-  }
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setSubmitError(null)
     setSubmitting(true)
 
     try {
-      const fd = new FormData()
-      fd.append('name', name)
-      fd.append('email', email)
-      fd.append('whatsapp', whatsapp)
-      fd.append('company', company)
-      fd.append('country', country)
-      fd.append('formulaStatus', formulaStatus)
-      fd.append('optimizationFocus', optimizationFocus)
-      fd.append('referenceUrl', referenceUrl)
-      fd.append('dosageForms', JSON.stringify(selectedForms))
-      fd.append('orderVolume', orderVolume)
-      fd.append('species', JSON.stringify(selectedSpecies))
-      fd.append('healthFunctions', healthFunctions)
-      fd.append('keyIngredients', keyIngredients)
-      fd.append('targetMarkets', JSON.stringify(targetMarkets))
-      fd.append('needsComplianceDocs', String(needsComplianceDocs))
-      fd.append('shortlist', JSON.stringify(items))
-      files.forEach((f) => fd.append('attachments', f))
+      const payload = {
+        name,
+        email,
+        whatsapp,
+        company,
+        country,
+        formulaStatus,
+        optimizationFocus,
+        referenceUrl,
+        dosageForms: JSON.stringify(selectedForms),
+        orderVolume,
+        species: JSON.stringify(selectedSpecies),
+        healthFunctions,
+        keyIngredients,
+        targetMarkets: JSON.stringify(targetMarkets),
+        needsComplianceDocs: String(needsComplianceDocs),
+        shortlist: JSON.stringify(items),
+        clientPageUrl: window.location.href,
+        clientReferrer: document.referrer || '',
+        clientTimezone: Intl.DateTimeFormat().resolvedOptions().timeZone || '',
+        clientLanguage: navigator.language || '',
+        clientScreen: `${window.screen.width}x${window.screen.height}`,
+        websiteUrl: honeypot,
+        formLoadedAt: String(formLoadedAt),
+      }
 
-      const res = await fetch('/api/inquiry', { method: 'POST', body: fd })
+      const res = await fetch('/api/inquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
       const data = await res.json()
       if (!res.ok) {
         throw new Error(data?.error || 'Failed to submit inquiry. Please check your inputs.')
@@ -133,6 +126,31 @@ export function InquiryForm({ preselectedForm }: { preselectedForm?: string }) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-8">
+      {/* Anti-bot Honeypot Field (hidden from humans, traps automated bots) */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          left: '-9999px',
+          width: '1px',
+          height: '1px',
+          overflow: 'hidden',
+          opacity: 0,
+          pointerEvents: 'none',
+        }}
+      >
+        <label htmlFor="websiteUrl">Website URL (Leave blank)</label>
+        <input
+          id="websiteUrl"
+          name="websiteUrl"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={honeypot}
+          onChange={(e) => setHoneypot(e.target.value)}
+        />
+      </div>
+
       {/* Pre-filled Quote Box Shortlist */}
       {items.length > 0 && (
         <div className="bg-pawzo-creamDeep rounded-2xl border border-pawzo-gold p-5 space-y-3">
@@ -365,14 +383,14 @@ export function InquiryForm({ preselectedForm }: { preselectedForm?: string }) {
         </div>
       </fieldset>
 
-      {/* Section 5: Key Ingredients & Confidential File Attachment */}
+      {/* Section 5: Key Ingredients & Packaging Notes */}
       <fieldset className="bg-white rounded-3xl border border-pawzo-border p-6 sm:p-8 space-y-4">
         <legend className="text-xs font-extrabold uppercase tracking-wider text-amber-800 px-2">
-          5. Key Ingredients &amp; Spec Sheet Upload (NDA Email Attachment)
+          5. Key Ingredients, Dosages &amp; Packaging Notes
         </legend>
         <div>
           <label className="block text-xs font-extrabold text-pawzo-ink mb-1">
-            Key Active Ingredients, Dosages &amp; Packaging Notes
+            Key Active Ingredients, Dosages &amp; Packaging Requirements
           </label>
           <textarea
             rows={4}
@@ -381,49 +399,9 @@ export function InquiryForm({ preselectedForm }: { preselectedForm?: string }) {
             placeholder="e.g., 500mg Glucosamine HCl, 400mg OptiMSM, 90ct PCR jar with duck & pumpkin flavor..."
             className="w-full px-4 py-2.5 rounded-xl bg-pawzo-cream border border-pawzo-border text-sm font-medium"
           />
-        </div>
-
-        <div className="rounded-2xl border border-dashed border-pawzo-border bg-pawzo-cream p-5">
-          <label className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 cursor-pointer">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-white border border-pawzo-border flex items-center justify-center text-amber-800">
-                <Upload className="w-5 h-5" />
-              </div>
-              <div>
-                <div className="text-xs font-extrabold text-pawzo-ink">
-                  Attach Formula Sheet / Supplement Facts (Optional)
-                </div>
-                <div className="text-[11px] text-pawzo-muted">
-                  PDF, DOC, DOCX, XLSX, CSV · Max 3 files · Total ≤ 4 MB · Sent directly via encrypted email (never stored publicly)
-                </div>
-              </div>
-            </div>
-            <span className="px-4 py-2 rounded-full bg-white border border-pawzo-border text-xs font-extrabold text-pawzo-ink">
-              Choose Files
-            </span>
-            <input
-              type="file"
-              multiple
-              accept=".pdf,.doc,.docx,.xlsx,.csv"
-              onChange={handleFileChange}
-              className="hidden"
-            />
-          </label>
-          {files.length > 0 && (
-            <ul className="mt-3 space-y-1 text-xs font-semibold text-pawzo-ink">
-              {files.map((f) => (
-                <li key={f.name}>
-                  • {f.name} ({(f.size / 1024).toFixed(0)} KB)
-                </li>
-              ))}
-            </ul>
-          )}
-          {fileError && (
-            <div className="mt-2 text-xs font-bold text-red-600 flex items-center gap-1.5">
-              <AlertCircle className="w-4 h-4" />
-              <span>{fileError}</span>
-            </div>
-          )}
+          <p className="text-[11px] text-pawzo-muted mt-1.5">
+            Need to share a proprietary spec sheet or formula PDF? Simply reply to our 24-hour confirmation email after Mutual NDA sign-off.
+          </p>
         </div>
       </fieldset>
 

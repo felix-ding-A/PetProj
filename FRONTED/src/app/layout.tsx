@@ -6,7 +6,7 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { QuoteBoxDrawer } from '@/components/layout/QuoteBoxDrawer'
 import { FloatingContactButton } from '@/components/layout/FloatingContactButton'
-import { AnalyticsScripts } from '@/components/analytics/AnalyticsScripts'
+import { CookieConsentAndAnalytics } from '@/components/analytics/CookieConsentAndAnalytics'
 import { JsonLd, SITE_URL, buildOrganizationJsonLd, buildWebsiteJsonLd } from '@/components/seo/JsonLd'
 import { isUsingDevSeed } from '@/lib/data'
 
@@ -63,7 +63,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <QuoteBoxDrawer />
           <FloatingContactButton />
         </QuoteBoxProvider>
-        <AnalyticsScripts />
+        <CookieConsentAndAnalytics />
       </body>
     </html>
   )

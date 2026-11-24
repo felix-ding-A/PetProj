@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Mail, MessageCircle, MapPin, ShieldCheck } from 'lucide-react'
 import { NovaPetNutraLogo } from '@/components/illustrations/Mascots'
+import { CookieSettingsTrigger } from '@/components/analytics/CookieConsentAndAnalytics'
 import { COMPANY } from '@/lib/company'
 
 export function Footer() {
@@ -103,6 +104,7 @@ export function Footer() {
             <div>© {new Date().getFullYear()} {COMPANY.brandName} · Operated by {COMPANY.legalName}. All rights reserved.</div>
             <div className="flex items-center gap-5">
               <Link href="/privacy-policy" className="hover:text-white">Privacy Policy</Link>
+              <CookieSettingsTrigger />
               <Link href="/sitemap.xml" className="hover:text-white">XML Sitemap</Link>
               <Link href="/contact-us" className="hover:text-white">B2B Inquiry Desk</Link>
             </div>

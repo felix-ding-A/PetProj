@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import Link from 'next/link'
 import { useState } from 'react'
@@ -58,9 +58,49 @@ export function Header() {
           <Link href="/our-process" className="hover:text-brand-goldText transition-colors">
             Process
           </Link>
-          <Link href="/quality-compliance" className="hover:text-brand-goldText transition-colors">
-            Quality &amp; Facility
-          </Link>
+
+          <div className="relative group py-5">
+            <button
+              type="button"
+              className="flex items-center gap-1 hover:text-brand-goldText transition-colors cursor-pointer"
+            >
+              <span>Factory &amp; Quality</span>
+              <ChevronDown className="w-3.5 h-3.5" />
+            </button>
+            <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all absolute left-0 top-full w-60 bg-white text-brand-ink rounded-2xl shadow-xl border border-brand-border p-2">
+              <Link
+                href="/our-facility"
+                className="block px-3.5 py-2.5 rounded-xl text-xs font-bold hover:bg-brand-creamDeep transition-colors"
+              >
+                cGMP Pet Supplement Factory
+              </Link>
+              <Link
+                href="/quality-compliance"
+                className="block px-3.5 py-2.5 rounded-xl text-xs font-bold hover:bg-brand-creamDeep transition-colors"
+              >
+                Quality &amp; Compliance
+              </Link>
+              <Link
+                href="/about-us/certifications"
+                className="block px-3.5 py-2.5 rounded-xl text-xs font-bold hover:bg-brand-creamDeep transition-colors"
+              >
+                Certifications &amp; Lab COA
+              </Link>
+              <Link
+                href="/about-us"
+                className="block px-3.5 py-2.5 rounded-xl text-xs font-bold hover:bg-brand-creamDeep transition-colors"
+              >
+                About NovaPet Nutra
+              </Link>
+              <Link
+                href="/faq"
+                className="block px-3.5 py-2.5 rounded-xl text-xs font-bold hover:bg-brand-creamDeep transition-colors"
+              >
+                Procurement FAQ
+              </Link>
+            </div>
+          </div>
+
           <Link href="/insights" className="hover:text-brand-goldText transition-colors">
             Insights
           </Link>

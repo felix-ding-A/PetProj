@@ -106,6 +106,15 @@ export function QualityTrio() {
             </div>
           ))}
         </div>
+
+        <div className="mt-8 flex flex-wrap items-center gap-5 text-xs font-extrabold">
+          <Link href="/our-facility" className="text-amber-800 hover:text-brand-ink transition-colors">
+            Tour our cGMP pet supplement factory →
+          </Link>
+          <Link href="/quality-compliance" className="text-brand-ink hover:text-amber-800 transition-colors">
+            Review quality &amp; ISO-17025 COA standards →
+          </Link>
+        </div>
       </div>
     </section>
   )

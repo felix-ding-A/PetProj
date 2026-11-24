@@ -169,8 +169,34 @@ export default async function ProductLandingPage({
               </div>
               <div className="py-3 flex justify-between gap-4">
                 <dt className="text-brand-muted font-bold">Target Species</dt>
-                <dd className="font-extrabold text-brand-ink capitalize">{prod.species.join(', ')}</dd>
+                <dd className="font-extrabold text-brand-ink flex flex-wrap justify-end gap-1.5">
+                  {prod.species.map((sp) => (
+                    <Link
+                      key={sp}
+                      href={`/custom-formulation/by-pet/${sp}`}
+                      className="text-amber-800 hover:underline capitalize"
+                    >
+                      {sp.replace('-', ' ')}
+                    </Link>
+                  ))}
+                </dd>
               </div>
+              {prod.effects.length > 0 && (
+                <div className="py-3 flex justify-between gap-4">
+                  <dt className="text-brand-muted font-bold">Health Focus</dt>
+                  <dd className="font-extrabold text-brand-ink flex flex-wrap justify-end gap-1.5">
+                    {prod.effects.map((eff) => (
+                      <Link
+                        key={eff}
+                        href={`/custom-formulation/effects/${eff}`}
+                        className="text-amber-800 hover:underline capitalize"
+                      >
+                        {eff.replace(/-/g, ' ')}
+                      </Link>
+                    ))}
+                  </dd>
+                </div>
+              )}
               <div className="py-3 flex justify-between gap-4">
                 <dt className="text-brand-muted font-bold">MOQ Tiers</dt>
                 <dd className="font-extrabold text-brand-ink text-right">{prod.moq}</dd>

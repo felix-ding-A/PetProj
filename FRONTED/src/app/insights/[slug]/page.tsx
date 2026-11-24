@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -56,8 +56,9 @@ export default async function InsightArticlePage({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const post = await getInsightBySlug(slug)
+  const [post, allArticles] = await Promise.all([getInsightBySlug(slug), getInsights()])
   if (!post) notFound()
+  const relatedArticles = allArticles.filter((a) => a.slug !== post.slug).slice(0, 2)
 
   const articleJsonLd: Record<string, unknown> = {
     '@context': 'https://schema.org',
@@ -132,16 +133,43 @@ export default async function InsightArticlePage({
         {post.relatedForms.length > 0 && (
           <div className="mt-10 p-6 rounded-2xl bg-brand-creamDeep border border-brand-border">
             <div className="text-xs font-extrabold uppercase tracking-wider text-amber-900 mb-3">
-              Related Manufacturing Capabilities
+              Related Manufacturing &amp; Private Label Lines
             </div>
             <div className="flex flex-wrap gap-2.5">
               {post.relatedForms.map((f) => (
+                <div key={f} className="flex flex-wrap gap-2">
+                  <Link
+                    href={`/${f}-manufacturing`}
+                    className="px-4 py-2 rounded-full bg-white border border-brand-border hover:border-brand-gold text-xs font-extrabold text-brand-ink capitalize"
+                  >
+                    Pet {f.replace('-', ' ')} Manufacturer →
+                  </Link>
+                  <Link
+                    href={`/private-label/${f}`}
+                    className="px-4 py-2 rounded-full bg-brand-cream border border-brand-border hover:border-brand-gold text-xs font-bold text-amber-900 capitalize"
+                  >
+                    Private Label {f.replace('-', ' ')}s
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {relatedArticles.length > 0 && (
+          <div className="mt-10 pt-8 border-t border-brand-border">
+            <h2 className="text-lg font-extrabold text-brand-ink mb-4">More Formulation Guides</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {relatedArticles.map((ra) => (
                 <Link
-                  key={f}
-                  href={`/${f}-manufacturing`}
-                  className="px-4 py-2 rounded-full bg-white border border-brand-border hover:border-brand-gold text-xs font-extrabold text-brand-ink capitalize"
+                  key={ra.slug}
+                  href={`/insights/${ra.slug}`}
+                  className="bg-white rounded-2xl border border-brand-border p-5 hover:border-brand-gold transition-colors space-y-1.5"
                 >
-                  {f.replace('-', ' ')} Manufacturing →
+                  <div className="text-[11px] font-extrabold uppercase tracking-wider text-amber-800">
+                    {ra.category}
+                  </div>
+                  <div className="font-extrabold text-sm text-brand-ink leading-snug">{ra.title}</div>
                 </Link>
               ))}
             </div>

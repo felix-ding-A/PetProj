@@ -64,12 +64,12 @@ export default async function HomePage() {
                 <span className="text-brand-goldText">▸</span> FDA-REGISTERED FACILITY · cGMP · 21-DAY TURNKEY
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-[52px] font-extrabold tracking-tight leading-[1.08] text-white">
+              <h1 className="text-4xl sm:text-5xl lg:text-[50px] font-extrabold tracking-tight leading-[1.08] text-white">
                 Pet Supplement
                 <br />
                 <span className="text-brand-goldText">Contract Manufacturer</span>
                 <br />
-                — Built to Scale
+                for Private Label Brands
                 <span className="inline-block align-middle ml-2 -rotate-12">
                   <BoneAccentSvg />
                 </span>

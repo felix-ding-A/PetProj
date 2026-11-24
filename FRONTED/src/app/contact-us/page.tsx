@@ -1,10 +1,8 @@
 import type { Metadata } from 'next'
-import { ShieldCheck, Clock, FileCheck2, Mail, MessageCircle } from 'lucide-react'
+import { ShieldCheck, Clock, FileCheck2, Mail, MessageCircle, MapPin, Building2 } from 'lucide-react'
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
 import { InquiryForm } from '@/components/forms/InquiryForm'
-
-const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'info@novapetnutra.com'
-const WHATSAPP_RAW = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '').replace(/[^\d]/g, '')
+import { COMPANY } from '@/lib/company'
 
 export const metadata: Metadata = {
   title: 'Request a Custom Pet Supplement Quote | NovaPet Nutra',
@@ -82,23 +80,35 @@ export default async function ContactUsPage({
               </p>
               <div className="space-y-2.5 pt-1 text-xs font-extrabold">
                 <a
-                  href={`mailto:${CONTACT_EMAIL}`}
+                  href={`mailto:${COMPANY.email}`}
                   className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-brand-cream border border-brand-border hover:border-brand-gold text-brand-ink transition-colors"
                 >
                   <Mail className="w-4 h-4 text-amber-800 shrink-0" />
-                  <span>{CONTACT_EMAIL}</span>
+                  <span>{COMPANY.email}</span>
                 </a>
-                {WHATSAPP_RAW && (
-                  <a
-                    href={`https://wa.me/${WHATSAPP_RAW}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-[#25D366]/10 border border-[#25D366]/40 hover:bg-[#25D366]/20 text-brand-ink transition-colors"
-                  >
-                    <MessageCircle className="w-4 h-4 text-[#16A34A] shrink-0" />
-                    <span>Chat on WhatsApp →</span>
-                  </a>
-                )}
+                <a
+                  href={`https://wa.me/${COMPANY.whatsappDigits}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-[#25D366]/10 border border-[#25D366]/40 hover:bg-[#25D366]/20 text-brand-ink transition-colors"
+                >
+                  <MessageCircle className="w-4 h-4 text-[#16A34A] shrink-0" />
+                  <span>WhatsApp: {COMPANY.whatsappDisplay} →</span>
+                </a>
+              </div>
+
+              <div className="pt-3 mt-3 border-t border-brand-border space-y-2 text-[11px] text-brand-muted leading-relaxed">
+                <div className="flex items-start gap-2">
+                  <Building2 className="w-3.5 h-3.5 text-amber-800 shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-brand-ink block">{COMPANY.legalName}</strong>
+                    <span>D-U-N-S® Number: <strong>{COMPANY.duns}</strong></span>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <MapPin className="w-3.5 h-3.5 text-amber-800 shrink-0 mt-0.5" />
+                  <span>{COMPANY.address.full}</span>
+                </div>
               </div>
             </div>
           </aside>

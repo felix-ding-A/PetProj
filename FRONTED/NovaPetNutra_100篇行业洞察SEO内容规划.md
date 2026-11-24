@@ -32,7 +32,7 @@
 
 | # | 英文标题（Title） | 建议 Slug | 核心目标词 | 阶段 |
 |---|---|---|---|---|
-| 1 | How to Choose a Pet Supplement Contract Manufacturer: 2026 Buyer Checklist | `how-to-choose-pet-supplement-contract-manufacturer` | pet supplement contract manufacturer | BOFU |
+| 1 | How to Choose a Pet Supplement Contract Manufacturer: 2027 Buyer Checklist | `how-to-choose-pet-supplement-contract-manufacturer` | pet supplement contract manufacturer | BOFU |
 | 2 | Private Label vs. Custom OEM Pet Supplements: MOQ, Cost & Lead Time | `private-label-vs-custom-oem-pet-supplements` | private label vs custom oem pet supplements | BOFU |
 | 3 | Direct Pet Supplement Factory vs. Trading Company: 7 Ways to Verify | `pet-supplement-factory-vs-trading-company` | pet supplement factory | BOFU |
 | 4 | How Much Does It Cost to Manufacture Private Label Pet Supplements? | `cost-to-manufacture-private-label-pet-supplements` | private label pet supplement cost | BOFU |
@@ -155,18 +155,18 @@
 
 | # | 英文白皮书标题（Whitepaper / Report Title） | 建议 Slug | 核心目标词 | 阶段 |
 |---|---|---|---|---|
-| 75 | **2026 Global Pet Supplement Contract Manufacturing Whitepaper: Formats, MOQs & Margins** | `2026-pet-supplement-contract-manufacturing-whitepaper` | pet supplement manufacturing whitepaper | BOFU |
+| 75 | **2027 Global Pet Supplement Contract Manufacturing Whitepaper: Formats, MOQs & Margins** | `2026-pet-supplement-contract-manufacturing-whitepaper` | pet supplement manufacturing whitepaper | BOFU |
 | 76 | **Whitepaper: Cold-Extrusion Engineering & Active Retention Benchmarks in Pet Soft Chews** | `whitepaper-cold-extrusion-pet-soft-chews-benchmarks` | pet soft chew manufacturing whitepaper | MOFU |
-| 77 | **2026 Feline Supplement Market & Formulation Safety Whitepaper for Pet Brands** | `2026-feline-supplement-formulation-safety-whitepaper` | cat supplement manufacturer whitepaper | BOFU |
+| 77 | **2027 Feline Supplement Market & Formulation Safety Whitepaper for Pet Brands** | `2026-feline-supplement-formulation-safety-whitepaper` | cat supplement manufacturer whitepaper | BOFU |
 | 78 | **Whitepaper: US, EU, UK & Australia Regulatory Roadmap for Pet Supplement Exporters** | `whitepaper-us-eu-uk-australia-pet-supplement-regulations` | global pet supplement compliance guide | BOFU |
-| 79 | **2026 Private Label Pet Supplement COGS, MOQ & Packaging Benchmark Report** | `2026-private-label-pet-supplement-cogs-moq-report` | private label pet supplement benchmarks | BOFU |
+| 79 | **2027 Private Label Pet Supplement COGS, MOQ & Packaging Benchmark Report** | `2026-private-label-pet-supplement-cogs-moq-report` | private label pet supplement benchmarks | BOFU |
 | 80 | **Whitepaper: Palatability Science & Acceptance Testing Standards in Dog & Cat Nutrition** | `whitepaper-pet-supplement-palatability-science` | pet supplement palatability whitepaper | MOFU |
-| 81 | **2026 Marine & Plant Omega-3 Oxidation Control Whitepaper for Pet Liquid Brands** | `2026-pet-omega-3-oxidation-control-whitepaper` | pet fish oil quality whitepaper | MOFU |
+| 81 | **2027 Marine & Plant Omega-3 Oxidation Control Whitepaper for Pet Liquid Brands** | `2026-pet-omega-3-oxidation-control-whitepaper` | pet fish oil quality whitepaper | MOFU |
 | 82 | **Whitepaper: Clean-Label & Sustainable Packaging Transition in Pet Nutraceuticals (PCR & Pouches)** | `whitepaper-sustainable-packaging-pet-nutraceuticals` | sustainable pet supplement packaging report | TOFU |
-| 83 | **2026 Senior Dog & Cat Nutrition Trends: Dosage Format Shifts & Ingredient Adoption** | `2026-senior-pet-nutrition-dosage-trends-report` | senior pet supplement market trends | TOFU |
+| 83 | **2027 Senior Dog & Cat Nutrition Trends: Dosage Format Shifts & Ingredient Adoption** | `2026-senior-pet-nutrition-dosage-trends-report` | senior pet supplement market trends | TOFU |
 | 84 | **Whitepaper: Amazon FBA & Omnichannel Supply Chain Playbook for Pet Supplement Brands** | `whitepaper-amazon-fba-pet-supplement-supply-chain` | amazon fba pet supplement playbook | BOFU |
 | 85 | **Whitepaper: Species-Specific Toxicology & Excipient Exclusion Reference for Pet R&D Teams** | `whitepaper-pet-supplement-excipient-safety-reference` | pet supplement formulation safety guide | MOFU |
-| 86 | **2026 Equine, Poultry & Small-Pet Supplement Manufacturing Opportunity Report** | `2026-equine-poultry-small-pet-supplement-report` | equine poultry supplement manufacturer | MOFU |
+| 86 | **2027 Equine, Poultry & Small-Pet Supplement Manufacturing Opportunity Report** | `2026-equine-poultry-small-pet-supplement-report` | equine poultry supplement manufacturer | MOFU |
 
 ---
 

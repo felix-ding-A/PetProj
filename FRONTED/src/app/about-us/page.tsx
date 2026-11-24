@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
 import { BiscuitMascotSvg } from '@/components/illustrations/Mascots'
 import { CTABanner, QualityTrio } from '@/components/sections/CommonSections'
+import { COMPANY } from '@/lib/company'
 
 export const metadata: Metadata = {
   title: 'About NovaPet Nutra | Pet Supplement OEM/ODM Partner',
@@ -53,6 +54,41 @@ export default function AboutUsPage() {
           alongside 500-unit pilot MOQs, helping emerging pet brands and established distributors
           scale with controlled inventory risk.
         </p>
+        <div className="soft-card rounded-3xl p-6 space-y-2.5 bg-white">
+          <h3 className="text-base font-extrabold text-brand-ink">Corporate &amp; Trade Verification</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+            <div>
+              <span className="text-brand-muted block">Legal Entity</span>
+              <strong className="text-brand-ink">{COMPANY.legalName}</strong>
+            </div>
+            <div>
+              <span className="text-brand-muted block">D-U-N-S® Number</span>
+              <strong className="text-brand-ink">{COMPANY.duns}</strong>
+            </div>
+            <div className="sm:col-span-2">
+              <span className="text-brand-muted block">Headquarters Address</span>
+              <strong className="text-brand-ink">{COMPANY.address.full}</strong>
+            </div>
+            <div>
+              <span className="text-brand-muted block">B2B Email</span>
+              <a href={`mailto:${COMPANY.email}`} className="font-bold text-amber-800 hover:underline">
+                {COMPANY.email}
+              </a>
+            </div>
+            <div>
+              <span className="text-brand-muted block">WhatsApp Trade Desk</span>
+              <a
+                href={`https://wa.me/${COMPANY.whatsappDigits}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-amber-800 hover:underline"
+              >
+                {COMPANY.whatsappDisplay}
+              </a>
+            </div>
+          </div>
+        </div>
+
         <div className="pt-2 flex flex-wrap gap-4">
           <Link href="/about-us/certifications" className="pill-gold-btn px-6 py-3 rounded-full text-xs font-extrabold">
             View Our Certifications →

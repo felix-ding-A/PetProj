@@ -1,9 +1,7 @@
 import Link from 'next/link'
-import { Mail, MessageCircle } from 'lucide-react'
+import { Mail, MessageCircle, MapPin, ShieldCheck } from 'lucide-react'
 import { NovaPetNutraLogo } from '@/components/illustrations/Mascots'
-
-const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'info@novapetnutra.com'
-const WHATSAPP_RAW = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '').replace(/[^\d]/g, '')
+import { COMPANY } from '@/lib/company'
 
 export function Footer() {
   return (
@@ -23,25 +21,34 @@ export function Footer() {
             <div className="text-[11px] font-semibold text-brand-goldText">
               FDA-Registered Facility · cGMP · ISO 22000 · HACCP · ISO-17025 Lot COAs
             </div>
+            <div className="space-y-1.5 pt-1 text-[11px] text-white/75">
+              <div className="font-bold text-white">{COMPANY.legalName}</div>
+              <div className="flex items-start gap-1.5">
+                <MapPin className="w-3.5 h-3.5 text-brand-goldText shrink-0 mt-0.5" />
+                <span>{COMPANY.address.full}</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <ShieldCheck className="w-3.5 h-3.5 text-brand-goldText shrink-0" />
+                <span>D-U-N-S® Number: <strong className="text-white">{COMPANY.duns}</strong></span>
+              </div>
+            </div>
             <div className="flex flex-wrap items-center gap-4 pt-1 text-xs font-bold text-white/90">
               <a
-                href={`mailto:${CONTACT_EMAIL}`}
+                href={`mailto:${COMPANY.email}`}
                 className="inline-flex items-center gap-1.5 hover:text-brand-goldText transition-colors"
               >
                 <Mail className="w-3.5 h-3.5 text-brand-goldText" />
-                <span>{CONTACT_EMAIL}</span>
+                <span>{COMPANY.email}</span>
               </a>
-              {WHATSAPP_RAW && (
-                <a
-                  href={`https://wa.me/${WHATSAPP_RAW}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 hover:text-brand-goldText transition-colors"
-                >
-                  <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
-                  <span>WhatsApp Direct</span>
-                </a>
-              )}
+              <a
+                href={`https://wa.me/${COMPANY.whatsappDigits}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 hover:text-brand-goldText transition-colors"
+              >
+                <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
+                <span>WhatsApp: {COMPANY.whatsappDisplay}</span>
+              </a>
             </div>
           </div>
 
@@ -93,7 +100,7 @@ export function Footer() {
 
         <div className="pt-6 space-y-3 text-[11px] text-white/55">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div>© {new Date().getFullYear()} NovaPet Nutra. All rights reserved. Private Label Pet Nutrition OEM/ODM.</div>
+            <div>© {new Date().getFullYear()} {COMPANY.brandName} · Operated by {COMPANY.legalName}. All rights reserved.</div>
             <div className="flex items-center gap-5">
               <Link href="/privacy-policy" className="hover:text-white">Privacy Policy</Link>
               <Link href="/sitemap.xml" className="hover:text-white">XML Sitemap</Link>

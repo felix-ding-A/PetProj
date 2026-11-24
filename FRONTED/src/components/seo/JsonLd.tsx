@@ -1,4 +1,5 @@
 import React from 'react'
+import { COMPANY } from '@/lib/company'
 
 export function JsonLd({ data }: { data: Record<string, unknown> }) {
   return (
@@ -33,13 +34,26 @@ export function buildOrganizationJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'NovaPet Nutra',
+    name: COMPANY.brandName,
+    legalName: COMPANY.legalName,
+    duns: COMPANY.duns,
     url: SITE_URL,
+    email: COMPANY.email,
+    telephone: COMPANY.whatsappDisplay,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: COMPANY.address.street,
+      addressLocality: COMPANY.address.city,
+      addressRegion: COMPANY.address.region,
+      addressCountry: COMPANY.address.country,
+    },
     description:
       'FDA-registered, cGMP-certified B2B contract manufacturer of private label and custom OEM/ODM pet supplements across chewable tablets, capsules, powders, drops, and pastes.',
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'B2B Sales & Custom Formulation',
+      telephone: COMPANY.whatsappDisplay,
+      email: COMPANY.email,
       url: `${SITE_URL}/contact-us`,
       availableLanguage: ['English'],
     },

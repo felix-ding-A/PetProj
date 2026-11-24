@@ -1,8 +1,29 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { CheckCircle2, AlertCircle, Trash2 } from 'lucide-react'
 import { useQuoteBox } from '@/lib/quote-context'
+
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (
+        container: HTMLElement,
+        options: {
+          sitekey: string
+          theme?: 'light' | 'dark' | 'auto'
+          callback?: (token: string) => void
+          'expired-callback'?: () => void
+          'error-callback'?: () => void
+        }
+      ) => string
+      reset: (widgetId?: string) => void
+      remove: (widgetId: string) => void
+    }
+  }
+}
+
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ''
 
 const DOSAGE_OPTIONS = [
   'Chewable Tablets / Soft Chews',
@@ -61,9 +82,52 @@ export function InquiryForm({ preselectedForm }: { preselectedForm?: string }) {
 
   const [honeypot, setHoneypot] = useState('')
   const [formLoadedAt] = useState<number>(() => Date.now())
+  const [turnstileToken, setTurnstileToken] = useState('')
+  const turnstileContainerRef = useRef<HTMLDivElement | null>(null)
+  const turnstileWidgetIdRef = useRef<string | null>(null)
   const [submitting, setSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
   const [submitted, setSubmitted] = useState(false)
+
+  useEffect(() => {
+    if (!TURNSTILE_SITE_KEY || !turnstileContainerRef.current) return
+
+    const renderWidget = () => {
+      if (!window.turnstile || !turnstileContainerRef.current || turnstileWidgetIdRef.current) return
+      turnstileWidgetIdRef.current = window.turnstile.render(turnstileContainerRef.current, {
+        sitekey: TURNSTILE_SITE_KEY,
+        theme: 'light',
+        callback: (token) => setTurnstileToken(token),
+        'expired-callback': () => setTurnstileToken(''),
+        'error-callback': () => setTurnstileToken(''),
+      })
+    }
+
+    if (window.turnstile) {
+      renderWidget()
+    } else {
+      const existing = document.querySelector<HTMLScriptElement>(
+        'script[src^="https://challenges.cloudflare.com/turnstile/v0/api.js"]'
+      )
+      if (existing) {
+        existing.addEventListener('load', renderWidget, { once: true })
+      } else {
+        const script = document.createElement('script')
+        script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'
+        script.async = true
+        script.defer = true
+        script.onload = renderWidget
+        document.head.appendChild(script)
+      }
+    }
+
+    return () => {
+      if (turnstileWidgetIdRef.current && window.turnstile) {
+        window.turnstile.remove(turnstileWidgetIdRef.current)
+        turnstileWidgetIdRef.current = null
+      }
+    }
+  }, [])
 
   const toggleItem = (list: string[], value: string, setter: (v: string[]) => void) => {
     setter(list.includes(value) ? list.filter((i) => i !== value) : [...list, value])
@@ -99,6 +163,11 @@ export function InquiryForm({ preselectedForm }: { preselectedForm?: string }) {
         clientScreen: `${window.screen.width}x${window.screen.height}`,
         websiteUrl: honeypot,
         formLoadedAt: String(formLoadedAt),
+        turnstileToken,
+      }
+
+      if (TURNSTILE_SITE_KEY && !turnstileToken) {
+        throw new Error('Please wait for the Cloudflare security check to complete.')
       }
 
       const res = await fetch('/api/inquiry', {
@@ -108,6 +177,10 @@ export function InquiryForm({ preselectedForm }: { preselectedForm?: string }) {
       })
       const data = await res.json()
       if (!res.ok) {
+        if (turnstileWidgetIdRef.current && window.turnstile) {
+          window.turnstile.reset(turnstileWidgetIdRef.current)
+          setTurnstileToken('')
+        }
         throw new Error(data?.error || 'Failed to submit inquiry. Please check your inputs.')
       }
 
@@ -463,6 +536,12 @@ export function InquiryForm({ preselectedForm }: { preselectedForm?: string }) {
           })}
         </div>
       </fieldset>
+
+      {TURNSTILE_SITE_KEY && (
+        <div className="flex justify-start">
+          <div ref={turnstileContainerRef} />
+        </div>
+      )}
 
       {submitError && (
         <div className="rounded-2xl bg-red-50 border border-red-200 p-4 text-xs font-bold text-red-700 flex items-center gap-2">

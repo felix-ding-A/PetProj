@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { getDosageForms, getEffects, getIngredients, getPets } from '@/lib/data'
@@ -144,7 +144,7 @@ export default async function CustomFormulationPage() {
           <div className="flex flex-wrap gap-2.5">
             {[
               { href: '/custom-formulation/dogs/chewable-tablet/joint-health', label: 'Dogs · Chewable Tablets · Joint Health' },
-              { href: '/custom-formulation/dogs/chewable-tablet/allergy-relief', label: 'Dogs · Chewable Tablets · Allergy Relief' },
+              { href: '/custom-formulation/dogs/chewable-tablet/gut-health', label: 'Dogs · Chewable Tablets · Gut Health' },
               { href: '/custom-formulation/cats/paste/hairball-control', label: 'Cats · Pastes · Hairball Control' },
               { href: '/custom-formulation/cats/capsule/gut-health', label: 'Cats · Capsules · Gut Health' },
               { href: '/custom-formulation/dogs/drops/skin-coat', label: 'Dogs · Drops · Skin & Coat' },

@@ -47,7 +47,7 @@ export default async function HomePage() {
   const featuredPrimary = activeProducts.find((p) => p.slug === 'joint-support') ?? activeProducts[0]
   const featuredSecondary = [
     activeProducts.find((p) => p.slug === 'probiotic') ?? activeProducts[1],
-    activeProducts.find((p) => p.slug === 'skin-allergy-drops') ?? activeProducts[2],
+    activeProducts.find((p) => p.slug === 'collagen-drops') ?? activeProducts[2],
     activeProducts.find((p) => p.slug === 'pet-digestive-paste') ?? activeProducts[3],
   ].filter(Boolean)
 
@@ -79,7 +79,7 @@ export default async function HomePage() {
                 Your dedicated <strong>pet supplement manufacturer</strong> for private label, white label, and
                 custom OEM/ODM{' '}
                 <strong>chewable tablets, capsules, powders, liquid drops, and pastes</strong>. Launch from{' '}
-                <strong>65 turnkey dog &amp; cat categories</strong> starting at a{' '}
+                <strong>{activeProducts.length} turnkey dog &amp; cat categories</strong> starting at a{' '}
                 <strong>500-unit pilot MOQ</strong>.
               </p>
 
@@ -95,7 +95,7 @@ export default async function HomePage() {
                   href="/private-label"
                   className="px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/25 text-white text-xs sm:text-sm font-bold transition-colors"
                 >
-                  Explore 65 Private Label Categories
+                  Explore {activeProducts.length} Private Label Categories
                 </Link>
               </div>
 
@@ -262,7 +262,7 @@ export default async function HomePage() {
               href="/private-label"
               className="px-5 py-2.5 rounded-full bg-white border border-brand-border text-xs font-extrabold text-brand-ink hover:border-brand-gold transition-colors self-start md:self-auto"
             >
-              View All 65 Categories →
+              View All {activeProducts.length} Categories →
             </Link>
           </div>
 

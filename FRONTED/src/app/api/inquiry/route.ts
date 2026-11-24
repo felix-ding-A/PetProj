@@ -252,9 +252,15 @@ export async function POST(req: Request) {
       )
     }
 
-    // 6. Optional Cloudflare Turnstile verification
-    const turnstileSecret = process.env.TURNSTILE_SECRET_KEY
-    if (turnstileSecret && data.turnstileToken) {
+    // 6. Strict Cloudflare Turnstile verification whenever TURNSTILE_SECRET_KEY is configured
+    const turnstileSecret = process.env.TURNSTILE_SECRET_KEY?.trim()
+    if (turnstileSecret) {
+      if (!data.turnstileToken) {
+        return Response.json(
+          { error: 'Please complete the human verification check before submitting.' },
+          { status: 400 }
+        )
+      }
       const verifyRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },

@@ -11,7 +11,7 @@ export const revalidate = 60
 export const metadata: Metadata = {
   title: 'Private Label & White Label Pet Supplements | NovaPet Nutra',
   description:
-    'Browse 65 turnkey private label and white label pet supplement categories across chews, capsules, powders, liquid drops, and pastes. 500-unit pilot MOQ.',
+    'Browse 50+ turnkey private label and white label pet supplement categories across chews, capsules, powders, liquid drops, and pastes. 500-unit pilot MOQ.',
   alternates: { canonical: '/private-label' },
 }
 

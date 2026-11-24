@@ -1,13 +1,13 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getEffects } from '@/lib/data'
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
 import { CTABanner } from '@/components/sections/CommonSections'
 
 export const metadata: Metadata = {
-  title: '16 Pet Supplement Health Effects & Benefits | NovaPet Nutra',
+  title: 'Pet Supplement Wellness Categories | NovaPet Nutra',
   description:
-    'Formulate across 16 pet-specific health benefits: joint mobility, gut probiotics, skin & coat, hairball control, dental care, calming, and urinary support.',
+    'Formulate across compliant pet wellness categories: joint mobility, digestive probiotics, skin & coat, hairball control, dental care, and calming.',
   alternates: { canonical: '/custom-formulation/effects' },
 }
 
@@ -27,7 +27,7 @@ export default async function EffectsIndexPage() {
             ]}
           />
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
-            16 Pet-Specific <span className="text-brand-goldText">Health Effects</span>
+            Pet-Specific <span className="text-brand-goldText">Wellness Categories</span>
           </h1>
         </div>
       </section>

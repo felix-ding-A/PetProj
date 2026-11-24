@@ -68,7 +68,7 @@ export function Footer() {
               <li><Link href="/private-label" className="hover:text-brand-goldText">Private Label Catalog</Link></li>
               <li><Link href="/custom-formulation" className="hover:text-brand-goldText">Custom Formulation R&amp;D</Link></li>
               <li><Link href="/custom-formulation/by-pet" className="hover:text-brand-goldText">Formulas by Pet Species</Link></li>
-              <li><Link href="/custom-formulation/effects" className="hover:text-brand-goldText">16 Pet Health Effects</Link></li>
+              <li><Link href="/custom-formulation/effects" className="hover:text-brand-goldText">Pet Wellness Categories</Link></li>
               <li><Link href="/custom-formulation/ingredients" className="hover:text-brand-goldText">Ingredient Categories</Link></li>
             </ul>
           </div>
@@ -91,13 +91,18 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-white/55">
-          <div>© {new Date().getFullYear()} NovaPet Nutra. All rights reserved. Private Label Pet Nutrition OEM/ODM.</div>
-          <div className="flex items-center gap-5">
-            <Link href="/privacy-policy" className="hover:text-white">Privacy Policy</Link>
-            <Link href="/sitemap.xml" className="hover:text-white">XML Sitemap</Link>
-            <Link href="/contact-us" className="hover:text-white">B2B Inquiry Desk</Link>
+        <div className="pt-6 space-y-3 text-[11px] text-white/55">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>© {new Date().getFullYear()} NovaPet Nutra. All rights reserved. Private Label Pet Nutrition OEM/ODM.</div>
+            <div className="flex items-center gap-5">
+              <Link href="/privacy-policy" className="hover:text-white">Privacy Policy</Link>
+              <Link href="/sitemap.xml" className="hover:text-white">XML Sitemap</Link>
+              <Link href="/contact-us" className="hover:text-white">B2B Inquiry Desk</Link>
+            </div>
           </div>
+          <p className="text-[10px] text-white/45 leading-relaxed">
+            B2B Manufacturing Notice: NovaPet Nutra provides contract manufacturing for complementary pet feeds and nutritional supplements. Information on this website is intended for brand owners and trade buyers and does not constitute veterinary advice or claims to diagnose, treat, cure, or prevent any disease.
+          </p>
         </div>
       </div>
     </footer>

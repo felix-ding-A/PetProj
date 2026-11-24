@@ -261,7 +261,7 @@ export function CTABanner({
             href="/private-label"
             className="px-6 py-3.5 rounded-full bg-white/15 hover:bg-white/25 border border-white/25 text-white text-sm font-bold transition-colors"
           >
-            Browse 65 Categories
+            Browse Private Label Catalog
           </Link>
         </div>
       </div>

@@ -1,4 +1,4 @@
-﻿import React from 'react'
+import React from 'react'
 import type { DosageShortSlug } from '@/lib/data/types'
 
 /**
@@ -82,7 +82,10 @@ export function NovaPetNutraLogo({
   }
 
   return (
-    <div className={`inline-flex items-center gap-3 select-none ${className}`}>
+    <div
+      className={`inline-flex items-center gap-3 select-none font-logo ${className}`}
+      style={{ fontFamily: 'var(--font-logo-jakarta), ui-sans-serif, system-ui, sans-serif' }}
+    >
       {/* Icon Badge */}
       <svg
         viewBox="0 0 128 128"

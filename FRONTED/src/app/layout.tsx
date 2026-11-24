@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Plus_Jakarta_Sans } from 'next/font/google'
+import { DM_Sans, Playfair_Display, Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.css'
 import { QuoteBoxProvider } from '@/lib/quote-context'
 import { Header } from '@/components/layout/Header'
@@ -10,10 +10,24 @@ import { CookieConsentAndAnalytics } from '@/components/analytics/CookieConsentA
 import { JsonLd, SITE_URL, buildOrganizationJsonLd, buildWebsiteJsonLd } from '@/components/seo/JsonLd'
 import { isUsingDevSeed } from '@/lib/data'
 
-const plusJakarta = Plus_Jakarta_Sans({
+const dmSans = DM_Sans({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
-  variable: '--font-plus-jakarta',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-sans-body',
+  display: 'swap',
+})
+
+const playfairDisplay = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['500', '600', '700', '800'],
+  variable: '--font-display-serif',
+  display: 'swap',
+})
+
+const plusJakartaLogo = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  weight: ['700', '800'],
+  variable: '--font-logo-jakarta',
   display: 'swap',
 })
 
@@ -47,7 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const showDevSeedBanner = isUsingDevSeed()
 
   return (
-    <html lang="en" className={plusJakarta.variable}>
+    <html lang="en" className={`${dmSans.variable} ${playfairDisplay.variable} ${plusJakartaLogo.variable}`}>
       <body className="antialiased selection:bg-brand-gold selection:text-brand-ink min-h-screen flex flex-col">
         <JsonLd data={buildOrganizationJsonLd()} />
         <JsonLd data={buildWebsiteJsonLd()} />

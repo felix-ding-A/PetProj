@@ -1,7 +1,9 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-sans-body), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display-serif), Georgia, Cambria, "Times New Roman", serif;
+  --font-logo: var(--font-logo-jakarta), ui-sans-serif, system-ui, sans-serif;
 
   /* NovaPet Nutra Warm Amber Gold & Natural Cream Palette */
   --color-brand-gold: #F5C443;
@@ -29,7 +31,13 @@ html {
 body {
   background-color: #FAF8F4;
   color: #1E1B16;
-  font-family: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-sans-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+h1,
+h2 {
+  font-family: var(--font-display-serif), Georgia, Cambria, "Times New Roman", serif;
+  letter-spacing: -0.015em;
 }
 
 /* Warm Amber-Bronze Radial Studio Gradient */

@@ -27,7 +27,7 @@ export default async function EffectsIndexPage() {
             ]}
           />
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
-            16 Pet-Specific <span className="text-pawzo-goldText">Health Effects</span>
+            16 Pet-Specific <span className="text-brand-goldText">Health Effects</span>
           </h1>
         </div>
       </section>
@@ -39,8 +39,8 @@ export default async function EffectsIndexPage() {
             href={`/custom-formulation/effects/${eff.slug}`}
             className="soft-card rounded-2xl p-6 space-y-2.5"
           >
-            <h2 className="font-extrabold text-base text-pawzo-ink">{eff.name}</h2>
-            <p className="text-xs text-pawzo-muted leading-relaxed">{eff.description}</p>
+            <h2 className="font-extrabold text-base text-brand-ink">{eff.name}</h2>
+            <p className="text-xs text-brand-muted leading-relaxed">{eff.description}</p>
             <div className="text-[11px] font-bold text-amber-800 pt-1">View blueprints →</div>
           </Link>
         ))}

@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
@@ -36,7 +36,7 @@ export default async function InsightsPage() {
             ]}
           />
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
-            Formulation <span className="text-pawzo-goldText">Insights &amp; B2B Guides</span>
+            Formulation <span className="text-brand-goldText">Insights &amp; B2B Guides</span>
           </h1>
           <p className="text-sm sm:text-base text-white/85 mt-3 max-w-2xl">
             Deep dives from our veterinary nutritionists, process engineers, and supply chain team.
@@ -48,7 +48,7 @@ export default async function InsightsPage() {
         {articles.map((post) => (
           <article key={post.slug} className="soft-card rounded-3xl overflow-hidden flex flex-col justify-between">
             {post.coverImageUrl && (
-              <Link href={`/insights/${post.slug}`} className="relative block w-full aspect-[16/9] bg-pawzo-cream">
+              <Link href={`/insights/${post.slug}`} className="relative block w-full aspect-[16/9] bg-brand-cream">
                 <Image
                   src={post.coverImageUrl}
                   alt={post.coverImageAlt || post.title}
@@ -63,16 +63,16 @@ export default async function InsightsPage() {
                 <div className="text-xs font-extrabold uppercase tracking-wider text-amber-800">
                   {post.category} · {formatDate(post.publishedAt)} · {post.readTime}
                 </div>
-                <h2 className="text-xl font-extrabold text-pawzo-ink leading-snug">
+                <h2 className="text-xl font-extrabold text-brand-ink leading-snug">
                   <Link href={`/insights/${post.slug}`} className="hover:text-amber-800">
                     {post.title}
                   </Link>
                 </h2>
-                <p className="text-sm text-pawzo-muted leading-relaxed">{post.excerpt}</p>
+                <p className="text-sm text-brand-muted leading-relaxed">{post.excerpt}</p>
               </div>
               <Link
                 href={`/insights/${post.slug}`}
-                className="text-xs font-extrabold text-pawzo-ink hover:text-amber-800 inline-flex items-center gap-1"
+                className="text-xs font-extrabold text-brand-ink hover:text-amber-800 inline-flex items-center gap-1"
               >
                 <span>Read full guide</span>
                 <ArrowRight className="w-3.5 h-3.5" />

@@ -16,7 +16,7 @@ const InquirySchema = z.object({
   healthFunctions: z.string().max(500).optional().default(''),
   keyIngredients: z.string().max(3000).optional().default(''),
   targetMarkets: z.string().max(500).optional().default('[]'),
-  needsComplianceDocs: z.string().max(10).optional().default('false'),
+  needsComplianceDocs: z.string().max(500).optional().default('[]'),
   shortlist: z.string().max(2000).optional().default('[]'),
   // Client-captured visitor metadata
   clientPageUrl: z.string().max(1000).optional().default(''),

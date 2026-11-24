@@ -1,4 +1,4 @@
-﻿import type { DosageShortSlug, ProductCategoryData } from './types'
+import type { DosageShortSlug, ProductCategoryData } from './types'
 
 interface RawProductSeed {
   name: string
@@ -69,7 +69,7 @@ const RAW_PRODUCTS: RawProductSeed[] = [
   { name: 'Feline Taurine Supplement Powder', slug: 'taurine-powder', form: 'powder', skuCount: 2, species: ['cats'], effects: ['longevity-anti-aging', 'eye-health'], keyIngredients: ['Pure USP Taurine', 'Hydrolyzed Bonito/Liver Base'], shortDescription: 'Essential feline cardiac and retinal taurine powder for raw and home-cooked cat diets.' },
   { name: 'L-Lysine Immune Powder', slug: 'lysine-powder', form: 'powder', skuCount: 2, species: ['cats'], effects: ['immune-support', 'respiratory-health'], keyIngredients: ['L-Lysine HCl', 'Taurine', 'Feline Savory Carrier'], shortDescription: 'Palatable feline L-lysine powder designed to blend invisibly into wet cat food.' },
   { name: 'Muscle & Weight Gainer Powder', slug: 'weight-gainer-powder', form: 'powder', skuCount: 4, species: ['dogs'], effects: ['conditioning'], keyIngredients: ['Whole Egg & Whey Protein', 'MCT Powder', 'BCAAs', 'Probiotics'], shortDescription: 'High-calorie protein topper supporting lean mass in active, working, and rescue dogs.' },
-  { name: 'Senior Aging Support Powder', slug: 'aging-support-powder', form: 'powder', skuCount: 1, effects: ['longevity-anti-aging', 'cognitive-health'], keyIngredients: ['CoQ10', 'MCT Powder', 'Collagen Peptides', 'Lion’s Mane'], shortDescription: 'Comprehensive senior kibble topper supporting joint, brain, and heart vitality.' },
+  { name: 'Senior Aging Support Powder', slug: 'aging-support-powder', form: 'powder', skuCount: 1, effects: ['longevity-anti-aging', 'cognitive-health'], keyIngredients: ['CoQ10', 'MCT Powder', 'Collagen Peptides', 'Lion’s Mane'], shortDescription: 'Multi-benefit senior kibble topper supporting joint, brain, and heart vitality.' },
   { name: 'Calming Meal Topper Powder', slug: 'calming-powder', form: 'powder', skuCount: 2, effects: ['calming-stress'], keyIngredients: ['L-Theanine', 'Chamomile', 'L-Tryptophan', 'Colostrum Calming Complex'], shortDescription: 'Daily calming powder available in tubs or single-serve travel stick packs.' },
   { name: 'Respiratory Support Powder', slug: 'respiratory-powder', form: 'powder', skuCount: 1, effects: ['respiratory-health'], keyIngredients: ['Mullein', 'Marshmallow Root', 'Quercetin', 'Vitamin C'], shortDescription: 'Botanical respiratory topper supporting clear airways during seasonal pollen peaks.' },
   { name: 'Beef & Chicken Bone Broth Powder', slug: 'bone-broth-powder', form: 'powder', skuCount: 1, effects: ['joint-health', 'gut-health'], keyIngredients: ['Grass-Fed Bone Broth Protein', 'Natural Collagen', 'Turmeric', 'Pumpkin'], shortDescription: 'Instant hydrating bone broth topper rich in natural collagen and amino acids.' },
@@ -104,14 +104,22 @@ const RAW_PRODUCTS: RawProductSeed[] = [
   { name: 'Equine Nutritional Paste', slug: 'horse-nutritional-paste', form: 'paste', skuCount: 3, species: ['small-pets'], effects: ['conditioning', 'gut-health'], keyIngredients: ['Chelated Electrolytes', 'B-Complex', 'Live Yeast Probiotics', 'Vitamin E'], shortDescription: 'Calibrated 60mL dial-a-dose oral syringe paste for performance and travel horses.' },
   { name: 'Pet Digestive & Hairball Paste', slug: 'pet-digestive-paste', form: 'paste', skuCount: 4, species: ['cats', 'dogs'], effects: ['hairball-control', 'gut-health'], keyIngredients: ['Malt Extract', 'Psyllium Fiber', 'Prebiotic MOS', 'Natural Plant Oils'], shortDescription: 'Petroleum-free, vacuum-emulsified lickable paste for hairball passage and gut comfort.' },
   { name: 'Pet Enzymatic Toothpaste', slug: 'pet-enzymatic-toothpaste', form: 'paste', skuCount: 3, effects: ['dental-oral-care'], keyIngredients: ['Glucose Oxidase', 'Lactoperoxidase', 'Mild Hydrated Silica', 'Poultry/Mint Flavor'], shortDescription: 'Swallow-safe, xylitol-free enzymatic toothpaste designed to break down dental plaque.' },
-  { name: 'Pet No-Brush Dental Gel', slug: 'pet-dental-gel', form: 'paste', skuCount: 2, effects: ['dental-oral-care'], keyIngredients: ['Ascophyllum Kelp', 'Zinc Gluconate', 'Peppermint Oil (Pet-Safe)', 'Aloe Vera'], shortDescription: 'Cling-on no-brush oral care gel in narrow-nozzle tubes for effortless gum application.' },
+  { name: 'Pet No-Brush Dental Gel', slug: 'pet-dental-gel', form: 'paste', skuCount: 2, effects: ['dental-oral-care'], keyIngredients: ['Ascophyllum Kelp', 'Zinc Gluconate', 'Peppermint Oil (Pet-Safe)', 'Aloe Vera'], shortDescription: 'Cling-on no-brush oral care gel in narrow-nozzle tubes for direct gum application.' },
 ]
+
+const ANIMAL_MODIFIER_RE = /\b(pet|dog|cat|feline|canine|equine|horse|poultry)\b/i
 
 export const PRODUCTS_SEED: ProductCategoryData[] = RAW_PRODUCTS.map((item) => {
   const defaults = DEFAULT_MOQ[item.form]
-  const rawTitle = `Private Label ${item.name} | NovaPet Nutra`
-  const metaTitle = rawTitle.length <= 62 ? rawTitle : `${item.name} OEM | NovaPet Nutra`.slice(0, 62)
-  const rawDesc = `cGMP OEM & private label ${item.name.toLowerCase()}. ${item.shortDescription}`
+  const petName = ANIMAL_MODIFIER_RE.test(item.name) ? item.name : `Pet ${item.name}`
+  const rawTitle = `Private Label ${petName} | NovaPet Nutra`
+  const metaTitle =
+    rawTitle.length <= 62
+      ? rawTitle
+      : `${petName} Manufacturer | NovaPet Nutra`.length <= 62
+        ? `${petName} Manufacturer | NovaPet Nutra`
+        : `${petName} OEM | NovaPet Nutra`.slice(0, 62)
+  const rawDesc = `cGMP private label & white label ${petName.toLowerCase()} manufacturer. ${item.shortDescription}`
   const metaDescription = rawDesc.length <= 159 ? rawDesc : `${rawDesc.slice(0, 156)}...`
 
   return {

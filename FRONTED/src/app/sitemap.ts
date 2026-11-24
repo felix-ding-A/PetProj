@@ -7,6 +7,7 @@ import {
   getIngredients,
   getInsights,
   getPets,
+  isIndexableMatrixCombo,
 } from '@/lib/data'
 import { SITE_URL } from '@/components/seo/JsonLd'
 
@@ -84,10 +85,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })
   }
 
-  // 240 controlled cross pages (3 pets x 5 forms x 16 effects)
+  // High-value commercial cross pages only (niche combos carry noindex, follow)
   for (const pet of pets) {
     for (const form of ALLOWED_DOSAGE_SHORT_SLUGS) {
       for (const eff of effects) {
+        if (!isIndexableMatrixCombo(pet.slug, form, eff.slug)) continue
         entries.push({
           url: `${SITE_URL}/custom-formulation/${pet.slug}/${form}/${eff.slug}`,
           lastModified: now,

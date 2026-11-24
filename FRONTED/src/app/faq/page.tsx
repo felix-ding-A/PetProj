@@ -27,7 +27,7 @@ export default async function FaqPage() {
             ]}
           />
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
-            B2B Procurement <span className="text-pawzo-goldText">FAQ</span>
+            B2B Procurement <span className="text-brand-goldText">FAQ</span>
           </h1>
           <p className="text-sm sm:text-base text-white/85 mt-3 max-w-2xl">
             Everything brand founders and procurement managers ask before starting a private label or custom OEM

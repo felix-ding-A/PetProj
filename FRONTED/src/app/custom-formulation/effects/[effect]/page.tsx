@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getDosageForms, getEffectBySlug, getEffects, getPets } from '@/lib/data'
@@ -60,12 +60,12 @@ export default async function EffectDetailPage({
 
       <section className="py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         <div className="soft-card rounded-3xl p-7">
-          <h2 className="text-lg font-extrabold text-pawzo-ink mb-3">Commonly Formulated Actives</h2>
+          <h2 className="text-lg font-extrabold text-brand-ink mb-3">Commonly Formulated Actives</h2>
           <div className="flex flex-wrap gap-2">
             {item.keyActives.map((a) => (
               <span
                 key={a}
-                className="px-3.5 py-1.5 rounded-full bg-pawzo-creamDeep border border-pawzo-border text-xs font-extrabold text-pawzo-ink"
+                className="px-3.5 py-1.5 rounded-full bg-brand-creamDeep border border-brand-border text-xs font-extrabold text-brand-ink"
               >
                 {a}
               </span>
@@ -74,19 +74,19 @@ export default async function EffectDetailPage({
         </div>
 
         <div className="space-y-4">
-          <h2 className="text-xl font-extrabold text-pawzo-ink">
+          <h2 className="text-xl font-extrabold text-brand-ink">
             Explore {item.name} Blueprints by Species &amp; Dosage Form
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {pets.map((pet) => (
-              <div key={pet.slug} className="bg-white rounded-2xl border border-pawzo-border p-5 space-y-3">
-                <h3 className="font-extrabold text-base text-pawzo-ink">{pet.name}</h3>
+              <div key={pet.slug} className="bg-white rounded-2xl border border-brand-border p-5 space-y-3">
+                <h3 className="font-extrabold text-base text-brand-ink">{pet.name}</h3>
                 <ul className="space-y-2 text-xs font-bold">
                   {forms.map((f) => (
                     <li key={f.shortSlug}>
                       <Link
                         href={`/custom-formulation/${pet.slug}/${f.shortSlug}/${item.slug}`}
-                        className="text-amber-800 hover:text-pawzo-ink"
+                        className="text-amber-800 hover:text-brand-ink"
                       >
                         {pet.name} {item.name} — {f.name} →
                       </Link>

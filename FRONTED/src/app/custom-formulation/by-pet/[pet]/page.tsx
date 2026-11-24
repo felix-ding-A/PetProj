@@ -58,7 +58,14 @@ export default async function ByPetDetailPage({
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div className="space-y-3 max-w-2xl">
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
-                Custom <span className="text-pawzo-goldText">{item.name}</span> Supplement OEM
+                <span className="text-brand-goldText">
+                  {item.slug === 'dogs'
+                    ? 'Dog'
+                    : item.slug === 'cats'
+                      ? 'Cat'
+                      : 'Small Pet & Equine'}
+                </span>{' '}
+                Supplement Manufacturer
               </h1>
               <p className="text-sm sm:text-base text-white/85">{item.description}</p>
             </div>
@@ -74,8 +81,8 @@ export default async function ByPetDetailPage({
 
       <section className="py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         <div className="soft-card rounded-3xl p-7 space-y-3">
-          <h2 className="text-xl font-extrabold text-pawzo-ink">{item.name} Formulation Standards</h2>
-          <ul className="space-y-2.5 text-sm text-pawzo-ink font-medium">
+          <h2 className="text-xl font-extrabold text-brand-ink">{item.name} Formulation Standards</h2>
+          <ul className="space-y-2.5 text-sm text-brand-ink font-medium">
             {item.formulationNotes.map((note) => (
               <li key={note} className="flex items-center gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-amber-800 shrink-0" />
@@ -86,19 +93,19 @@ export default async function ByPetDetailPage({
         </div>
 
         <div className="space-y-4">
-          <h2 className="text-xl font-extrabold text-pawzo-ink">
+          <h2 className="text-xl font-extrabold text-brand-ink">
             Browse {item.name} Matrix Blueprints ({forms.length} Forms × {effects.length} Effects)
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {effects.slice(0, 9).map((eff) => (
-              <div key={eff.slug} className="bg-white rounded-2xl border border-pawzo-border p-5 space-y-2.5">
-                <h3 className="font-extrabold text-sm text-pawzo-ink">{eff.name}</h3>
+              <div key={eff.slug} className="bg-white rounded-2xl border border-brand-border p-5 space-y-2.5">
+                <h3 className="font-extrabold text-sm text-brand-ink">{eff.name}</h3>
                 <div className="flex flex-wrap gap-1.5">
                   {forms.map((f) => (
                     <Link
                       key={f.shortSlug}
                       href={`/custom-formulation/${item.slug}/${f.shortSlug}/${eff.slug}`}
-                      className="px-2.5 py-1 rounded-full bg-pawzo-cream border border-pawzo-border hover:border-pawzo-gold text-[11px] font-bold text-pawzo-ink"
+                      className="px-2.5 py-1 rounded-full bg-brand-cream border border-brand-border hover:border-brand-gold text-[11px] font-bold text-brand-ink"
                     >
                       {f.shortSlug}
                     </Link>

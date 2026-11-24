@@ -29,7 +29,7 @@ export default async function QualityCompliancePage() {
             ]}
           />
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
-            Quality Assurance &amp; <span className="text-pawzo-goldText">Global Compliance</span>
+            Quality Assurance &amp; <span className="text-brand-goldText">Global Compliance</span>
           </h1>
           <p className="text-sm sm:text-base text-white/85 mt-3 max-w-2xl leading-relaxed">
             Every lot is manufactured in our FDA-registered, cGMP, ISO 22000 &amp; HACCP facility and released
@@ -65,23 +65,23 @@ export default async function QualityCompliancePage() {
             const Icon = card.icon
             return (
               <div key={card.title} className="soft-card rounded-3xl p-7 space-y-3">
-                <div className="w-11 h-11 rounded-xl bg-pawzo-creamDeep flex items-center justify-center text-amber-800">
+                <div className="w-11 h-11 rounded-xl bg-brand-creamDeep flex items-center justify-center text-amber-800">
                   <Icon className="w-5 h-5" />
                 </div>
-                <h2 className="text-lg font-extrabold text-pawzo-ink">{card.title}</h2>
-                <p className="text-sm text-pawzo-muted leading-relaxed">{card.body}</p>
+                <h2 className="text-lg font-extrabold text-brand-ink">{card.title}</h2>
+                <p className="text-sm text-brand-muted leading-relaxed">{card.body}</p>
               </div>
             )
           })}
         </div>
 
         <div className="mt-8 flex flex-wrap gap-3">
-          <Link href="/about-us/certifications" className="text-xs font-extrabold text-amber-800 hover:text-pawzo-ink">
+          <Link href="/about-us/certifications" className="text-xs font-extrabold text-amber-800 hover:text-brand-ink">
             View Full Certifications List →
           </Link>
-          <span className="text-pawzo-border">|</span>
-          <Link href="/our-facility" className="text-xs font-extrabold text-amber-800 hover:text-pawzo-ink">
-            Explore Our Manufacturing Facility →
+          <span className="text-brand-border">|</span>
+          <Link href="/our-facility" className="text-xs font-extrabold text-amber-800 hover:text-brand-ink">
+            Explore Our cGMP Pet Supplement Factory →
           </Link>
         </div>
       </section>

@@ -12,9 +12,22 @@ const DOSAGE_OPTIONS = [
   'Nutritional Pastes / Gels',
 ]
 
-const SPECIES_OPTIONS = ['Dogs', 'Cats', 'Small Pets / Poultry / Equine']
+const SPECIES_OPTIONS = ['Dogs', 'Cats', 'Horses', 'Poultry', 'Small Pets']
 
-const MARKET_OPTIONS = ['United States (AAFCO / NASC)', 'European Union (EU Feed)', 'United Kingdom', 'China / APAC', 'Other']
+const MARKET_OPTIONS = [
+  'United States (AAFCO / NASC)',
+  'European Union (EU Feed)',
+  'United Kingdom',
+  'Australia',
+  'APAC',
+  'Other',
+]
+
+const COMPLIANCE_DOC_OPTIONS = [
+  'ISO/IEC 17025-accredited Lab COA',
+  'Export Health / Veterinary Certificate & COO',
+  'Target-Market Labeling & Compliance Support',
+]
 
 export function InquiryForm({ preselectedForm }: { preselectedForm?: string }) {
   const { items, removeItem, clearItems } = useQuoteBox()
@@ -44,7 +57,7 @@ export function InquiryForm({ preselectedForm }: { preselectedForm?: string }) {
   const [healthFunctions, setHealthFunctions] = useState('')
   const [keyIngredients, setKeyIngredients] = useState('')
   const [targetMarkets, setTargetMarkets] = useState<string[]>(['United States (AAFCO / NASC)'])
-  const [needsComplianceDocs, setNeedsComplianceDocs] = useState(true)
+  const [complianceDocs, setComplianceDocs] = useState<string[]>([])
 
   const [honeypot, setHoneypot] = useState('')
   const [formLoadedAt] = useState<number>(() => Date.now())
@@ -77,7 +90,7 @@ export function InquiryForm({ preselectedForm }: { preselectedForm?: string }) {
         healthFunctions,
         keyIngredients,
         targetMarkets: JSON.stringify(targetMarkets),
-        needsComplianceDocs: String(needsComplianceDocs),
+        needsComplianceDocs: JSON.stringify(complianceDocs),
         shortlist: JSON.stringify(items),
         clientPageUrl: window.location.href,
         clientReferrer: document.referrer || '',
@@ -109,14 +122,14 @@ export function InquiryForm({ preselectedForm }: { preselectedForm?: string }) {
 
   if (submitted) {
     return (
-      <div className="bg-white rounded-3xl border border-pawzo-border p-8 sm:p-12 text-center space-y-4">
+      <div className="bg-white rounded-3xl border border-brand-border p-8 sm:p-12 text-center space-y-4">
         <div className="w-14 h-14 rounded-full bg-pastel-mint text-emerald-900 flex items-center justify-center mx-auto">
           <CheckCircle2 className="w-7 h-7" />
         </div>
-        <h2 className="text-2xl font-extrabold text-pawzo-ink">
+        <h2 className="text-2xl font-extrabold text-brand-ink">
           Custom Formula Inquiry Received!
         </h2>
-        <p className="text-sm text-pawzo-muted max-w-md mx-auto leading-relaxed">
+        <p className="text-sm text-brand-muted max-w-md mx-auto leading-relaxed">
           Thank you, <strong>{name}</strong>. Our formulation chemists and B2B account desk will review your
           specification and respond to <strong>{email}</strong> within 24 business hours under Mutual NDA.
         </p>
@@ -153,7 +166,7 @@ export function InquiryForm({ preselectedForm }: { preselectedForm?: string }) {
 
       {/* Pre-filled Quote Box Shortlist */}
       {items.length > 0 && (
-        <div className="bg-pawzo-creamDeep rounded-2xl border border-pawzo-gold p-5 space-y-3">
+        <div className="bg-brand-creamDeep rounded-2xl border border-brand-gold p-5 space-y-3">
           <div className="text-xs font-extrabold uppercase tracking-wider text-amber-900">
             ATTACHED FROM YOUR QUOTE BOX ({items.length})
           </div>
@@ -161,13 +174,13 @@ export function InquiryForm({ preselectedForm }: { preselectedForm?: string }) {
             {items.map((item) => (
               <span
                 key={item.id}
-                className="inline-flex items-center gap-2 bg-white px-3 py-1.5 rounded-full border border-pawzo-border text-xs font-bold text-pawzo-ink"
+                className="inline-flex items-center gap-2 bg-white px-3 py-1.5 rounded-full border border-brand-border text-xs font-bold text-brand-ink"
               >
                 <span>{item.label}</span>
                 <button
                   type="button"
                   onClick={() => removeItem(item.id)}
-                  className="text-pawzo-muted hover:text-red-600 cursor-pointer"
+                  className="text-brand-muted hover:text-red-600 cursor-pointer"
                   aria-label={`Remove ${item.label}`}
                 >
                   <Trash2 className="w-3.5 h-3.5" />
@@ -179,47 +192,47 @@ export function InquiryForm({ preselectedForm }: { preselectedForm?: string }) {
       )}
 
       {/* Section 1: Basic Info */}
-      <fieldset className="bg-white rounded-3xl border border-pawzo-border p-6 sm:p-8 space-y-4">
+      <fieldset className="bg-white rounded-3xl border border-brand-border p-6 sm:p-8 space-y-4">
         <legend className="text-xs font-extrabold uppercase tracking-wider text-amber-800 px-2">
           1. Contact &amp; Company Information
         </legend>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-extrabold text-pawzo-ink mb-1">Full Name *</label>
+            <label className="block text-xs font-extrabold text-brand-ink mb-1">Full Name *</label>
             <input
               type="text"
               required
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="Alex Morgan"
-              className="w-full px-4 py-2.5 rounded-xl bg-pawzo-cream border border-pawzo-border text-sm font-medium focus:outline-none focus:border-pawzo-gold"
+              placeholder="Your full name"
+              className="w-full px-4 py-2.5 rounded-xl bg-brand-cream border border-brand-border text-sm font-medium focus:outline-none focus:border-brand-gold"
             />
           </div>
           <div>
-            <label className="block text-xs font-extrabold text-pawzo-ink mb-1">Work Email *</label>
+            <label className="block text-xs font-extrabold text-brand-ink mb-1">Work Email *</label>
             <input
               type="email"
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="alex@yourpetbrand.com"
-              className="w-full px-4 py-2.5 rounded-xl bg-pawzo-cream border border-pawzo-border text-sm font-medium focus:outline-none focus:border-pawzo-gold"
+              placeholder="name@company.com"
+              className="w-full px-4 py-2.5 rounded-xl bg-brand-cream border border-brand-border text-sm font-medium focus:outline-none focus:border-brand-gold"
             />
           </div>
           <div>
-            <label className="block text-xs font-extrabold text-pawzo-ink mb-1">
+            <label className="block text-xs font-extrabold text-brand-ink mb-1">
               WhatsApp / Phone
             </label>
             <input
               type="text"
               value={whatsapp}
               onChange={(e) => setWhatsapp(e.target.value)}
-              placeholder="+1 555-0192"
-              className="w-full px-4 py-2.5 rounded-xl bg-pawzo-cream border border-pawzo-border text-sm font-medium focus:outline-none focus:border-pawzo-gold"
+              placeholder="+1 / +44 / +61 ..."
+              className="w-full px-4 py-2.5 rounded-xl bg-brand-cream border border-brand-border text-sm font-medium focus:outline-none focus:border-brand-gold"
             />
           </div>
           <div>
-            <label className="block text-xs font-extrabold text-pawzo-ink mb-1">
+            <label className="block text-xs font-extrabold text-brand-ink mb-1">
               Company / Brand Name *
             </label>
             <input
@@ -227,26 +240,26 @@ export function InquiryForm({ preselectedForm }: { preselectedForm?: string }) {
               required
               value={company}
               onChange={(e) => setCompany(e.target.value)}
-              placeholder="Happy Tail Wellness LLC"
-              className="w-full px-4 py-2.5 rounded-xl bg-pawzo-cream border border-pawzo-border text-sm font-medium focus:outline-none focus:border-pawzo-gold"
+              placeholder="Your brand or company name"
+              className="w-full px-4 py-2.5 rounded-xl bg-brand-cream border border-brand-border text-sm font-medium focus:outline-none focus:border-brand-gold"
             />
           </div>
           <div className="sm:col-span-2">
-            <label className="block text-xs font-extrabold text-pawzo-ink mb-1">Country / Region *</label>
+            <label className="block text-xs font-extrabold text-brand-ink mb-1">Country / Region *</label>
             <input
               type="text"
               required
               value={country}
               onChange={(e) => setCountry(e.target.value)}
               placeholder="United States / Germany / United Kingdom"
-              className="w-full px-4 py-2.5 rounded-xl bg-pawzo-cream border border-pawzo-border text-sm font-medium focus:outline-none focus:border-pawzo-gold"
+              className="w-full px-4 py-2.5 rounded-xl bg-brand-cream border border-brand-border text-sm font-medium focus:outline-none focus:border-brand-gold"
             />
           </div>
         </div>
       </fieldset>
 
       {/* Section 2: Formula Status (Conditional Fields) */}
-      <fieldset className="bg-white rounded-3xl border border-pawzo-border p-6 sm:p-8 space-y-4">
+      <fieldset className="bg-white rounded-3xl border border-brand-border p-6 sm:p-8 space-y-4">
         <legend className="text-xs font-extrabold uppercase tracking-wider text-amber-800 px-2">
           2. Current Formula Status
         </legend>
@@ -263,8 +276,8 @@ export function InquiryForm({ preselectedForm }: { preselectedForm?: string }) {
               onClick={() => setFormulaStatus(opt.id as typeof formulaStatus)}
               className={`px-4 py-3 rounded-xl border text-xs font-extrabold text-left transition-all cursor-pointer ${
                 formulaStatus === opt.id
-                  ? 'bg-pawzo-gold border-pawzo-ink text-pawzo-ink'
-                  : 'bg-pawzo-cream border-pawzo-border text-pawzo-muted hover:text-pawzo-ink'
+                  ? 'bg-brand-gold border-brand-ink text-brand-ink'
+                  : 'bg-brand-cream border-brand-border text-brand-muted hover:text-brand-ink'
               }`}
             >
               {opt.label}
@@ -274,7 +287,7 @@ export function InquiryForm({ preselectedForm }: { preselectedForm?: string }) {
 
         {formulaStatus === 'need-optimization' && (
           <div>
-            <label className="block text-xs font-extrabold text-pawzo-ink mb-1">
+            <label className="block text-xs font-extrabold text-brand-ink mb-1">
               What needs optimization? (Palatability, texture, dosage, cost, shelf life...)
             </label>
             <input
@@ -282,14 +295,14 @@ export function InquiryForm({ preselectedForm }: { preselectedForm?: string }) {
               value={optimizationFocus}
               onChange={(e) => setOptimizationFocus(e.target.value)}
               placeholder="e.g., Dogs reject current bitter flavor; want cold-extruded duck base"
-              className="w-full px-4 py-2.5 rounded-xl bg-pawzo-cream border border-pawzo-border text-sm font-medium"
+              className="w-full px-4 py-2.5 rounded-xl bg-brand-cream border border-brand-border text-sm font-medium"
             />
           </div>
         )}
 
         {formulaStatus === 'reference-product' && (
           <div>
-            <label className="block text-xs font-extrabold text-pawzo-ink mb-1">
+            <label className="block text-xs font-extrabold text-brand-ink mb-1">
               Reference Product Name or Marketplace URL (Amazon / Competitor)
             </label>
             <input
@@ -297,14 +310,14 @@ export function InquiryForm({ preselectedForm }: { preselectedForm?: string }) {
               value={referenceUrl}
               onChange={(e) => setReferenceUrl(e.target.value)}
               placeholder="e.g., https://amazon.com/dp/... or Brand X Hip & Joint Chews"
-              className="w-full px-4 py-2.5 rounded-xl bg-pawzo-cream border border-pawzo-border text-sm font-medium"
+              className="w-full px-4 py-2.5 rounded-xl bg-brand-cream border border-brand-border text-sm font-medium"
             />
           </div>
         )}
       </fieldset>
 
       {/* Section 3: Dosage Forms & Volume */}
-      <fieldset className="bg-white rounded-3xl border border-pawzo-border p-6 sm:p-8 space-y-4">
+      <fieldset className="bg-white rounded-3xl border border-brand-border p-6 sm:p-8 space-y-4">
         <legend className="text-xs font-extrabold uppercase tracking-wider text-amber-800 px-2">
           3. Dosage Form(s) &amp; Target Order Volume
         </legend>
@@ -318,8 +331,8 @@ export function InquiryForm({ preselectedForm }: { preselectedForm?: string }) {
                 onClick={() => toggleItem(selectedForms, opt, setSelectedForms)}
                 className={`px-4 py-2 rounded-full border text-xs font-extrabold transition-all cursor-pointer ${
                   active
-                    ? 'bg-pawzo-ink border-pawzo-ink text-pawzo-goldText'
-                    : 'bg-pawzo-cream border-pawzo-border text-pawzo-ink hover:border-pawzo-gold'
+                    ? 'bg-brand-ink border-brand-ink text-brand-goldText'
+                    : 'bg-brand-cream border-brand-border text-brand-ink hover:border-brand-gold'
                 }`}
               >
                 {opt}
@@ -329,13 +342,13 @@ export function InquiryForm({ preselectedForm }: { preselectedForm?: string }) {
         </div>
 
         <div>
-          <label className="block text-xs font-extrabold text-pawzo-ink mb-1">
+          <label className="block text-xs font-extrabold text-brand-ink mb-1">
             Estimated Initial Order Quantity
           </label>
           <select
             value={orderVolume}
             onChange={(e) => setOrderVolume(e.target.value)}
-            className="w-full sm:w-96 px-4 py-2.5 rounded-xl bg-pawzo-cream border border-pawzo-border text-sm font-bold"
+            className="w-full sm:w-96 px-4 py-2.5 rounded-xl bg-brand-cream border border-brand-border text-sm font-bold"
           >
             <option>500 – 1,500 Units (Pilot Launch)</option>
             <option>2,000 – 5,000 Units (Growth Tier)</option>
@@ -346,7 +359,7 @@ export function InquiryForm({ preselectedForm }: { preselectedForm?: string }) {
       </fieldset>
 
       {/* Section 4: Target Pet & Functions */}
-      <fieldset className="bg-white rounded-3xl border border-pawzo-border p-6 sm:p-8 space-y-4">
+      <fieldset className="bg-white rounded-3xl border border-brand-border p-6 sm:p-8 space-y-4">
         <legend className="text-xs font-extrabold uppercase tracking-wider text-amber-800 px-2">
           4. Target Pet Species &amp; Health Functions
         </legend>
@@ -360,8 +373,8 @@ export function InquiryForm({ preselectedForm }: { preselectedForm?: string }) {
                 onClick={() => toggleItem(selectedSpecies, sp, setSelectedSpecies)}
                 className={`px-4 py-2 rounded-full border text-xs font-extrabold transition-all cursor-pointer ${
                   active
-                    ? 'bg-pawzo-gold border-pawzo-ink text-pawzo-ink'
-                    : 'bg-pawzo-cream border-pawzo-border text-pawzo-ink'
+                    ? 'bg-brand-gold border-brand-ink text-brand-ink'
+                    : 'bg-brand-cream border-brand-border text-brand-ink'
                 }`}
               >
                 {sp}
@@ -370,7 +383,7 @@ export function InquiryForm({ preselectedForm }: { preselectedForm?: string }) {
           })}
         </div>
         <div>
-          <label className="block text-xs font-extrabold text-pawzo-ink mb-1">
+          <label className="block text-xs font-extrabold text-brand-ink mb-1">
             Target Health Benefits
           </label>
           <input
@@ -378,18 +391,18 @@ export function InquiryForm({ preselectedForm }: { preselectedForm?: string }) {
             value={healthFunctions}
             onChange={(e) => setHealthFunctions(e.target.value)}
             placeholder="e.g., Hip & joint mobility, 5B CFU gut probiotics, allergy & itch relief, calming..."
-            className="w-full px-4 py-2.5 rounded-xl bg-pawzo-cream border border-pawzo-border text-sm font-medium"
+            className="w-full px-4 py-2.5 rounded-xl bg-brand-cream border border-brand-border text-sm font-medium"
           />
         </div>
       </fieldset>
 
       {/* Section 5: Key Ingredients & Packaging Notes */}
-      <fieldset className="bg-white rounded-3xl border border-pawzo-border p-6 sm:p-8 space-y-4">
+      <fieldset className="bg-white rounded-3xl border border-brand-border p-6 sm:p-8 space-y-4">
         <legend className="text-xs font-extrabold uppercase tracking-wider text-amber-800 px-2">
           5. Key Ingredients, Dosages &amp; Packaging Notes
         </legend>
         <div>
-          <label className="block text-xs font-extrabold text-pawzo-ink mb-1">
+          <label className="block text-xs font-extrabold text-brand-ink mb-1">
             Key Active Ingredients, Dosages &amp; Packaging Requirements
           </label>
           <textarea
@@ -397,16 +410,16 @@ export function InquiryForm({ preselectedForm }: { preselectedForm?: string }) {
             value={keyIngredients}
             onChange={(e) => setKeyIngredients(e.target.value)}
             placeholder="e.g., 500mg Glucosamine HCl, 400mg OptiMSM, 90ct PCR jar with duck & pumpkin flavor..."
-            className="w-full px-4 py-2.5 rounded-xl bg-pawzo-cream border border-pawzo-border text-sm font-medium"
+            className="w-full px-4 py-2.5 rounded-xl bg-brand-cream border border-brand-border text-sm font-medium"
           />
-          <p className="text-[11px] text-pawzo-muted mt-1.5">
+          <p className="text-[11px] text-brand-muted mt-1.5">
             Need to share a proprietary spec sheet or formula PDF? Simply reply to our 24-hour confirmation email after Mutual NDA sign-off.
           </p>
         </div>
       </fieldset>
 
       {/* Section 6: Target Market & Compliance */}
-      <fieldset className="bg-white rounded-3xl border border-pawzo-border p-6 sm:p-8 space-y-4">
+      <fieldset className="bg-white rounded-3xl border border-brand-border p-6 sm:p-8 space-y-4">
         <legend className="text-xs font-extrabold uppercase tracking-wider text-amber-800 px-2">
           6. Target Sales Market &amp; Regulatory Needs
         </legend>
@@ -420,8 +433,8 @@ export function InquiryForm({ preselectedForm }: { preselectedForm?: string }) {
                 onClick={() => toggleItem(targetMarkets, m, setTargetMarkets)}
                 className={`px-4 py-2 rounded-full border text-xs font-extrabold transition-all cursor-pointer ${
                   active
-                    ? 'bg-pawzo-ink border-pawzo-ink text-pawzo-goldText'
-                    : 'bg-pawzo-cream border-pawzo-border text-pawzo-ink'
+                    ? 'bg-brand-ink border-brand-ink text-brand-goldText'
+                    : 'bg-brand-cream border-brand-border text-brand-ink'
                 }`}
               >
                 {m}
@@ -430,17 +443,25 @@ export function InquiryForm({ preselectedForm }: { preselectedForm?: string }) {
           })}
         </div>
 
-        <label className="flex items-center gap-2.5 text-xs font-bold text-pawzo-ink cursor-pointer">
-          <input
-            type="checkbox"
-            checked={needsComplianceDocs}
-            onChange={(e) => setNeedsComplianceDocs(e.target.checked)}
-            className="w-4 h-4 accent-pawzo-ink"
-          />
-          <span>
-            Yes, we require ISO-17025 COA, export health certificates, or market-specific feed-label guidance
-          </span>
-        </label>
+        <div className="space-y-2.5 pt-1">
+          {COMPLIANCE_DOC_OPTIONS.map((doc) => {
+            const checked = complianceDocs.includes(doc)
+            return (
+              <label
+                key={doc}
+                className="flex items-center gap-2.5 text-xs font-bold text-brand-ink cursor-pointer"
+              >
+                <input
+                  type="checkbox"
+                  checked={checked}
+                  onChange={() => toggleItem(complianceDocs, doc, setComplianceDocs)}
+                  className="w-4 h-4 accent-brand-ink"
+                />
+                <span>{doc}</span>
+              </label>
+            )
+          })}
+        </div>
       </fieldset>
 
       {submitError && (

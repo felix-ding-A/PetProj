@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -90,13 +90,13 @@ export default async function InsightArticlePage({
         <div className="text-xs font-extrabold uppercase tracking-wider text-amber-800">
           {post.category} · {formatDate(post.publishedAt)} · {post.readTime}
         </div>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-pawzo-ink tracking-tight mt-2 leading-tight">
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-brand-ink tracking-tight mt-2 leading-tight">
           {post.title}
         </h1>
-        <p className="text-xs font-semibold text-pawzo-muted mt-3">By {post.author}</p>
+        <p className="text-xs font-semibold text-brand-muted mt-3">By {post.author}</p>
 
         {post.coverImageUrl && (
-          <div className="relative w-full aspect-[16/9] rounded-3xl overflow-hidden border border-pawzo-border mt-6 bg-pawzo-cream">
+          <div className="relative w-full aspect-[16/9] rounded-3xl overflow-hidden border border-brand-border mt-6 bg-brand-cream">
             <Image
               src={post.coverImageUrl}
               alt={post.coverImageAlt || post.title}
@@ -117,9 +117,9 @@ export default async function InsightArticlePage({
             <div className="space-y-8">
               {(post.sections || []).map((sec) => (
                 <section key={sec.heading} className="space-y-3">
-                  <h2 className="text-xl font-extrabold text-pawzo-ink">{sec.heading}</h2>
+                  <h2 className="text-xl font-extrabold text-brand-ink">{sec.heading}</h2>
                   {sec.paragraphs.map((p, idx) => (
-                    <p key={idx} className="text-sm sm:text-base text-pawzo-muted leading-relaxed">
+                    <p key={idx} className="text-sm sm:text-base text-brand-muted leading-relaxed">
                       {p}
                     </p>
                   ))}
@@ -130,7 +130,7 @@ export default async function InsightArticlePage({
         </div>
 
         {post.relatedForms.length > 0 && (
-          <div className="mt-10 p-6 rounded-2xl bg-pawzo-creamDeep border border-pawzo-border">
+          <div className="mt-10 p-6 rounded-2xl bg-brand-creamDeep border border-brand-border">
             <div className="text-xs font-extrabold uppercase tracking-wider text-amber-900 mb-3">
               Related Manufacturing Capabilities
             </div>
@@ -139,7 +139,7 @@ export default async function InsightArticlePage({
                 <Link
                   key={f}
                   href={`/${f}-manufacturing`}
-                  className="px-4 py-2 rounded-full bg-white border border-pawzo-border hover:border-pawzo-gold text-xs font-extrabold text-pawzo-ink capitalize"
+                  className="px-4 py-2 rounded-full bg-white border border-brand-border hover:border-brand-gold text-xs font-extrabold text-brand-ink capitalize"
                 >
                   {f.replace('-', ' ')} Manufacturing →
                 </Link>

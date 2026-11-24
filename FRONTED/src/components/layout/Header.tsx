@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import Link from 'next/link'
 import { useState } from 'react'
@@ -19,7 +19,7 @@ export function Header() {
   const { items, openDrawer } = useQuoteBox()
 
   return (
-    <header className="sticky top-0 z-40 bg-pawzo-ink/95 backdrop-blur-md border-b border-white/10 text-white">
+    <header className="sticky top-0 z-40 bg-brand-ink/95 backdrop-blur-md border-b border-white/10 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
         {/* Left: Brand Logo */}
         <Link href="/" className="flex items-center shrink-0">
@@ -31,17 +31,17 @@ export function Header() {
           <div className="relative group py-5">
             <button
               type="button"
-              className="flex items-center gap-1 hover:text-pawzo-goldText transition-colors cursor-pointer"
+              className="flex items-center gap-1 hover:text-brand-goldText transition-colors cursor-pointer"
             >
               <span>Manufacturing</span>
               <ChevronDown className="w-3.5 h-3.5" />
             </button>
-            <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all absolute left-0 top-full w-64 bg-white text-pawzo-ink rounded-2xl shadow-xl border border-pawzo-border p-2">
+            <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all absolute left-0 top-full w-64 bg-white text-brand-ink rounded-2xl shadow-xl border border-brand-border p-2">
               {MANUFACTURING_LINKS.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="block px-3.5 py-2.5 rounded-xl text-xs font-bold hover:bg-pawzo-creamDeep transition-colors"
+                  className="block px-3.5 py-2.5 rounded-xl text-xs font-bold hover:bg-brand-creamDeep transition-colors"
                 >
                   {item.name}
                 </Link>
@@ -49,19 +49,19 @@ export function Header() {
             </div>
           </div>
 
-          <Link href="/private-label" className="hover:text-pawzo-goldText transition-colors">
+          <Link href="/private-label" className="hover:text-brand-goldText transition-colors">
             Private Label
           </Link>
-          <Link href="/custom-formulation" className="hover:text-pawzo-goldText transition-colors">
+          <Link href="/custom-formulation" className="hover:text-brand-goldText transition-colors">
             Custom R&amp;D
           </Link>
-          <Link href="/our-process" className="hover:text-pawzo-goldText transition-colors">
+          <Link href="/our-process" className="hover:text-brand-goldText transition-colors">
             Process
           </Link>
-          <Link href="/quality-compliance" className="hover:text-pawzo-goldText transition-colors">
+          <Link href="/quality-compliance" className="hover:text-brand-goldText transition-colors">
             Quality &amp; Facility
           </Link>
-          <Link href="/insights" className="hover:text-pawzo-goldText transition-colors">
+          <Link href="/insights" className="hover:text-brand-goldText transition-colors">
             Insights
           </Link>
         </nav>
@@ -74,9 +74,9 @@ export function Header() {
             className="px-3.5 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-xs font-bold flex items-center gap-2 transition-colors cursor-pointer"
             aria-label="Open B2B Quote Box"
           >
-            <Briefcase className="w-3.5 h-3.5 text-pawzo-goldText" />
+            <Briefcase className="w-3.5 h-3.5 text-brand-goldText" />
             <span className="hidden sm:inline">Quote Box</span>
-            <span className="bg-pawzo-gold text-pawzo-ink text-[10px] font-extrabold px-1.5 py-0.5 rounded-full min-w-5 text-center">
+            <span className="bg-brand-gold text-brand-ink text-[10px] font-extrabold px-1.5 py-0.5 rounded-full min-w-5 text-center">
               {items.length}
             </span>
           </button>
@@ -102,8 +102,8 @@ export function Header() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-pawzo-ink border-t border-white/10 px-6 py-4 space-y-2 text-sm font-semibold">
-          <div className="text-[11px] uppercase tracking-wider text-pawzo-goldText pt-1">
+        <div className="lg:hidden bg-brand-ink border-t border-white/10 px-6 py-4 space-y-2 text-sm font-semibold">
+          <div className="text-[11px] uppercase tracking-wider text-brand-goldText pt-1">
             5 Dosage Forms
           </div>
           {MANUFACTURING_LINKS.map((item) => (
@@ -111,7 +111,7 @@ export function Header() {
               key={item.href}
               href={item.href}
               onClick={() => setMobileOpen(false)}
-              className="block py-1.5 pl-2 text-white/90 hover:text-pawzo-goldText"
+              className="block py-1.5 pl-2 text-white/90 hover:text-brand-goldText"
             >
               {item.name}
             </Link>
@@ -138,7 +138,7 @@ export function Header() {
             <Link
               href="/contact-us"
               onClick={() => setMobileOpen(false)}
-              className="block py-2 text-pawzo-goldText font-extrabold"
+              className="block py-2 text-brand-goldText font-extrabold"
             >
               Request Custom Quote →
             </Link>

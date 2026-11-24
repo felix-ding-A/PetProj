@@ -1,4 +1,4 @@
-﻿import type { DosageFormData } from './types'
+import type { DosageFormData } from './types'
 
 export const DOSAGE_FORMS_SEED: DosageFormData[] = [
   {
@@ -74,7 +74,7 @@ export const DOSAGE_FORMS_SEED: DosageFormData[] = [
         answer: 'Every production lot undergoes third-party ISO-17025 lab testing for active potency, heavy metals (Pb, As, Cd, Hg), Salmonella, E. coli, yeast, and mold, with a full COA supplied.',
       },
     ],
-    metaTitle: 'Pet Chewable Tablet & Soft Chew Manufacturer | NovaPet Nutra',
+    metaTitle: 'Pet Soft Chew & Chewable Tablet Manufacturer | NovaPet Nutra',
     metaDescription: 'cGMP contract manufacturer of dog & cat soft chews and chewable tablets. Cold extrusion, high palatability, 500-jar pilot MOQ, and full COA.',
   },
   {
@@ -92,7 +92,7 @@ export const DOSAGE_FORMS_SEED: DosageFormData[] = [
       {
         title: 'Versatile Shell Technologies',
         description:
-          'Bovine gelatin, plant-based HPMC, pullulan, and easy-twist sprinkle capsules designed for effortless mixing into wet cat or dog food.',
+          'Bovine gelatin, plant-based HPMC, pullulan, and easy-twist sprinkle capsules designed for clean mixing into wet cat or dog food.',
       },
       {
         title: 'Acid-Resistant Enteric Protection',
@@ -127,7 +127,7 @@ export const DOSAGE_FORMS_SEED: DosageFormData[] = [
     faqs: [
       {
         question: 'Can pet owners open your capsules and sprinkle the powder onto cat food?',
-        answer: 'Yes. Our two-piece twist-open capsules are specifically formulated with low-static, mildly flavored fills so cat and small-dog owners can effortlessly sprinkle them over wet food.',
+        answer: 'Yes. Our two-piece twist-open capsules are specifically formulated with low-static, mildly flavored fills so cat and small-dog owners can easily sprinkle them over wet food.',
       },
       {
         question: 'Which capsule sizes work best for cats versus large dogs?',
@@ -150,7 +150,7 @@ export const DOSAGE_FORMS_SEED: DosageFormData[] = [
         answer: 'Stock private label capsules ship in 18–21 days after label approval; custom OEM formulations typically require 25–30 days including raw material testing.',
       },
     ],
-    metaTitle: 'Pet Capsule Contract Manufacturing OEM/ODM | NovaPet Nutra',
+    metaTitle: 'Pet Capsule Contract Manufacturer (OEM/ODM) | NovaPet Nutra',
     metaDescription: 'cGMP pet capsule manufacturing for dogs & cats. Sprinkle-open, HPMC, enteric-release shells, UV-barrier bottling, and 500-unit pilot MOQ.',
   },
   {
@@ -226,7 +226,7 @@ export const DOSAGE_FORMS_SEED: DosageFormData[] = [
         answer: 'Stock private label tubs/pouches start at 500 units; custom OEM blends start at 1,500 units per SKU.',
       },
     ],
-    metaTitle: 'Pet Supplement Powder & Meal Topper OEM | NovaPet Nutra',
+    metaTitle: 'Pet Supplement Powder & Topper Manufacturer | NovaPet Nutra',
     metaDescription: 'Custom pet powder & meal topper manufacturing. Probiotic toppers, bone broth, lysine, stick packs & tubs with anti-caking control and low MOQ.',
   },
   {
@@ -236,7 +236,7 @@ export const DOSAGE_FORMS_SEED: DosageFormData[] = [
     pastelBg: '#5BB5C9',
     tagline: 'Precision-dosed herbal tinctures, wild salmon oils, and liquid vitamins with nitrogen-flushed freshness.',
     heroDescription:
-      'Engineered for fast absorption and effortless dosing for cats, puppies, and senior pets. Our liquid suites handle both water-based botanical glycerites and cold-pressed marine/hemp oils.',
+      'Engineered for fast absorption and accurate daily dosing for cats, puppies, and senior pets. Our liquid suites handle both water-based botanical glycerites and cold-pressed marine/hemp oils.',
     moq: '500 bottles (Private Label) / 1,500 bottles (Custom OEM)',
     leadTime: '21–28 days after artwork approval',
     skuSummary: '16 turnkey categories · 48+ liquid formulas',
@@ -312,7 +312,7 @@ export const DOSAGE_FORMS_SEED: DosageFormData[] = [
     pastelBg: '#E7B596',
     tagline: 'Smooth, non-separating nutritional pastes, hairball gels, and enzymatic dental gels in easy-squeeze tubes.',
     heroDescription:
-      'High-acceptance oral pastes and gels engineered for cats, dogs, and horses. Built with vacuum emulsification to eliminate oil separation and deliver effortless tube or syringe dosing.',
+      'High-acceptance oral pastes and gels engineered for cats, dogs, and horses. Built with vacuum emulsification to prevent oil separation and support accurate tube or syringe dosing.',
     moq: '1,000 tubes/syringes (Private Label) / 3,000 units (Custom OEM)',
     leadTime: '25–30 days after artwork approval',
     skuSummary: '4 core specialties · equine, digestive & dental gels',
@@ -325,7 +325,7 @@ export const DOSAGE_FORMS_SEED: DosageFormData[] = [
       {
         title: 'Cat, Dog & Equine Palatability Systems',
         description:
-          'Malt, salmon, poultry, and molasses-free botanical bases make oral dosing effortless for hairball relief, recovery nutrition, and equine pastes.',
+          'Malt, salmon, poultry, and molasses-free botanical bases make oral dosing simple for hairball relief, recovery nutrition, and equine pastes.',
       },
       {
         title: 'Precision Tube & Dial-a-Dose Syringe Filling',
@@ -378,7 +378,7 @@ export const DOSAGE_FORMS_SEED: DosageFormData[] = [
         answer: 'Pilot private label runs start at 1,000 tubes (25 days); custom printed tubes and bespoke OEM gels start at 3,000 units (30–35 days).',
       },
     ],
-    metaTitle: 'Pet Nutritional Paste & Dental Gel OEM | NovaPet Nutra',
+    metaTitle: 'Pet Nutritional Paste & Gel Manufacturer | NovaPet Nutra',
     metaDescription: 'cGMP contract manufacturing of pet digestive pastes, enzymatic toothpastes, dental gels, and equine syringes. Vacuum emulsified, zero oil separation.',
   },
 ]

@@ -62,7 +62,7 @@ export default async function PrivateLabelFormCatalogPage({
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div className="space-y-3 max-w-2xl">
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
-                Private Label <span className="text-pawzo-goldText">{df.name}</span>
+                Private Label <span className="text-brand-goldText">{df.name}</span>
               </h1>
               <p className="text-sm sm:text-base text-white/85">{df.tagline}</p>
               <div className="flex flex-wrap gap-3 pt-1">
@@ -85,7 +85,7 @@ export default async function PrivateLabelFormCatalogPage({
       </section>
 
       <section className="py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-6 text-xs font-extrabold text-pawzo-muted uppercase tracking-wider">
+        <div className="mb-6 text-xs font-extrabold text-brand-muted uppercase tracking-wider">
           Showing {products.length} Active Turnkey Categories
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -93,31 +93,31 @@ export default async function PrivateLabelFormCatalogPage({
             <div key={prod.slug} className="soft-card rounded-2xl p-6 flex flex-col justify-between gap-4">
               <div className="space-y-2">
                 <div className="flex items-start justify-between gap-2">
-                  <h2 className="font-extrabold text-base text-pawzo-ink">
+                  <h2 className="font-extrabold text-base text-brand-ink">
                     <Link href={`/private-label/${prod.form}/${prod.slug}`} className="hover:text-amber-800">
                       {prod.name}
                     </Link>
                   </h2>
-                  <span className="px-2.5 py-0.5 rounded-full bg-pawzo-creamDeep text-[10px] font-extrabold text-amber-900 shrink-0">
+                  <span className="px-2.5 py-0.5 rounded-full bg-brand-creamDeep text-[10px] font-extrabold text-amber-900 shrink-0">
                     {prod.skuCount} SKUs
                   </span>
                 </div>
-                <p className="text-xs text-pawzo-muted leading-relaxed">{prod.shortDescription}</p>
+                <p className="text-xs text-brand-muted leading-relaxed">{prod.shortDescription}</p>
                 <div className="flex flex-wrap gap-1.5 pt-1">
                   {prod.keyIngredients.slice(0, 3).map((ing) => (
                     <span
                       key={ing}
-                      className="px-2 py-0.5 rounded-full bg-pawzo-cream border border-pawzo-border text-[10px] font-bold text-pawzo-ink"
+                      className="px-2 py-0.5 rounded-full bg-brand-cream border border-brand-border text-[10px] font-bold text-brand-ink"
                     >
                       {ing}
                     </span>
                   ))}
                 </div>
               </div>
-              <div className="flex items-center justify-between pt-3 border-t border-pawzo-border/70">
+              <div className="flex items-center justify-between pt-3 border-t border-brand-border/70">
                 <Link
                   href={`/private-label/${prod.form}/${prod.slug}`}
-                  className="text-xs font-extrabold text-amber-800 hover:text-pawzo-ink"
+                  className="text-xs font-extrabold text-amber-800 hover:text-brand-ink"
                 >
                   Full Specs →
                 </Link>

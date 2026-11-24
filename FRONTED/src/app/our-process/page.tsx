@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
 import { CTABanner, QualityTrio } from '@/components/sections/CommonSections'
 
@@ -60,11 +60,11 @@ export default function OurProcessPage() {
             ]}
           />
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
-            Our 5-Step <span className="text-pawzo-goldText">OEM / ODM Process</span>
+            Our 5-Step <span className="text-brand-goldText">OEM / ODM Process</span>
           </h1>
           <p className="text-sm sm:text-base text-white/85 mt-3 max-w-2xl leading-relaxed">
             A transparent, milestone-driven manufacturing workflow built to take your pet supplement from concept
-            to retail shelf with zero guesswork.
+            to retail shelf with fixed checkpoints and lot-level COA release.
           </p>
         </div>
       </section>
@@ -73,14 +73,14 @@ export default function OurProcessPage() {
         {STEPS.map((s) => (
           <div key={s.step} className="soft-card rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row gap-6">
             <div className="shrink-0">
-              <div className="w-14 h-14 rounded-2xl bg-pawzo-gold text-pawzo-ink font-extrabold text-lg flex items-center justify-center">
+              <div className="w-14 h-14 rounded-2xl bg-brand-gold text-brand-ink font-extrabold text-lg flex items-center justify-center">
                 {s.step}
               </div>
               <div className="text-[11px] font-extrabold text-amber-800 mt-2 text-center">{s.timeline}</div>
             </div>
             <div className="space-y-2">
-              <h2 className="text-xl font-extrabold text-pawzo-ink">{s.title}</h2>
-              <p className="text-sm text-pawzo-muted leading-relaxed">{s.details}</p>
+              <h2 className="text-xl font-extrabold text-brand-ink">{s.title}</h2>
+              <p className="text-sm text-brand-muted leading-relaxed">{s.details}</p>
             </div>
           </div>
         ))}

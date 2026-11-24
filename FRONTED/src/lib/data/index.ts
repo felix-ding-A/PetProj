@@ -28,6 +28,26 @@ export const ALLOWED_DOSAGE_SHORT_SLUGS: DosageShortSlug[] = [
   'paste',
 ]
 
+const CAT_ONLY_EFFECTS = new Set(['hairball-control'])
+const SMALL_PET_CORE_EFFECTS = new Set(['immune-support', 'gut-health', 'conditioning', 'joint-health'])
+
+export function isIndexableMatrixCombo(pet: string, form: string, effect: string): boolean {
+  if (pet === 'dogs') {
+    if (CAT_ONLY_EFFECTS.has(effect)) return false
+    if (form === 'paste' && !['dental-oral-care', 'gut-health', 'conditioning'].includes(effect)) return false
+    return true
+  }
+  if (pet === 'cats') {
+    if (['parasite-control', 'conditioning'].includes(effect)) return false
+    if (form === 'paste' && !['hairball-control', 'gut-health', 'dental-oral-care'].includes(effect)) return false
+    return true
+  }
+  if (pet === 'small-pets') {
+    return ['powder', 'drops', 'paste'].includes(form) && SMALL_PET_CORE_EFFECTS.has(effect)
+  }
+  return false
+}
+
 function estimateReadTime(body?: string | PortableTextBlock[], explicit?: string): string {
   if (explicit && explicit.trim()) return explicit.trim()
   if (!body) return '4 min read'

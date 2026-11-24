@@ -1,4 +1,4 @@
-import React from 'react'
+﻿import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { PortableText, type PortableTextComponents } from '@portabletext/react'
@@ -8,33 +8,33 @@ import type { PortableTextBlock } from '@/lib/data/types'
 const components: PortableTextComponents = {
   block: {
     h2: ({ children }) => (
-      <h2 className="text-2xl font-extrabold text-pawzo-ink tracking-tight pt-6 pb-2">
+      <h2 className="text-2xl font-extrabold text-brand-ink tracking-tight pt-6 pb-2">
         {children}
       </h2>
     ),
     h3: ({ children }) => (
-      <h3 className="text-xl font-extrabold text-pawzo-ink pt-4 pb-1.5">{children}</h3>
+      <h3 className="text-xl font-extrabold text-brand-ink pt-4 pb-1.5">{children}</h3>
     ),
     h4: ({ children }) => (
-      <h4 className="text-base font-extrabold text-pawzo-ink pt-3 pb-1">{children}</h4>
+      <h4 className="text-base font-extrabold text-brand-ink pt-3 pb-1">{children}</h4>
     ),
     normal: ({ children }) => (
-      <p className="text-sm sm:text-base text-pawzo-muted leading-relaxed pb-4">{children}</p>
+      <p className="text-sm sm:text-base text-brand-muted leading-relaxed pb-4">{children}</p>
     ),
     blockquote: ({ children }) => (
-      <blockquote className="my-5 pl-5 border-l-4 border-pawzo-gold bg-pawzo-creamDeep/60 py-3 pr-4 rounded-r-xl text-sm sm:text-base italic font-medium text-pawzo-ink">
+      <blockquote className="my-5 pl-5 border-l-4 border-brand-gold bg-brand-creamDeep/60 py-3 pr-4 rounded-r-xl text-sm sm:text-base italic font-medium text-brand-ink">
         {children}
       </blockquote>
     ),
   },
   list: {
     bullet: ({ children }) => (
-      <ul className="list-disc pl-6 space-y-2 pb-4 text-sm sm:text-base text-pawzo-muted">
+      <ul className="list-disc pl-6 space-y-2 pb-4 text-sm sm:text-base text-brand-muted">
         {children}
       </ul>
     ),
     number: ({ children }) => (
-      <ol className="list-decimal pl-6 space-y-2 pb-4 text-sm sm:text-base text-pawzo-muted">
+      <ol className="list-decimal pl-6 space-y-2 pb-4 text-sm sm:text-base text-brand-muted">
         {children}
       </ol>
     ),
@@ -44,10 +44,10 @@ const components: PortableTextComponents = {
     number: ({ children }) => <li className="leading-relaxed">{children}</li>,
   },
   marks: {
-    strong: ({ children }) => <strong className="font-extrabold text-pawzo-ink">{children}</strong>,
+    strong: ({ children }) => <strong className="font-extrabold text-brand-ink">{children}</strong>,
     em: ({ children }) => <em className="italic">{children}</em>,
     code: ({ children }) => (
-      <code className="px-1.5 py-0.5 rounded bg-pawzo-creamDeep text-pawzo-ink text-xs font-mono">
+      <code className="px-1.5 py-0.5 rounded bg-brand-creamDeep text-brand-ink text-xs font-mono">
         {children}
       </code>
     ),
@@ -56,7 +56,7 @@ const components: PortableTextComponents = {
       const isInternal = href.startsWith('/')
       if (isInternal) {
         return (
-          <Link href={href} className="font-bold text-amber-800 underline hover:text-pawzo-ink">
+          <Link href={href} className="font-bold text-amber-800 underline hover:text-brand-ink">
             {children}
           </Link>
         )
@@ -66,7 +66,7 @@ const components: PortableTextComponents = {
           href={href}
           target={value?.openInNewTab ? '_blank' : undefined}
           rel={value?.openInNewTab ? 'noopener noreferrer' : undefined}
-          className="font-bold text-amber-800 underline hover:text-pawzo-ink"
+          className="font-bold text-amber-800 underline hover:text-brand-ink"
         >
           {children}
         </a>
@@ -79,7 +79,7 @@ const components: PortableTextComponents = {
       if (!src) return null
       return (
         <figure className="my-6 space-y-2">
-          <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden border border-pawzo-border bg-pawzo-cream">
+          <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden border border-brand-border bg-brand-cream">
             <Image
               src={src}
               alt={value?.alt || 'NovaPet Nutra technical illustration'}
@@ -89,7 +89,7 @@ const components: PortableTextComponents = {
             />
           </div>
           {value?.caption && (
-            <figcaption className="text-xs text-center text-pawzo-muted">{value.caption}</figcaption>
+            <figcaption className="text-xs text-center text-brand-muted">{value.caption}</figcaption>
           )}
         </figure>
       )

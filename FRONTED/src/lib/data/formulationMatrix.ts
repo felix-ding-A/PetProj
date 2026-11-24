@@ -1,4 +1,4 @@
-﻿import type { IngredientCategoryData, PetEffectData, PetSpeciesData } from './types'
+import type { IngredientCategoryData, PetEffectData, PetSpeciesData } from './types'
 
 export const PET_SPECIES_SEED: PetSpeciesData[] = [
   {
@@ -13,8 +13,8 @@ export const PET_SPECIES_SEED: PetSpeciesData[] = [
       'Grain-free & chicken-free hypoallergenic bases for allergy-prone dogs',
       '100% xylitol-free, grape/raisin-free, and onion/garlic-free safety screening',
     ],
-    metaTitle: 'Custom Dog Supplement Manufacturing OEM/ODM | NovaPet Nutra',
-    metaDescription: 'Custom canine supplement OEM/ODM: hip & joint chews, probiotics, allergy relief, calming drops, and meal toppers with low pilot MOQ.',
+    metaTitle: 'Dog Supplement Manufacturer | Private Label & Custom OEM',
+    metaDescription: 'cGMP dog supplement contract manufacturer for private label & white label canine soft chews, probiotics, joint powders, and omega oils. 500-unit pilot MOQ.',
   },
   {
     name: 'Cats',
@@ -28,8 +28,8 @@ export const PET_SPECIES_SEED: PetSpeciesData[] = [
       'Twist-open sprinkle capsules, smooth lickable pastes, and bite-sized 1.5g chews',
       'Tuna, bonito, salmon, and hydrolyzed poultry palatability systems',
     ],
-    metaTitle: 'Custom Cat Supplement Manufacturing OEM/ODM | NovaPet Nutra',
-    metaDescription: 'Feline-safe private label & OEM cat supplements: L-lysine, hairball paste, urinary drops, taurine powders, and sprinkle capsules.',
+    metaTitle: 'Cat Supplement Manufacturer | Private Label & Custom OEM',
+    metaDescription: 'Feline-safe cat supplement contract manufacturer: L-lysine, hairball paste, urinary drops, taurine powders, and sprinkle capsules with low pilot MOQ.',
   },
   {
     name: 'Small Pets & Equine',
@@ -43,7 +43,7 @@ export const PET_SPECIES_SEED: PetSpeciesData[] = [
       'Water-soluble hydration & vitamin powders for backyard poultry',
       '60mL calibrated dial-a-dose syringes for equine nutritional and calming pastes',
     ],
-    metaTitle: 'Small Pet & Equine Supplement Manufacturing | NovaPet Nutra',
+    metaTitle: 'Small Pet & Equine Supplement Manufacturer | NovaPet Nutra',
     metaDescription: 'Custom OEM supplements for small pets, poultry, and horses: equine nutritional pastes, poultry electrolyte powders, and botanical drops.',
   },
 ]
@@ -239,7 +239,7 @@ export const INGREDIENT_CATEGORIES_SEED: IngredientCategoryData[] = [
   {
     name: 'Specialty Cellular Antioxidants',
     slug: 'cellular-antioxidants',
-    description: 'Next-generation longevity, retinal, and cognitive actives for premium senior pet brands.',
+    description: 'Targeted longevity, retinal, and cognitive antioxidant actives for senior pet supplement lines.',
     examples: ['Coenzyme Q10', 'Astaxanthin', 'Lutein & Zeaxanthin', 'Phosphatidylserine', 'Quercetin', 'Activated Charcoal'],
     metaTitle: 'Senior Pet Antioxidant & Longevity OEM | NovaPet Nutra',
     metaDescription: 'Formulate premium senior pet supplements with CoQ10, astaxanthin, lutein, quercetin, and phosphatidylserine.',

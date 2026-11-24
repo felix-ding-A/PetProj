@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import Link from 'next/link'
 import { X, Trash2, ArrowRight } from 'lucide-react'
@@ -15,40 +15,40 @@ export function QuoteBoxDrawer() {
             onClick={closeDrawer}
             className="absolute inset-0 bg-black/50 backdrop-blur-xs"
           />
-          <div className="absolute right-0 top-0 bottom-0 w-full max-w-md bg-pawzo-cream border-l border-pawzo-border shadow-2xl flex flex-col justify-between p-6">
+          <div className="absolute right-0 top-0 bottom-0 w-full max-w-md bg-brand-cream border-l border-brand-border shadow-2xl flex flex-col justify-between p-6">
             <div>
-              <div className="flex items-center justify-between pb-4 border-b border-pawzo-border">
-                <h2 className="font-extrabold text-lg text-pawzo-ink">
+              <div className="flex items-center justify-between pb-4 border-b border-brand-border">
+                <h2 className="font-extrabold text-lg text-brand-ink">
                   Your Quote Shortlist ({items.length})
                 </h2>
                 <button
                   type="button"
                   onClick={closeDrawer}
-                  className="w-8 h-8 rounded-full bg-white border border-pawzo-border flex items-center justify-center text-pawzo-ink cursor-pointer"
+                  className="w-8 h-8 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-ink cursor-pointer"
                   aria-label="Close Quote Box"
                 >
                   <X className="w-4 h-4" />
                 </button>
               </div>
 
-              <div className="my-4 bg-pawzo-creamDeep p-3.5 rounded-xl border border-pawzo-border text-xs font-semibold text-pawzo-ink">
+              <div className="my-4 bg-brand-creamDeep p-3.5 rounded-xl border border-brand-border text-xs font-semibold text-brand-ink">
                 Collect turnkey private label categories or dosage forms here — they will automatically
                 pre-fill your B2B Inquiry Form.
               </div>
 
               <div className="space-y-3 max-h-[56vh] overflow-y-auto pr-1">
                 {items.length === 0 ? (
-                  <div className="text-center py-12 text-xs text-pawzo-muted font-semibold">
+                  <div className="text-center py-12 text-xs text-brand-muted font-semibold">
                     Your quote box is empty. Browse our 65 turnkey private label categories to add formulas.
                   </div>
                 ) : (
                   items.map((item) => (
                     <div
                       key={item.id}
-                      className="bg-white p-3.5 rounded-2xl border border-pawzo-border flex items-center justify-between gap-3"
+                      className="bg-white p-3.5 rounded-2xl border border-brand-border flex items-center justify-between gap-3"
                     >
                       <div>
-                        <div className="font-extrabold text-xs sm:text-sm text-pawzo-ink">
+                        <div className="font-extrabold text-xs sm:text-sm text-brand-ink">
                           {item.label}
                         </div>
                         <div className="text-[11px] font-bold text-amber-800 mt-0.5">
@@ -58,7 +58,7 @@ export function QuoteBoxDrawer() {
                       <button
                         type="button"
                         onClick={() => removeItem(item.id)}
-                        className="p-2 rounded-full hover:bg-pawzo-cream text-pawzo-muted hover:text-red-600 transition-colors cursor-pointer"
+                        className="p-2 rounded-full hover:bg-brand-cream text-brand-muted hover:text-red-600 transition-colors cursor-pointer"
                         aria-label={`Remove ${item.label}`}
                       >
                         <Trash2 className="w-4 h-4" />
@@ -69,7 +69,7 @@ export function QuoteBoxDrawer() {
               </div>
             </div>
 
-            <div className="pt-4 border-t border-pawzo-border space-y-3">
+            <div className="pt-4 border-t border-brand-border space-y-3">
               <Link
                 href="/contact-us"
                 onClick={closeDrawer}
@@ -78,7 +78,7 @@ export function QuoteBoxDrawer() {
                 <span>Attach Shortlist to Inquiry Form</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
-              <p className="text-[11px] text-center text-pawzo-muted">
+              <p className="text-[11px] text-center text-brand-muted">
                 Protected by Mutual NDA · 24-hour formulation desk response
               </p>
             </div>
@@ -90,9 +90,9 @@ export function QuoteBoxDrawer() {
       {toastMessage && (
         <div
           role="status"
-          className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-pawzo-ink text-white px-5 py-3 rounded-full shadow-xl text-xs font-bold flex items-center gap-2"
+          className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-brand-ink text-white px-5 py-3 rounded-full shadow-xl text-xs font-bold flex items-center gap-2"
         >
-          <span className="text-pawzo-goldText">●</span>
+          <span className="text-brand-goldText">●</span>
           <span>{toastMessage}</span>
         </div>
       )}

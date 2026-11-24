@@ -1,4 +1,4 @@
-﻿import type { CompanyDocumentData, FAQItem, InsightArticleData } from './types'
+import type { CompanyDocumentData, FAQItem, InsightArticleData } from './types'
 
 export const COMPANY_DOCUMENTS_SEED: CompanyDocumentData[] = [
   {
@@ -8,7 +8,7 @@ export const COMPANY_DOCUMENTS_SEED: CompanyDocumentData[] = [
     summary: 'Complete overview of our 65 active private label categories across chewable tablets, capsules, powders, drops, and pastes with pilot MOQs.',
     updatedAt: '2026-10-15',
     pdfUrl: null,
-    fileSizeLabel: 'PDF · 4.2 MB (Upload in Sanity Studio)',
+    fileSizeLabel: 'PDF · 4.2 MB · Available on request',
   },
   {
     id: 'doc-facility-profile',
@@ -17,7 +17,7 @@ export const COMPANY_DOCUMENTS_SEED: CompanyDocumentData[] = [
     summary: 'Detailed breakdown of our cold-extrusion lines, encapsulation suites, liquid nitrogen-flush bottling, and vacuum paste emulsifiers.',
     updatedAt: '2026-09-20',
     pdfUrl: null,
-    fileSizeLabel: 'PDF · 3.1 MB (Upload in Sanity Studio)',
+    fileSizeLabel: 'PDF · 3.1 MB · Available on request',
   },
   {
     id: 'doc-sample-coa',
@@ -26,7 +26,7 @@ export const COMPANY_DOCUMENTS_SEED: CompanyDocumentData[] = [
     summary: 'Example third-party lab report showing active potency, heavy metals (Pb/As/Cd/Hg), microbiology, and water activity verification.',
     updatedAt: '2026-10-01',
     pdfUrl: null,
-    fileSizeLabel: 'PDF · 1.4 MB (Upload in Sanity Studio)',
+    fileSizeLabel: 'PDF · 1.4 MB · Available on request',
   },
   {
     id: 'doc-compliance-checklist',
@@ -35,7 +35,7 @@ export const COMPANY_DOCUMENTS_SEED: CompanyDocumentData[] = [
     summary: 'Quick-reference guide covering guaranteed analysis formatting, AAFCO nutrient profile references, and EU feed additive labeling basics.',
     updatedAt: '2026-11-01',
     pdfUrl: null,
-    fileSizeLabel: 'PDF · 1.8 MB (Upload in Sanity Studio)',
+    fileSizeLabel: 'PDF · 1.8 MB · Available on request',
   },
 ]
 
@@ -73,7 +73,7 @@ export const INSIGHTS_SEED: InsightArticleData[] = [
     category: 'Formulation Science',
     excerpt: 'Discover how forming pet soft chews below 38°C preserves live probiotics, omega-3 fatty acids, and enzymes while improving shelf-life texture.',
     publishedAt: '2026-10-28',
-    author: 'Dr. Hannah Lin, Lead Formulation Chemist',
+    author: 'NovaPet Nutra Formulation Team',
     readTime: '6 min read',
     relatedForms: ['chewable-tablet'],
     sections: [
@@ -115,7 +115,7 @@ export const INSIGHTS_SEED: InsightArticleData[] = [
       {
         heading: 'Choosing the Right Dosage Form for Picky Cats',
         paragraphs: [
-          'While dogs happily eat 3g–4g soft chews, many cats reject large chews. High-performing cat brands typically launch with twist-open sprinkle capsules, smooth malt or salmon-based pastes, or alcohol-free liquid drops that blend seamlessly into wet food.',
+          'While dogs readily accept 3g–4g soft chews, many cats reject larger chew formats. High-performing feline brands typically launch with twist-open sprinkle capsules, smooth malt or salmon pastes, or alcohol-free liquid drops that mix cleanly into wet food.',
         ],
       },
     ],
@@ -128,7 +128,7 @@ export const INSIGHTS_SEED: InsightArticleData[] = [
     category: 'Brand Growth',
     excerpt: 'A practical 21-day roadmap from selecting a high-margin turnkey formula to label compliance, FBA prep, and scaling to custom OEM.',
     publishedAt: '2026-09-29',
-    author: 'Marcus Chen, B2B Supply Chain Director',
+    author: 'NovaPet Nutra Supply Chain Team',
     readTime: '7 min read',
     relatedForms: ['chewable-tablet', 'powder', 'drops'],
     sections: [
@@ -139,9 +139,9 @@ export const INSIGHTS_SEED: InsightArticleData[] = [
         ],
       },
       {
-        heading: 'Scaling Seamlessly into Proprietary Custom OEM',
+        heading: 'Moving from Stock Private Label to Custom OEM',
         paragraphs: [
-          'Once a hero SKU hits consistent monthly velocity, transitioning from stock private label to a proprietary OEM blend unlocks higher gross margins, custom chew shapes, and defensible brand differentiation under Mutual NDA.',
+          'Once a hero SKU reaches steady monthly velocity, transitioning from stock private label to a proprietary OEM blend improves unit economics, enables custom chew shapes, and builds defensible product differentiation under Mutual NDA.',
         ],
       },
     ],
@@ -154,7 +154,7 @@ export const INSIGHTS_SEED: InsightArticleData[] = [
     category: 'Quality & Stability',
     excerpt: 'How peroxide testing, UV-blocking bottles, and nitrogen headspace blanketing keep wild Alaskan salmon oil fresh for 24 months.',
     publishedAt: '2026-09-12',
-    author: 'Dr. Hannah Lin, Lead Formulation Chemist',
+    author: 'NovaPet Nutra Formulation Team',
     readTime: '5 min read',
     relatedForms: ['drops'],
     sections: [
@@ -171,7 +171,7 @@ export const INSIGHTS_SEED: InsightArticleData[] = [
         ],
       },
     ],
-    metaTitle: 'Preventing Fish Oil Rancidity in Pet Supplements | NovaPet Nutra',
+    metaTitle: 'Fish Oil Rancidity Control in Pet Liquids | NovaPet Nutra',
     metaDescription: 'Learn how nitrogen flushing, natural antioxidants, and peroxide COA testing protect wild salmon oil pet supplements.',
   },
 ]

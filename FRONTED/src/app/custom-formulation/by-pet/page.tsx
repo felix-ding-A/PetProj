@@ -28,7 +28,7 @@ export default async function ByPetIndexPage() {
             ]}
           />
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
-            Formulate by <span className="text-pawzo-goldText">Target Pet Species</span>
+            Formulate by <span className="text-brand-goldText">Target Pet Species</span>
           </h1>
         </div>
       </section>
@@ -47,8 +47,8 @@ export default async function ByPetIndexPage() {
               <SpeciesCartoonSvg species={pet.slug} className="w-28 h-28" />
             </div>
             <div>
-              <h2 className="text-xl font-extrabold text-pawzo-ink">{pet.name}</h2>
-              <p className="text-xs text-pawzo-muted mt-1 leading-relaxed">{pet.description}</p>
+              <h2 className="text-xl font-extrabold text-brand-ink">{pet.name}</h2>
+              <p className="text-xs text-brand-muted mt-1 leading-relaxed">{pet.description}</p>
             </div>
           </Link>
         ))}

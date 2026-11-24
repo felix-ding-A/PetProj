@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
 import { BiscuitMascotSvg } from '@/components/illustrations/Mascots'
@@ -26,7 +26,7 @@ export default function AboutUsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 space-y-4">
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
-                Dedicated exclusively to <span className="text-pawzo-goldText">pet nutrition brands</span>
+                Dedicated exclusively to <span className="text-brand-goldText">pet nutrition brands</span>
               </h1>
               <p className="text-sm sm:text-base text-white/85 max-w-2xl leading-relaxed">
                 Unlike human-supplement factories that treat pet lines as an afterthought, NovaPet Nutra builds
@@ -41,17 +41,17 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      <section className="py-16 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-sm text-pawzo-muted leading-relaxed">
-        <h2 className="text-2xl font-extrabold text-pawzo-ink">Why Pet Brands Partner With Us</h2>
+      <section className="py-16 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-sm text-brand-muted leading-relaxed">
+        <h2 className="text-2xl font-extrabold text-brand-ink">Why Pet Brands Partner With Us</h2>
         <p>
-          Launching a high-repeat pet supplement requires balancing two worlds: rigorous pharmaceutical-grade
-          potency and joyful, tail-wagging palatability. Even the strongest clinical joint or probiotic formula
+          Launching a high-repeat pet supplement requires balancing two priorities: verified active
+          potency and reliable daily palatability. Even a strong clinical joint or probiotic formula
           fails if pets refuse to eat it.
         </p>
         <p>
-          That is why our R&amp;D lab pairs veterinary formulation chemists with real-world palatability testing
-          (championed by our Border Collie mascot, Biscuit) alongside low 500-unit pilot MOQs so emerging brands
-          and established distributors alike can scale with confidence.
+          Our R&amp;D lab pairs veterinary formulation chemists with structured acceptance testing
+          alongside 500-unit pilot MOQs, helping emerging pet brands and established distributors
+          scale with controlled inventory risk.
         </p>
         <div className="pt-2 flex flex-wrap gap-4">
           <Link href="/about-us/certifications" className="pill-gold-btn px-6 py-3 rounded-full text-xs font-extrabold">
@@ -59,7 +59,7 @@ export default function AboutUsPage() {
           </Link>
           <Link
             href="/our-facility"
-            className="px-6 py-3 rounded-full bg-white border border-pawzo-border text-xs font-extrabold text-pawzo-ink hover:border-pawzo-gold"
+            className="px-6 py-3 rounded-full bg-white border border-brand-border text-xs font-extrabold text-brand-ink hover:border-brand-gold"
           >
             Tour Our Facility &amp; Capacity
           </Link>

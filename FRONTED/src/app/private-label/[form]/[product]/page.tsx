@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { CheckCircle2 } from 'lucide-react'
@@ -83,9 +83,14 @@ export default async function ProductLandingPage({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/25 border border-white/15 text-[11px] font-bold uppercase tracking-wider">
-                <span className="text-pawzo-goldText">▸</span> TURNKEY PRIVATE LABEL · {prod.skuCount}+ BASE FORMULAS
+                <span className="text-brand-goldText">▸</span> TURNKEY PRIVATE LABEL · {prod.skuCount}+ BASE FORMULAS
               </div>
-              <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">{prod.name}</h1>
+              <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
+                Private Label{' '}
+                {/\b(pet|dog|cat|feline|canine|equine|horse|poultry)\b/i.test(prod.name)
+                  ? prod.name
+                  : `Pet ${prod.name}`}
+              </h1>
               <p className="text-sm sm:text-base text-white/85 max-w-2xl leading-relaxed">
                 {prod.shortDescription}
               </p>
@@ -119,26 +124,26 @@ export default async function ProductLandingPage({
       <section className="py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
         <div className="lg:col-span-7 space-y-6">
           <div className="soft-card rounded-3xl p-7 space-y-4">
-            <h2 className="text-xl font-extrabold text-pawzo-ink">Key Active Ingredients &amp; Custom Options</h2>
+            <h2 className="text-xl font-extrabold text-brand-ink">Key Active Ingredients &amp; Custom Options</h2>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {prod.keyIngredients.map((ing) => (
-                <li key={ing} className="flex items-center gap-2 text-sm font-semibold text-pawzo-ink">
+                <li key={ing} className="flex items-center gap-2 text-sm font-semibold text-brand-ink">
                   <CheckCircle2 className="w-4 h-4 text-amber-800 shrink-0" />
                   <span>{ing}</span>
                 </li>
               ))}
             </ul>
-            <p className="text-xs text-pawzo-muted pt-2">
+            <p className="text-xs text-brand-muted pt-2">
               All active dosages, flavor systems, and carrier bases can be customized under Mutual NDA.
             </p>
           </div>
 
           <div className="soft-card rounded-3xl p-7 space-y-4">
-            <h2 className="text-xl font-extrabold text-pawzo-ink">Packaging &amp; Format Options</h2>
-            <ul className="space-y-2.5 text-sm text-pawzo-ink font-medium">
+            <h2 className="text-xl font-extrabold text-brand-ink">Packaging &amp; Format Options</h2>
+            <ul className="space-y-2.5 text-sm text-brand-ink font-medium">
               {prod.packagingOptions.map((pkg) => (
                 <li key={pkg} className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-pawzo-gold" />
+                  <span className="w-2 h-2 rounded-full bg-brand-gold" />
                   <span>{pkg}</span>
                 </li>
               ))}
@@ -147,12 +152,12 @@ export default async function ProductLandingPage({
         </div>
 
         <aside className="lg:col-span-5 space-y-6">
-          <div className="bg-white rounded-3xl border border-pawzo-border p-7 space-y-4">
-            <h2 className="text-lg font-extrabold text-pawzo-ink">Production Specification</h2>
-            <dl className="divide-y divide-pawzo-border text-sm">
+          <div className="bg-white rounded-3xl border border-brand-border p-7 space-y-4">
+            <h2 className="text-lg font-extrabold text-brand-ink">Production Specification</h2>
+            <dl className="divide-y divide-brand-border text-sm">
               <div className="py-3 flex justify-between gap-4">
-                <dt className="text-pawzo-muted font-bold">Dosage Form</dt>
-                <dd className="font-extrabold text-pawzo-ink">
+                <dt className="text-brand-muted font-bold">Dosage Form</dt>
+                <dd className="font-extrabold text-brand-ink">
                   {df ? (
                     <Link href={`/${df.slug}`} className="text-amber-800 hover:underline">
                       {df.name}
@@ -163,20 +168,20 @@ export default async function ProductLandingPage({
                 </dd>
               </div>
               <div className="py-3 flex justify-between gap-4">
-                <dt className="text-pawzo-muted font-bold">Target Species</dt>
-                <dd className="font-extrabold text-pawzo-ink capitalize">{prod.species.join(', ')}</dd>
+                <dt className="text-brand-muted font-bold">Target Species</dt>
+                <dd className="font-extrabold text-brand-ink capitalize">{prod.species.join(', ')}</dd>
               </div>
               <div className="py-3 flex justify-between gap-4">
-                <dt className="text-pawzo-muted font-bold">MOQ Tiers</dt>
-                <dd className="font-extrabold text-pawzo-ink text-right">{prod.moq}</dd>
+                <dt className="text-brand-muted font-bold">MOQ Tiers</dt>
+                <dd className="font-extrabold text-brand-ink text-right">{prod.moq}</dd>
               </div>
               <div className="py-3 flex justify-between gap-4">
-                <dt className="text-pawzo-muted font-bold">Lead Time</dt>
-                <dd className="font-extrabold text-pawzo-ink">{prod.leadTime}</dd>
+                <dt className="text-brand-muted font-bold">Lead Time</dt>
+                <dd className="font-extrabold text-brand-ink">{prod.leadTime}</dd>
               </div>
               <div className="py-3 flex justify-between gap-4">
-                <dt className="text-pawzo-muted font-bold">Quality Release</dt>
-                <dd className="font-extrabold text-pawzo-ink">ISO-17025 COA Included</dd>
+                <dt className="text-brand-muted font-bold">Quality Release</dt>
+                <dd className="font-extrabold text-brand-ink">ISO-17025 COA Included</dd>
               </div>
             </dl>
           </div>
@@ -185,9 +190,9 @@ export default async function ProductLandingPage({
 
       {/* Related Products in Same Dosage Form */}
       {related.length > 0 && (
-        <section className="py-12 bg-pawzo-creamDeep border-y border-pawzo-border">
+        <section className="py-12 bg-brand-creamDeep border-y border-brand-border">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-xl font-extrabold text-pawzo-ink mb-6">
+            <h2 className="text-xl font-extrabold text-brand-ink mb-6">
               More Private Label {df?.name || prod.form} Categories
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -195,10 +200,10 @@ export default async function ProductLandingPage({
                 <Link
                   key={r.slug}
                   href={`/private-label/${r.form}/${r.slug}`}
-                  className="bg-white rounded-2xl border border-pawzo-border p-4 hover:border-pawzo-gold transition-colors"
+                  className="bg-white rounded-2xl border border-brand-border p-4 hover:border-brand-gold transition-colors"
                 >
-                  <div className="font-extrabold text-sm text-pawzo-ink">{r.name}</div>
-                  <div className="text-xs text-pawzo-muted mt-1 line-clamp-1">{r.shortDescription}</div>
+                  <div className="font-extrabold text-sm text-brand-ink">{r.name}</div>
+                  <div className="text-xs text-brand-muted mt-1 line-clamp-1">{r.shortDescription}</div>
                 </Link>
               ))}
             </div>

@@ -1,4 +1,4 @@
-import React from 'react'
+﻿import React from 'react'
 import type { DosageShortSlug } from '@/lib/data/types'
 
 /**
@@ -140,13 +140,13 @@ export function NovaPetNutraLogo({
       {/* Typography with Subline & Accent Bars */}
       <div className="flex flex-col justify-center">
         <div className="flex items-baseline tracking-tight font-extrabold text-lg sm:text-xl leading-none">
-          <span className={light ? 'text-white' : 'text-pawzo-ink'}>Nova</span>
-          <span className="text-pawzo-gold ml-1">Pet</span>
+          <span className={light ? 'text-white' : 'text-brand-ink'}>Nova</span>
+          <span className="text-brand-gold ml-1">Pet</span>
           <span className="text-[#F59E0B] ml-1">Nutra</span>
         </div>
         <div
           className={`text-[9px] sm:text-[10px] font-bold tracking-[0.18em] uppercase mt-1 leading-none ${
-            light ? 'text-white/70' : 'text-pawzo-muted'
+            light ? 'text-white/70' : 'text-brand-muted'
           }`}
         >
           PRIVATE LABEL PET NUTRITION

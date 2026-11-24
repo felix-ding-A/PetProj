@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { CheckCircle2 } from 'lucide-react'
@@ -10,6 +10,7 @@ import {
   getPetBySlug,
   getPets,
   getProductsByForm,
+  isIndexableMatrixCombo,
 } from '@/lib/data'
 import type { DosageShortSlug } from '@/lib/data/types'
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
@@ -51,11 +52,13 @@ export async function generateMetadata({
     0,
     159
   )
+  const indexable = isIndexableMatrixCombo(petData.slug, formData.shortSlug, effectData.slug)
 
   return {
     title,
     description: desc,
     alternates: { canonical: `/custom-formulation/${petData.slug}/${formData.shortSlug}/${effectData.slug}` },
+    robots: indexable ? { index: true, follow: true } : { index: false, follow: true },
   }
 }
 
@@ -98,11 +101,11 @@ export default async function CrossMatrixPage({
             ]}
           />
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/25 border border-white/15 text-[11px] font-bold uppercase tracking-wider mb-3">
-            <span className="text-pawzo-goldText">▸</span> CUSTOM OEM BLUEPRINT · {petData.name} ×{' '}
+            <span className="text-brand-goldText">▸</span> CUSTOM OEM BLUEPRINT · {petData.name} ×{' '}
             {formData.shortSlug.toUpperCase()}
           </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
-            Custom {petData.name} <span className="text-pawzo-goldText">{effectData.name}</span>{' '}
+            Custom {petData.name} <span className="text-brand-goldText">{effectData.name}</span>{' '}
             {formData.name}
           </h1>
           <p className="text-sm sm:text-base text-white/85 mt-3 max-w-2xl leading-relaxed">
@@ -114,21 +117,21 @@ export default async function CrossMatrixPage({
       <section className="py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
         <div className="lg:col-span-7 space-y-6">
           <div className="soft-card rounded-3xl p-7 space-y-4">
-            <h2 className="text-xl font-extrabold text-pawzo-ink">Recommended Active System</h2>
+            <h2 className="text-xl font-extrabold text-brand-ink">Recommended Active System</h2>
             <div className="flex flex-wrap gap-2">
               {effectData.keyActives.map((a) => (
                 <span
                   key={a}
-                  className="px-3.5 py-1.5 rounded-full bg-pawzo-creamDeep border border-pawzo-border text-xs font-extrabold text-pawzo-ink"
+                  className="px-3.5 py-1.5 rounded-full bg-brand-creamDeep border border-brand-border text-xs font-extrabold text-brand-ink"
                 >
                   {a}
                 </span>
               ))}
             </div>
-            <h3 className="text-sm font-extrabold text-pawzo-ink pt-2">
+            <h3 className="text-sm font-extrabold text-brand-ink pt-2">
               {petData.name} Formulation Guardrails
             </h3>
-            <ul className="space-y-2 text-xs text-pawzo-muted">
+            <ul className="space-y-2 text-xs text-brand-muted">
               {petData.formulationNotes.map((n) => (
                 <li key={n} className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-amber-800 shrink-0" />
@@ -140,7 +143,7 @@ export default async function CrossMatrixPage({
 
           {matchingProducts.length > 0 && (
             <div className="soft-card rounded-3xl p-7 space-y-4">
-              <h2 className="text-lg font-extrabold text-pawzo-ink">
+              <h2 className="text-lg font-extrabold text-brand-ink">
                 Turnkey Private Label Base Formulas Available
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -148,9 +151,9 @@ export default async function CrossMatrixPage({
                   <Link
                     key={mp.slug}
                     href={`/private-label/${mp.form}/${mp.slug}`}
-                    className="p-4 rounded-2xl bg-pawzo-cream border border-pawzo-border hover:border-pawzo-gold transition-colors"
+                    className="p-4 rounded-2xl bg-brand-cream border border-brand-border hover:border-brand-gold transition-colors"
                   >
-                    <div className="font-extrabold text-sm text-pawzo-ink">{mp.name}</div>
+                    <div className="font-extrabold text-sm text-brand-ink">{mp.name}</div>
                     <div className="text-[11px] text-amber-800 font-bold mt-1">
                       {mp.skuCount} base variants · View specs →
                     </div>
@@ -162,9 +165,9 @@ export default async function CrossMatrixPage({
         </div>
 
         <aside className="lg:col-span-5 space-y-5">
-          <div className="bg-white rounded-3xl border border-pawzo-border p-7 space-y-3 text-sm">
-            <h2 className="font-extrabold text-lg text-pawzo-ink">Dosage Form Specifications</h2>
-            <p className="text-xs text-pawzo-muted">{formData.tagline}</p>
+          <div className="bg-white rounded-3xl border border-brand-border p-7 space-y-3 text-sm">
+            <h2 className="font-extrabold text-lg text-brand-ink">Dosage Form Specifications</h2>
+            <p className="text-xs text-brand-muted">{formData.tagline}</p>
             <div className="pt-2 space-y-2 text-xs">
               <div><strong>Materials:</strong> {formData.specs.materials}</div>
               <div><strong>Formats:</strong> {formData.specs.formats}</div>
@@ -180,7 +183,7 @@ export default async function CrossMatrixPage({
               </Link>
               <Link
                 href={`/${formData.slug}`}
-                className="py-2.5 rounded-full bg-pawzo-cream border border-pawzo-border text-center text-xs font-extrabold text-pawzo-ink"
+                className="py-2.5 rounded-full bg-brand-cream border border-brand-border text-center text-xs font-extrabold text-brand-ink"
               >
                 Full {formData.name} Capabilities
               </Link>

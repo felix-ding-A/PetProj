@@ -35,7 +35,7 @@ export default async function CustomFormulationPage() {
             ]}
           />
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight max-w-3xl">
-            Custom Pet Supplement <span className="text-pawzo-goldText">Formulation Matrix</span>
+            Custom Pet Supplement <span className="text-brand-goldText">Formulation Matrix</span>
           </h1>
           <p className="text-sm sm:text-base text-white/85 mt-3 max-w-2xl leading-relaxed">
             Build proprietary, NDA-protected pet supplements by combining your target species, active ingredient
@@ -49,7 +49,7 @@ export default async function CustomFormulationPage() {
         <div className="flex items-end justify-between mb-6">
           <div>
             <span className="text-xs font-extrabold uppercase tracking-wider text-amber-800">DIMENSION 1</span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-pawzo-ink mt-1">Formulate by Pet Species</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-ink mt-1">Formulate by Pet Species</h2>
           </div>
           <Link href="/custom-formulation/by-pet" className="text-xs font-extrabold text-amber-800">
             All Species →
@@ -69,8 +69,8 @@ export default async function CustomFormulationPage() {
                 <SpeciesCartoonSvg species={pet.slug} className="w-16 h-16" />
               </div>
               <div>
-                <h3 className="font-extrabold text-base text-pawzo-ink">{pet.name}</h3>
-                <p className="text-xs text-pawzo-muted mt-1">{pet.tagline}</p>
+                <h3 className="font-extrabold text-base text-brand-ink">{pet.name}</h3>
+                <p className="text-xs text-brand-muted mt-1">{pet.tagline}</p>
               </div>
             </Link>
           ))}
@@ -78,12 +78,12 @@ export default async function CustomFormulationPage() {
       </section>
 
       {/* Dimension 2: 16 Pet Health Effects */}
-      <section className="py-14 bg-pawzo-creamDeep border-y border-pawzo-border">
+      <section className="py-14 bg-brand-creamDeep border-y border-brand-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between mb-6">
             <div>
               <span className="text-xs font-extrabold uppercase tracking-wider text-amber-800">DIMENSION 2</span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-pawzo-ink mt-1">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-ink mt-1">
                 16 Pet-Specific Health Effects
               </h2>
             </div>
@@ -96,10 +96,10 @@ export default async function CustomFormulationPage() {
               <Link
                 key={eff.slug}
                 href={`/custom-formulation/effects/${eff.slug}`}
-                className="bg-white rounded-2xl border border-pawzo-border p-4 hover:border-pawzo-gold transition-colors"
+                className="bg-white rounded-2xl border border-brand-border p-4 hover:border-brand-gold transition-colors"
               >
-                <h3 className="font-extrabold text-sm text-pawzo-ink">{eff.name}</h3>
-                <p className="text-xs text-pawzo-muted mt-1 line-clamp-2">{eff.description}</p>
+                <h3 className="font-extrabold text-sm text-brand-ink">{eff.name}</h3>
+                <p className="text-xs text-brand-muted mt-1 line-clamp-2">{eff.description}</p>
               </Link>
             ))}
           </div>
@@ -111,7 +111,7 @@ export default async function CustomFormulationPage() {
         <div className="flex items-end justify-between mb-6">
           <div>
             <span className="text-xs font-extrabold uppercase tracking-wider text-amber-800">DIMENSION 3</span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-pawzo-ink mt-1">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-ink mt-1">
               8 Core Ingredient Categories
             </h2>
           </div>
@@ -126,8 +126,8 @@ export default async function CustomFormulationPage() {
               href={`/custom-formulation/ingredients/${ing.slug}`}
               className="soft-card rounded-2xl p-5 space-y-2"
             >
-              <h3 className="font-extrabold text-sm text-pawzo-ink">{ing.name}</h3>
-              <p className="text-xs text-pawzo-muted leading-relaxed">{ing.description}</p>
+              <h3 className="font-extrabold text-sm text-brand-ink">{ing.name}</h3>
+              <p className="text-xs text-brand-muted leading-relaxed">{ing.description}</p>
               <div className="text-[11px] font-bold text-amber-800 inline-flex items-center gap-1 pt-1">
                 <span>Explore actives</span>
                 <ArrowRight className="w-3 h-3" />
@@ -137,8 +137,8 @@ export default async function CustomFormulationPage() {
         </div>
 
         {/* Popular Cross-Combination Quick Links */}
-        <div className="mt-12 bg-white rounded-3xl border border-pawzo-border p-6 sm:p-8">
-          <h3 className="font-extrabold text-lg text-pawzo-ink mb-4">
+        <div className="mt-12 bg-white rounded-3xl border border-brand-border p-6 sm:p-8">
+          <h3 className="font-extrabold text-lg text-brand-ink mb-4">
             Popular Species × Dosage Form × Effect Blueprints
           </h3>
           <div className="flex flex-wrap gap-2.5">
@@ -153,13 +153,13 @@ export default async function CustomFormulationPage() {
               <Link
                 key={combo.href}
                 href={combo.href}
-                className="px-3.5 py-2 rounded-full bg-pawzo-cream border border-pawzo-border hover:border-pawzo-gold text-xs font-bold text-pawzo-ink transition-colors"
+                className="px-3.5 py-2 rounded-full bg-brand-cream border border-brand-border hover:border-brand-gold text-xs font-bold text-brand-ink transition-colors"
               >
                 {combo.label} →
               </Link>
             ))}
           </div>
-          <div className="mt-4 text-xs text-pawzo-muted">
+          <div className="mt-4 text-xs text-brand-muted">
             Covering {pets.length} species × {forms.length} dosage forms × {effects.length} health effects ={' '}
             <strong>{pets.length * forms.length * effects.length}</strong> structured OEM blueprints.
           </div>

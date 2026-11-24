@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getCompanyDocuments, getDosageForms } from '@/lib/data'
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
@@ -7,9 +7,9 @@ import { CTABanner, PdfDownloads } from '@/components/sections/CommonSections'
 export const revalidate = 60
 
 export const metadata: Metadata = {
-  title: 'Pet Supplement Manufacturing Facility & Capacity | NovaPet Nutra',
+  title: 'cGMP Pet Supplement Factory & Capacity | NovaPet Nutra',
   description:
-    'Inside our FDA-registered cGMP pet supplement plant: cold-extrusion lines, encapsulation suites, powder blending, liquid nitrogen bottling, and vacuum paste lines.',
+    'Inside our FDA-registered cGMP pet supplement factory: cold-extrusion lines, encapsulation suites, powder blending, nitrogen bottling, and vacuum paste lines.',
   alternates: { canonical: '/our-facility' },
 }
 
@@ -28,11 +28,11 @@ export default async function OurFacilityPage() {
             ]}
           />
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
-            Our Manufacturing <span className="text-pawzo-goldText">Facility &amp; Capacity</span>
+            Direct cGMP <span className="text-brand-goldText">Pet Supplement Factory</span> &amp; Capacity
           </h1>
           <p className="text-sm sm:text-base text-white/85 mt-3 max-w-2xl leading-relaxed">
-            Purpose-built cleanrooms engineered for both 500-unit pilot launches and nationwide retail scale
-            across all 5 pet supplement dosage forms.
+            Purpose-built cleanrooms engineered for direct-from-factory 500-unit pilot launches and global
+            wholesale scale across all 5 pet supplement dosage forms.
           </p>
         </div>
       </section>
@@ -46,24 +46,24 @@ export default async function OurFacilityPage() {
             { metric: '18–28 Days', label: 'Turnkey Production Lead Time' },
           ].map((m) => (
             <div key={m.label} className="soft-card rounded-2xl p-6 text-center">
-              <div className="text-2xl sm:text-3xl font-extrabold text-pawzo-ink">{m.metric}</div>
-              <div className="text-xs font-semibold text-pawzo-muted mt-1">{m.label}</div>
+              <div className="text-2xl sm:text-3xl font-extrabold text-brand-ink">{m.metric}</div>
+              <div className="text-xs font-semibold text-brand-muted mt-1">{m.label}</div>
             </div>
           ))}
         </div>
 
-        <div className="bg-white rounded-3xl border border-pawzo-border overflow-hidden">
-          <div className="px-6 py-4 bg-pawzo-ink text-white font-extrabold text-sm">
+        <div className="bg-white rounded-3xl border border-brand-border overflow-hidden">
+          <div className="px-6 py-4 bg-brand-ink text-white font-extrabold text-sm">
             Production Line Capabilities &amp; MOQ Matrix
           </div>
-          <div className="divide-y divide-pawzo-border">
+          <div className="divide-y divide-brand-border">
             {forms.map((f) => (
               <div key={f.slug} className="p-5 grid grid-cols-1 md:grid-cols-4 gap-3 items-center text-sm">
-                <Link href={`/${f.slug}`} className="font-extrabold text-pawzo-ink hover:text-amber-800">
+                <Link href={`/${f.slug}`} className="font-extrabold text-brand-ink hover:text-amber-800">
                   {f.name} →
                 </Link>
-                <div className="text-xs text-pawzo-muted">{f.specs.formats}</div>
-                <div className="text-xs font-bold text-pawzo-ink">{f.moq}</div>
+                <div className="text-xs text-brand-muted">{f.specs.formats}</div>
+                <div className="text-xs font-bold text-brand-ink">{f.moq}</div>
                 <div className="text-xs text-amber-800 font-bold">{f.leadTime}</div>
               </div>
             ))}

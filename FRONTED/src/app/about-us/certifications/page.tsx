@@ -43,7 +43,7 @@ export default function CertificationsPage() {
             ]}
           />
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
-            Certifications &amp; <span className="text-pawzo-goldText">Quality Credentials</span>
+            Certifications &amp; <span className="text-brand-goldText">Quality Credentials</span>
           </h1>
         </div>
       </section>
@@ -52,8 +52,8 @@ export default function CertificationsPage() {
         {CERTS.map((c) => (
           <div key={c.name} className="soft-card rounded-3xl p-7 space-y-3">
             <ShieldCheck className="w-6 h-6 text-amber-800" />
-            <h2 className="text-lg font-extrabold text-pawzo-ink">{c.name}</h2>
-            <p className="text-sm text-pawzo-muted leading-relaxed">{c.detail}</p>
+            <h2 className="text-lg font-extrabold text-brand-ink">{c.name}</h2>
+            <p className="text-sm text-brand-muted leading-relaxed">{c.detail}</p>
           </div>
         ))}
       </section>

@@ -20,6 +20,15 @@ function sanitizeUrl(raw?: string): string {
 
 export const SITE_URL = sanitizeUrl(process.env.NEXT_PUBLIC_SITE_URL)
 
+export function buildWebsiteJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'NovaPet Nutra',
+    url: SITE_URL,
+  }
+}
+
 export function buildOrganizationJsonLd() {
   return {
     '@context': 'https://schema.org',

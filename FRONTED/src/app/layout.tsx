@@ -5,7 +5,7 @@ import { QuoteBoxProvider } from '@/lib/quote-context'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { QuoteBoxDrawer } from '@/components/layout/QuoteBoxDrawer'
-import { JsonLd, SITE_URL, buildOrganizationJsonLd } from '@/components/seo/JsonLd'
+import { JsonLd, SITE_URL, buildOrganizationJsonLd, buildWebsiteJsonLd } from '@/components/seo/JsonLd'
 import { isUsingDevSeed } from '@/lib/data'
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -18,11 +18,11 @@ const plusJakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'NovaPet Nutra | Private Label Pet Nutrition & Custom OEM Manufacturing',
+    default: 'NovaPet Nutra | Pet Supplement Manufacturer & Private Label',
     template: '%s',
   },
   description:
-    'FDA-registered, cGMP contract manufacturer of custom pet supplements: chewable tablets, capsules, meal topper powders, liquid drops, and nutritional pastes.',
+    'FDA-registered, cGMP pet supplement contract manufacturer for private label & white label dog and cat chews, capsules, powders, liquid drops, and pastes.',
   icons: {
     icon: [
       { url: '/brand/novapetnutra-icon.svg', type: 'image/svg+xml' },
@@ -46,10 +46,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="en" className={plusJakarta.variable}>
-      <body className="antialiased selection:bg-pawzo-gold selection:text-pawzo-ink min-h-screen flex flex-col">
+      <body className="antialiased selection:bg-brand-gold selection:text-brand-ink min-h-screen flex flex-col">
         <JsonLd data={buildOrganizationJsonLd()} />
+        <JsonLd data={buildWebsiteJsonLd()} />
         {showDevSeedBanner && (
-          <div className="bg-amber-950 text-pawzo-goldText text-[11px] font-extrabold text-center py-1.5 px-4 tracking-wide">
+          <div className="bg-amber-950 text-brand-goldText text-[11px] font-extrabold text-center py-1.5 px-4 tracking-wide">
             DEV SEED DATA ACTIVE — Set NEXT_PUBLIC_SANITY_PROJECT_ID to connect live Sanity CMS content
           </div>
         )}

@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getDosageForms, getIngredientBySlug, getIngredients } from '@/lib/data'
@@ -56,12 +56,12 @@ export default async function IngredientDetailPage({
 
       <section className="py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         <div className="soft-card rounded-3xl p-7">
-          <h2 className="text-xl font-extrabold text-pawzo-ink mb-4">Representative Qualified Actives</h2>
+          <h2 className="text-xl font-extrabold text-brand-ink mb-4">Representative Qualified Actives</h2>
           <div className="flex flex-wrap gap-2.5">
             {item.examples.map((ex) => (
               <span
                 key={ex}
-                className="px-4 py-2 rounded-full bg-pawzo-creamDeep border border-pawzo-border text-xs font-extrabold text-pawzo-ink"
+                className="px-4 py-2 rounded-full bg-brand-creamDeep border border-brand-border text-xs font-extrabold text-brand-ink"
               >
                 {ex}
               </span>
@@ -70,15 +70,15 @@ export default async function IngredientDetailPage({
         </div>
 
         <div>
-          <h2 className="text-xl font-extrabold text-pawzo-ink mb-4">Compatible Dosage Forms</h2>
+          <h2 className="text-xl font-extrabold text-brand-ink mb-4">Compatible Dosage Forms</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {forms.map((f) => (
               <Link
                 key={f.slug}
                 href={`/${f.slug}`}
-                className="bg-white rounded-2xl border border-pawzo-border p-4 hover:border-pawzo-gold transition-colors"
+                className="bg-white rounded-2xl border border-brand-border p-4 hover:border-brand-gold transition-colors"
               >
-                <div className="font-extrabold text-sm text-pawzo-ink">{f.name}</div>
+                <div className="font-extrabold text-sm text-brand-ink">{f.name}</div>
                 <div className="text-[11px] text-amber-800 font-bold mt-1">View specs →</div>
               </Link>
             ))}

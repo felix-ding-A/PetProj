@@ -1,4 +1,4 @@
-﻿import React from 'react'
+import React from 'react'
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
@@ -101,13 +101,29 @@ export function MarkdownRenderer({ content }: { content: string }) {
           },
           img: ({ src, alt }) => {
             if (!src || typeof src !== 'string') return null
+            const isSanityCdn = src.startsWith('https://cdn.sanity.io/images/')
+            const optimizedSrc = isSanityCdn
+              ? `${src}${src.includes('?') ? '&' : '?'}auto=format&fit=max&w=1200&q=80`
+              : src
+            const srcSet = isSanityCdn
+              ? [640, 960, 1200]
+                  .map(
+                    (w) =>
+                      `${src}${src.includes('?') ? '&' : '?'}auto=format&fit=max&w=${w}&q=80 ${w}w`
+                  )
+                  .join(', ')
+              : undefined
+
             return (
               <figure className="my-6 space-y-2">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={src}
+                  src={optimizedSrc}
+                  srcSet={srcSet}
+                  sizes="(max-width: 768px) 100vw, 800px"
                   alt={alt || 'NovaPet Nutra article illustration'}
                   loading="lazy"
+                  decoding="async"
                   className="w-full h-auto rounded-2xl border border-brand-border bg-brand-cream"
                 />
                 {alt && (

@@ -6,10 +6,19 @@ const builder =
     ? imageUrlBuilder({ projectId: sanityProjectId, dataset: sanityDataset })
     : null
 
-export function urlForImage(source: unknown): string | null {
+export function urlForImage(
+  source: unknown,
+  options?: { width?: number; quality?: number }
+): string | null {
   if (!builder || !source) return null
   try {
-    return builder.image(source as Parameters<typeof builder.image>[0]).url()
+    return builder
+      .image(source as Parameters<typeof builder.image>[0])
+      .auto('format')
+      .fit('max')
+      .width(options?.width ?? 1400)
+      .quality(options?.quality ?? 80)
+      .url()
   } catch {
     return null
   }
@@ -17,7 +26,6 @@ export function urlForImage(source: unknown): string | null {
 
 export function getSanityFileUrl(assetRef?: string, downloadName?: string): string | null {
   if (!assetRef || !sanityProjectId || !sanityDataset) return null
-  // assetRef format: file-<id>-<ext>
   const parts = assetRef.split('-')
   if (parts.length < 3 || parts[0] !== 'file') return null
   const ext = parts.pop()
@@ -25,4 +33,3 @@ export function getSanityFileUrl(assetRef?: string, downloadName?: string): stri
   const base = `https://cdn.sanity.io/files/${sanityProjectId}/${sanityDataset}/${id}.${ext}`
   return downloadName ? `${base}?dl=${encodeURIComponent(downloadName)}` : base
 }
-

@@ -28,15 +28,20 @@ export const ALLOWED_DOSAGE_SHORT_SLUGS: DosageShortSlug[] = [
   'paste',
 ]
 
-function estimateReadTime(body?: PortableTextBlock[], explicit?: string): string {
+function estimateReadTime(body?: string | PortableTextBlock[], explicit?: string): string {
   if (explicit && explicit.trim()) return explicit.trim()
-  if (!body || body.length === 0) return '4 min read'
+  if (!body) return '4 min read'
   let wordCount = 0
-  for (const block of body) {
-    if (block._type === 'block' && Array.isArray(block.children)) {
-      for (const child of block.children as { text?: string }[]) {
-        if (child.text) {
-          wordCount += child.text.trim().split(/\s+/).filter(Boolean).length
+  if (typeof body === 'string') {
+    const cleaned = body.replace(/!\[[^\]]*\]\([^)]*\)/g, '').replace(/[#*_`>\-|]/g, ' ')
+    wordCount = cleaned.trim().split(/\s+/).filter(Boolean).length
+  } else if (Array.isArray(body)) {
+    for (const block of body) {
+      if (block._type === 'block' && Array.isArray(block.children)) {
+        for (const child of block.children as { text?: string }[]) {
+          if (child.text) {
+            wordCount += child.text.trim().split(/\s+/).filter(Boolean).length
+          }
         }
       }
     }
@@ -55,7 +60,7 @@ interface RawSanityArticle {
   author?: string
   readTime?: string
   coverImage?: { alt?: string; asset?: { _ref?: string } }
-  body?: PortableTextBlock[]
+  body?: string | PortableTextBlock[]
   relatedFormSlugs?: string[]
   relatedRefSlugs?: string[]
   metaTitle?: string
@@ -81,7 +86,8 @@ function mapSanityArticle(d: RawSanityArticle): InsightArticleData {
     coverImageUrl: d.coverImage ? urlForImage(d.coverImage) : null,
     coverImageAlt: d.coverImage?.alt || d.title,
     relatedForms: mergedForms,
-    body: d.body || [],
+    markdownBody: typeof d.body === 'string' ? d.body : undefined,
+    body: Array.isArray(d.body) ? d.body : undefined,
     metaTitle: (d.metaTitle || `${d.title} | NovaPet Nutra`).slice(0, 62),
     metaDescription: (d.metaDescription || d.excerpt || d.title).slice(0, 159),
   }

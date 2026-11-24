@@ -1,4 +1,5 @@
 import { defineField, defineType } from 'sanity'
+import { MarkdownImageInput } from '../components/MarkdownImageInput'
 import { seoFields, validateSlug } from './validation'
 
 export const companyDocumentType = defineType({
@@ -113,61 +114,14 @@ export const articleType = defineType({
     }),
     defineField({
       name: 'body',
-      title: 'Article Body (Rich Text)',
-      type: 'array',
-      validation: (r) => r.required().min(1),
-      of: [
-        {
-          type: 'block',
-          styles: [
-            { title: 'Normal', value: 'normal' },
-            { title: 'Heading 2 (H2)', value: 'h2' },
-            { title: 'Heading 3 (H3)', value: 'h3' },
-            { title: 'Heading 4 (H4)', value: 'h4' },
-            { title: 'Quote', value: 'blockquote' },
-          ],
-          lists: [
-            { title: 'Bullet', value: 'bullet' },
-            { title: 'Numbered', value: 'number' },
-          ],
-          marks: {
-            decorators: [
-              { title: 'Strong', value: 'strong' },
-              { title: 'Emphasis', value: 'em' },
-              { title: 'Code', value: 'code' },
-            ],
-            annotations: [
-              {
-                name: 'link',
-                type: 'object',
-                title: 'Link',
-                fields: [
-                  defineField({
-                    name: 'href',
-                    type: 'string',
-                    title: 'URL (relative /private-label or https://...)',
-                    validation: (r) => r.required(),
-                  }),
-                  defineField({
-                    name: 'openInNewTab',
-                    type: 'boolean',
-                    title: 'Open in new tab',
-                    initialValue: false,
-                  }),
-                ],
-              },
-            ],
-          },
-        },
-        {
-          type: 'image',
-          options: { hotspot: true },
-          fields: [
-            defineField({ name: 'alt', title: 'Alt Text (SEO)', type: 'string', validation: (r) => r.required() }),
-            defineField({ name: 'caption', title: 'Caption', type: 'string' }),
-          ],
-        },
-      ],
+      title: 'Article Body (Markdown + Image Upload)',
+      type: 'text',
+      description:
+        'Write Markdown directly. Use "+ Upload Image", drag-and-drop, or paste (Ctrl+V) to upload images to Sanity CDN.',
+      validation: (r) => r.required().min(10),
+      components: {
+        input: MarkdownImageInput,
+      },
     }),
     defineField({
       name: 'relatedFormSlugs',

@@ -104,6 +104,7 @@ export interface InsightArticleData {
   coverImageUrl?: string | null
   coverImageAlt?: string
   relatedForms: DosageShortSlug[]
+  markdownBody?: string
   body?: PortableTextBlock[]
   sections?: { heading: string; paragraphs: string[] }[]
   metaTitle: string

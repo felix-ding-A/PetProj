@@ -7,6 +7,7 @@ import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
 import { JsonLd, SITE_URL } from '@/components/seo/JsonLd'
 import { CTABanner } from '@/components/sections/CommonSections'
 import { PortableTextRenderer } from '@/components/insights/PortableTextRenderer'
+import { MarkdownRenderer } from '@/components/insights/MarkdownRenderer'
 
 export const revalidate = 60
 // Allow newly published Sanity articles to render on demand without waiting for a full rebuild
@@ -108,7 +109,9 @@ export default async function InsightArticlePage({
         )}
 
         <div className="mt-8">
-          {post.body && post.body.length > 0 ? (
+          {post.markdownBody ? (
+            <MarkdownRenderer content={post.markdownBody} />
+          ) : post.body && post.body.length > 0 ? (
             <PortableTextRenderer value={post.body} />
           ) : (
             <div className="space-y-8">

@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { getCompanyDocuments, getDosageForms } from '@/lib/data'
+import { getCompanyDocuments, getDosageForms, getGalleryItems } from '@/lib/data'
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
 import { CTABanner, PdfDownloads } from '@/components/sections/CommonSections'
+import { FacilityGallery } from '@/components/sections/FacilityGallery'
 
 export const revalidate = 60
 
@@ -14,7 +15,11 @@ export const metadata: Metadata = {
 }
 
 export default async function OurFacilityPage() {
-  const [forms, documents] = await Promise.all([getDosageForms(), getCompanyDocuments()])
+  const [forms, documents, galleryItems] = await Promise.all([
+    getDosageForms(),
+    getCompanyDocuments(),
+    getGalleryItems({ categories: ['facility', 'packaging', 'lab'] }),
+  ])
 
   return (
     <>
@@ -71,6 +76,7 @@ export default async function OurFacilityPage() {
         </div>
       </section>
 
+      <FacilityGallery items={galleryItems} />
       <PdfDownloads documents={documents} />
       <CTABanner />
     </>

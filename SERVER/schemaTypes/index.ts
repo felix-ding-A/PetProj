@@ -3,6 +3,7 @@ import { dosageFormType } from './dosageForm'
 import { productType } from './product'
 import { ingredientType, effectType, petType } from './taxonomy'
 import { companyDocumentType, articleType } from './content'
+import { galleryItemType } from './gallery'
 
 export const schemaTypes = [
   pageType,
@@ -13,5 +14,5 @@ export const schemaTypes = [
   petType,
   companyDocumentType,
   articleType,
+  galleryItemType,
 ]
-

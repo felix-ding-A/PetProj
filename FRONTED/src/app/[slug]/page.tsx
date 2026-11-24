@@ -6,6 +6,7 @@ import {
   ALLOWED_DOSAGE_MANUFACTURING_SLUGS,
   getDosageFormBySlug,
   getDosageForms,
+  getGalleryItems,
   getProductsByForm,
 } from '@/lib/data'
 import { DosageCartoonSvg } from '@/components/illustrations/Mascots'
@@ -17,6 +18,7 @@ import {
   FAQAccordion,
   QualityTrio,
 } from '@/components/sections/CommonSections'
+import { FacilityGallery } from '@/components/sections/FacilityGallery'
 
 export const revalidate = 60
 export const dynamicParams = false
@@ -53,7 +55,10 @@ export default async function DosageFormManufacturingPage({
   const [form, allForms] = await Promise.all([getDosageFormBySlug(slug), getDosageForms()])
   if (!form) notFound()
 
-  const products = await getProductsByForm(form.shortSlug)
+  const [products, galleryItems] = await Promise.all([
+    getProductsByForm(form.shortSlug),
+    getGalleryItems({ categories: ['facility', 'packaging', 'lab'], dosageForm: form.shortSlug }),
+  ])
   const siblingForms = allForms.filter((f) => f.slug !== form.slug)
 
   const serviceJsonLd = {
@@ -228,6 +233,13 @@ export default async function DosageFormManufacturingPage({
 
       {/* 6. Quality Standards Trio */}
       <QualityTrio />
+
+      {/* 6.5 Facility & Packaging Gallery */}
+      <FacilityGallery
+        items={galleryItems}
+        title={`${form.name} Production & Packaging Gallery`}
+        subtitle={`In-house equipment, quality checkpoints, and retail packaging options for ${form.name.toLowerCase()}.`}
+      />
 
       {/* 7. Mature Private Label Formulas List */}
       <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

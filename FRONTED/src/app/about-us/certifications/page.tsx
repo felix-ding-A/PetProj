@@ -1,7 +1,11 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import { ShieldCheck } from 'lucide-react'
+import { getGalleryItems } from '@/lib/data'
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
 import { CTABanner } from '@/components/sections/CommonSections'
+import { FacilityGallery } from '@/components/sections/FacilityGallery'
+
+export const revalidate = 60
 
 export const metadata: Metadata = {
   title: 'Manufacturing Certifications & Lab Testing | NovaPet Nutra',
@@ -29,7 +33,9 @@ const CERTS = [
   },
 ]
 
-export default function CertificationsPage() {
+export default async function CertificationsPage() {
+  const certPhotos = await getGalleryItems({ categories: ['certification', 'lab'] })
+
   return (
     <>
       <section className="hero-studio-bg text-white py-14">
@@ -57,6 +63,12 @@ export default function CertificationsPage() {
           </div>
         ))}
       </section>
+
+      <FacilityGallery
+        items={certPhotos}
+        title="Certifications, Audits & QC Laboratory Gallery"
+        subtitle="Audit documentation, cleanroom compliance checkpoints, and ISO/IEC 17025 lab release workflows."
+      />
 
       <CTABanner />
     </>

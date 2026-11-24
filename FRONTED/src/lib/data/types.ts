@@ -86,6 +86,16 @@ export interface CompanyDocumentData {
   fileSizeLabel: string
 }
 
+export interface GalleryItemData {
+  id: string
+  title: string
+  category: 'facility' | 'packaging' | 'certification' | 'lab'
+  dosageForm?: DosageShortSlug
+  imageUrl: string
+  imageAlt: string
+  caption?: string
+}
+
 export interface PortableTextBlock {
   _type: string
   _key?: string

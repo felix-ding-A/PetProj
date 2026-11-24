@@ -9,6 +9,7 @@ import type {
   DosageFormData,
   DosageShortSlug,
   FAQItem,
+  GalleryItemData,
   IngredientCategoryData,
   InsightArticleData,
   PetEffectData,
@@ -278,6 +279,61 @@ export async function getCompanyDocuments(): Promise<CompanyDocumentData[]> {
 
 export async function getGlobalFaqs(): Promise<FAQItem[]> {
   return GLOBAL_FAQS_SEED
+}
+
+export async function getGalleryItems(options?: {
+  categories?: GalleryItemData['category'][]
+  dosageForm?: DosageShortSlug
+}): Promise<GalleryItemData[]> {
+  const client = getSanityClient()
+  if (!client) return []
+
+  try {
+    const docs = await client.fetch<
+      {
+        _id: string
+        title: string
+        category: GalleryItemData['category']
+        dosageForm?: DosageShortSlug
+        image?: { alt?: string; asset?: { _ref?: string } }
+        caption?: string
+      }[]
+    >(
+      `*[_type == "galleryItem" && defined(image.asset)] | order(sortOrder asc, _createdAt desc){
+        _id, title, category, dosageForm, image, caption
+      }`,
+      {},
+      { next: { revalidate: 60, tags: ['gallery'] } }
+    )
+
+    if (!docs || docs.length === 0) return []
+    const mapped: GalleryItemData[] = []
+    for (const d of docs) {
+      const imageUrl = d.image ? urlForImage(d.image) : null
+      if (!imageUrl) continue
+      mapped.push({
+        id: d._id,
+        title: d.title,
+        category: d.category,
+        dosageForm: d.dosageForm,
+        imageUrl,
+        imageAlt: d.image?.alt || d.title,
+        caption: d.caption,
+      })
+    }
+
+    return mapped.filter((item) => {
+      if (options?.categories && !options.categories.includes(item.category)) return false
+      if (options?.dosageForm && item.dosageForm && item.dosageForm !== options.dosageForm) return false
+      return true
+    })
+  } catch (err) {
+    console.warn(
+      '[Sanity Fetch Warning: galleryItem] Falling back to capability cards:',
+      err instanceof Error ? err.message : err
+    )
+    return []
+  }
 }
 
 const ARTICLE_PROJECTION = `{

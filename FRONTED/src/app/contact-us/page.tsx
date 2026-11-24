@@ -1,7 +1,10 @@
-﻿import type { Metadata } from 'next'
-import { ShieldCheck, Clock, FileCheck2 } from 'lucide-react'
+import type { Metadata } from 'next'
+import { ShieldCheck, Clock, FileCheck2, Mail, MessageCircle } from 'lucide-react'
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
 import { InquiryForm } from '@/components/forms/InquiryForm'
+
+const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'info@novapetnutra.com'
+const WHATSAPP_RAW = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '').replace(/[^\d]/g, '')
 
 export const metadata: Metadata = {
   title: 'Request a Custom Pet Supplement Quote | NovaPet Nutra',
@@ -69,6 +72,33 @@ export default async function ContactUsPage({
                     Verify aroma, texture, and pet acceptance before committing to bulk production.
                   </div>
                 </div>
+              </div>
+            </div>
+
+            <div className="soft-card rounded-3xl p-6 space-y-3">
+              <h2 className="font-extrabold text-base text-brand-ink">Direct B2B Contact Desk</h2>
+              <p className="text-xs text-brand-muted leading-relaxed">
+                Prefer to message our formulation &amp; export team directly?
+              </p>
+              <div className="space-y-2.5 pt-1 text-xs font-extrabold">
+                <a
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-brand-cream border border-brand-border hover:border-brand-gold text-brand-ink transition-colors"
+                >
+                  <Mail className="w-4 h-4 text-amber-800 shrink-0" />
+                  <span>{CONTACT_EMAIL}</span>
+                </a>
+                {WHATSAPP_RAW && (
+                  <a
+                    href={`https://wa.me/${WHATSAPP_RAW}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-[#25D366]/10 border border-[#25D366]/40 hover:bg-[#25D366]/20 text-brand-ink transition-colors"
+                  >
+                    <MessageCircle className="w-4 h-4 text-[#16A34A] shrink-0" />
+                    <span>Chat on WhatsApp →</span>
+                  </a>
+                )}
               </div>
             </div>
           </aside>

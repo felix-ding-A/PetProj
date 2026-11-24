@@ -46,6 +46,16 @@ export async function POST(req: NextRequest) {
         revalidatePath('/quality-compliance')
         revalidatePath('/our-facility')
         break
+      case 'galleryItem':
+        revalidateTag('gallery', 'max')
+        revalidatePath('/our-facility')
+        revalidatePath('/about-us/certifications')
+        revalidatePath('/chewable-tablet-manufacturing')
+        revalidatePath('/capsule-manufacturing')
+        revalidatePath('/powder-manufacturing')
+        revalidatePath('/drops-manufacturing')
+        revalidatePath('/paste-manufacturing')
+        break
       case 'article':
         revalidateTag('articles', 'max')
         revalidatePath('/')

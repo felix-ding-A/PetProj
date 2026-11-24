@@ -1,5 +1,9 @@
 import Link from 'next/link'
+import { Mail, MessageCircle } from 'lucide-react'
 import { NovaPetNutraLogo } from '@/components/illustrations/Mascots'
+
+const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'info@novapetnutra.com'
+const WHATSAPP_RAW = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '').replace(/[^\d]/g, '')
 
 export function Footer() {
   return (
@@ -18,6 +22,26 @@ export function Footer() {
             </p>
             <div className="text-[11px] font-semibold text-brand-goldText">
               FDA-Registered Facility · cGMP · ISO 22000 · HACCP · ISO-17025 Lot COAs
+            </div>
+            <div className="flex flex-wrap items-center gap-4 pt-1 text-xs font-bold text-white/90">
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="inline-flex items-center gap-1.5 hover:text-brand-goldText transition-colors"
+              >
+                <Mail className="w-3.5 h-3.5 text-brand-goldText" />
+                <span>{CONTACT_EMAIL}</span>
+              </a>
+              {WHATSAPP_RAW && (
+                <a
+                  href={`https://wa.me/${WHATSAPP_RAW}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 hover:text-brand-goldText transition-colors"
+                >
+                  <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
+                  <span>WhatsApp Direct</span>
+                </a>
+              )}
             </div>
           </div>
 

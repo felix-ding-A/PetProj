@@ -5,6 +5,8 @@ import { QuoteBoxProvider } from '@/lib/quote-context'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { QuoteBoxDrawer } from '@/components/layout/QuoteBoxDrawer'
+import { FloatingContactButton } from '@/components/layout/FloatingContactButton'
+import { AnalyticsScripts } from '@/components/analytics/AnalyticsScripts'
 import { JsonLd, SITE_URL, buildOrganizationJsonLd, buildWebsiteJsonLd } from '@/components/seo/JsonLd'
 import { isUsingDevSeed } from '@/lib/data'
 
@@ -59,7 +61,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main className="flex-1">{children}</main>
           <Footer />
           <QuoteBoxDrawer />
+          <FloatingContactButton />
         </QuoteBoxProvider>
+        <AnalyticsScripts />
       </body>
     </html>
   )
